@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SCU Course Planner</title>
+
+    <link rel="icon" href="{{ url_for('static', filename='favicon/SCU-Favicon.png') }}">
+    <!--------------------Implement Bootstrap---------------->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/survey_styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/survey.js') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+  </head>
+
+  <body>
+    <section id="top_navbar">
+      <nav class="navbar navbar-inverse navbar-fixed-top Course_Planner_Navbar">
+        <div class="container-fluid container-fluid-spacious">
+          <div class="navbar-brand navbar-brand-emphasized navbar_left_float">
+            <div class="logo">
+              <!--<img class="navbar_logo" src="{{ url_for('static', filename='img/Santa_Clara_U_Seal.svg.png') }}" alt="IHS_logo">-->
+              <img class="navbar_logo" src="{{ url_for('static', filename='img/Santa_Clara_U_Seal.svg.png') }}" alt="IHS_logo">
+            </div>
+            <div class="school_name">
+              <small class='text-sans-bold sch_text'>SANTA CLARA UNIVERSITY</small>
+            </div>
+            <div class="project_name">
+              <br>
+              <small>Course Planner</small>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </section>
+
+    <!---------------------------body section---------------------------->
+    <section id="body_content">
+      <div class="body_texts">
+        <div class="contexts">
+          <div class="top_title">
+            <h2>Preferences</h2>
+          </div>
+          <div class="card survey_name">
+            <div class="card-header">
+              Choose your Major
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="class="form-check"">
+                  <label>
+                    <input type="radio" id="CS_major" name="choose_major" class="card-input-element" checked/>
+                    Computer Science
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!------need to set up a fucntion allow number change--------->
+          <div class="card survey_name">
+            <div class="card-header">
+              Course Difficulty
+            </div>
+            <div class="diffculty_range">
+              <input type="range" class="custom-range" value="0" min="0" max="5" id="course_diffculty_range"  oninput="output-number-diffculty.value = course_diffculty_range.value"">
+              <span>
+                Current Difficulty Value:
+                <output name="output-number" id="output-number-diffculty">0</output>
+              </span>
+            </div>
+          </div>
+
+          <!------need to set up a fucntion allow number change--------->
+          <div class="card survey_name">
+            <div class="card-header">
+              Professor Difficulty
+            </div>
+            <div class="diffculty_range">
+              <input type="range" class="custom-range" value="0" min="0" max="5" id="professor_diffculty_range"  oninput="output-number-diffculty-p.value = professor_diffculty_range.value"">
+              <span>
+                Current Difficulty Value:
+                <output name="output-number" id="output-number-diffculty-p">0</output>
+              </span>
+            </div>
+          </div>
+
+          <!----radio buttons did not work properly, need to check--->
+          <div class="card survey_name">
+            <div class="card-header">
+              Do you prefer to take only major/core classes only or all other classes?
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="class="form-check"">
+                  <label>
+                    <input type="radio" id="major-core" name="major/coreClassesOnly" class="form-check-input" value="option1"/>
+                    Major/Core classes only
+                  </label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="class="form-check"">
+                  <label>
+                    <input type="radio" id="open-to-all-classes" name="openToAllClasses" class="form-check-input" value="option2"/>
+                    Open to all classes
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-secondary btn-lg submit_button" type="button" name="button">Submit</button>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
