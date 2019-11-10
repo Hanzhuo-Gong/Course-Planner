@@ -15,3 +15,6 @@ RUNNING:
 
 
 11/1/19 -Completed the main page
+
+KNOWN BUGS:
+- As of 11/18/19, the current schema for the database does not take into account classes that require one prerequisite OR another
