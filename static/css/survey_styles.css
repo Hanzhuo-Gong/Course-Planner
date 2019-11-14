@@ -48,6 +48,11 @@ body {
   padding-left: 55px;
 }
 
+.home {
+  background-color: #b30738;
+  border-width: 0px;
+}
+
 /*----------------------Body Section----------------------------*/
 #body_content {
   text-align: center;
@@ -55,9 +60,9 @@ body {
 
 /*center all cards elements*/
 .card {
-        margin: 0 auto;
-        float: none;
-        margin-bottom: 10px;
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
 }
 
 .contexts {
@@ -71,9 +76,9 @@ body {
 
 /*bold the font*/
 .card-header {
+  font-weight: bold;
 }
 
-/*-------hide the radio button----*/
 .card-input-element {
   margin: 10px;
 }
