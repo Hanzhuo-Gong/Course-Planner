@@ -1,0 +1,67 @@
+body {
+  background-color: #f6f6f6;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 60px;
+}
+/*-------------------------top nav bar-----------------------------*/
+#top_navbar {
+  color: white;
+  display: block;
+}
+
+.navbar_left_float {
+  float: left;
+}
+
+.navbar_right_float {
+  float: right;
+}
+
+.container-fluid {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.school_name {
+  float: left;
+}
+
+.navbar_logo {
+  width: 3.4rem;
+  position: absolute;
+
+}
+
+.Course_Planner_Navbar {
+  background-color: #b30738;
+  padding: 0rem;
+}
+
+.school_name {
+  margin-left: 55px;
+}
+
+.sch_text {
+  font-size: 12px;
+}
+
+.project_name {
+  padding-left: 55px;
+}
+
+.home {
+  background-color: #b30738;
+  border-width: 0px;
+}
+
+/*----------------------------Schedule------------------------*/
+.Four-Year-Schedule {
+  width: 30rem;
+}
+
+.save_button {
+  text-align: center;
+}
