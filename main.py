@@ -14,6 +14,11 @@ def index():
 def survey():
     return render_template('survey.html')
 
+# Schedule page
+@app.route("/schedule")
+def schedule():
+    return render_template('schedule.html')
+
 # Enable debugging when running
 if __name__ == '__main__':
     app.run(debug=True)
