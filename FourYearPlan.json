@@ -1,0 +1,134 @@
+[
+  {
+    "term": {
+      "year": 1,
+      "quarter": 1
+    },
+    "classes": [
+      {
+        "name": "CSCI 10",
+        "prereqs": null,
+        "units": 4,
+        "satifies": [
+          "CSCI Major"
+        ]
+      },
+      {
+        "name": "CSCI 10L",
+        "prereqs": null,
+        "units": 1,
+        "satifies": [
+          "CSCI Major"
+        ]
+      },
+      {
+        "name": "MATH 11",
+        "prereqs": null,
+        "units": 4,
+        "satifies": [
+          "CSCI Major"
+        ]
+      }
+    ]
+  },
+  {
+    "term": {
+      "year": 1,
+      "quarter": 2
+    },
+    "classes": [
+      {
+        "name": "CSCI 60",
+        "prereqs": [
+          "CSCI 10"
+        ],
+        "units": 4,
+        "satifies": [
+          "CSCI Major"
+        ]
+      },
+      {
+        "name": "MATH 12",
+        "prereqs": [
+          "MATH 11"
+        ],
+        "units": 4,
+        "satifies": [
+          "CSCI Major"
+        ]
+      },
+      {
+        "name": "ARTS 30",
+        "prereqs": null,
+        "units": 4,
+        "satifies": [
+          "Arts"
+        ]
+      }
+    ]
+  },
+  {
+    "term": {
+      "year": 1,
+      "quarter": 3
+    },
+    "classes": [
+      {
+        "name": "CSCI 61",
+        "prereqs": [
+          "CSCI 60"
+        ],
+        "units": 4,
+        "satifies": [
+          "CSCI Major"
+        ]
+      },
+      {
+        "name": "MATH 13",
+        "prereqs": [
+          "MATH 12"
+        ],
+        "units": 4,
+        "satifies": [
+          "CSCI Major"
+        ]
+      }
+    ]
+  },
+  {
+    "term": {
+      "year": 2,
+      "quarter": 1
+    },
+    "classes": [
+      {
+        "name": "MATH 51",
+        "prereqs": [
+          "MATH 13"
+        ],
+        "units": 4,
+        "satifies": [
+          "CSCI Major"
+        ]
+      },
+      {
+        "name": "MATH 14",
+        "prereqs": [
+          "MATH 13"
+        ],
+        "units": 4,
+        "satifies": [
+          "CSCI Major"
+        ]
+      },
+      {
+        "name": "ARTS 30",
+        "prereqs": null,
+        "units": 4,
+        "satifies": [
+          "Arts"
+        ]
+      }
+    ]
+  },
+]

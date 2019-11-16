@@ -1,6 +1,17 @@
 from flask import Flask, render_template
+import json
 
 app = Flask(__name__)
+
+def getJson(jsonFileName):
+    with open(jsonFileName, 'r') as data_f:
+        dictFromJson = json.load(data_f)
+    return dictFromJson
+
+'''
+def parseFourYearPlanJson(dictFromJson):
+    # Code
+''' 
 
 # Home page
 @app.route("/")
