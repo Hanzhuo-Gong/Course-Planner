@@ -221,236 +221,236 @@ VALUES
   'Computer Science, Algorithms and Complexity Emphasis'
 ),
 (
-  'CSCI 10 & L',
-  'Computer Science, Data Science Emphasis'
-),
-(
-  'CSCI 10 & L',
-  'Computer Science, Software Emphasis'
-),
-(
-  'CSCI 10 & L',
-  'Computer Science, Security Emphasis'
-),
-(
   'CSCI 60 & L',
   'Computer Science, Algorithms and Complexity Emphasis'
-),
-(
-  'CSCI 60 & L',
-  'Computer Science, Data Science Emphasis'
-),
-(
-  'CSCI 60 & L',
-  'Computer Science, Software Emphasis'
-),
-(
-  'CSCI 60 & L',
-  'Computer Science, Security Emphasis'
 ),
 (
   'CSCI 61',
   'Computer Science, Algorithms and Complexity Emphasis'
 ),
 (
-  'CSCI 61',
-  'Computer Science, Data Science Emphasis'
-),
-(
-  'CSCI 61',
-  'Computer Science, Software Emphasis'
-),
-(
-  'CSCI 61',
-  'Computer Science, Security Emphasis'
-),
-(
   'MATH 11',
   'Computer Science, Algorithms and Complexity Emphasis'
-),
-(
-  'MATH 11',
-  'Computer Science, Data Science Emphasis'
-),
-(
-  'MATH 11',
-  'Computer Science, Software Emphasis'
-),
-(
-  'MATH 11',
-  'Computer Science, Security Emphasis'
 ),
 (
   'MATH 12',
   'Computer Science, Algorithms and Complexity Emphasis'
 ),
 (
-  'MATH 12',
-  'Computer Science, Data Science Emphasis'
-),
-(
-  'MATH 12',
-  'Computer Science, Software Emphasis'
-),
-(
-  'MATH 12',
-  'Computer Science, Security Emphasis'
-),
-(
   'MATH 13',
   'Computer Science, Algorithms and Complexity Emphasis'
-),
-(
-  'MATH 13',
-  'Computer Science, Data Science Emphasis'
-),
-(
-  'MATH 13',
-  'Computer Science, Software Emphasis'
-),
-(
-  'MATH 13',
-  'Computer Science, Security Emphasis'
 ),
 (
   'MATH 14',
   'Computer Science, Algorithms and Complexity Emphasis'
 ),
 (
-  'MATH 14',
-  'Computer Science, Data Science Emphasis'
-),
-(
-  'MATH 14',
-  'Computer Science, Software Emphasis'
-),
-(
-  'MATH 14',
-  'Computer Science, Security Emphasis'
-),
-(
   'COEN 20 & L',
   'Computer Science, Algorithms and Complexity Emphasis'
-),
-(
-  'COEN 20 & L',
-  'Computer Science, Data Science Emphasis'
-),
-(
-  'COEN 20 & L',
-  'Computer Science, Software Emphasis'
-),
-(
-  'COEN 20 & L',
-  'Computer Science, Security Emphasis'
 ),
 (
   'COEN 21 & L',
   'Computer Science, Algorithms and Complexity Emphasis'
 ),
 (
-  'COEN 21 & L',
-  'Computer Science, Data Science Emphasis'
-),
-(
-  'COEN 21 & L',
-  'Computer Science, Software Emphasis'
-),
-(
-  'COEN 21 & L',
-  'Computer Science, Security Emphasis'
-),
-(
   'MATH 51',
   'Computer Science, Algorithms and Complexity Emphasis'
-),
-(
-  'MATH 51',
-  'Computer Science, Data Science Emphasis'
-),
-(
-  'MATH 51',
-  'Computer Science, Software Emphasis'
-),
-(
-  'MATH 51',
-  'Computer Science, Security Emphasis'
 ),
 (
   'MATH 53',
   'Computer Science, Algorithms and Complexity Emphasis'
 ),
 (
-  'MATH 53',
-  'Computer Science, Data Science Emphasis'
-),
-(
-  'MATH 53',
-  'Computer Science, Software Emphasis'
-),
-(
-  'MATH 53',
-  'Computer Science, Security Emphasis'
-),
-(
   'CSCI 161',
   'Computer Science, Algorithms and Complexity Emphasis'
-),
-(
-  'CSCI 161',
-  'Computer Science, Data Science Emphasis'
-),
-(
-  'CSCI 161',
-  'Computer Science, Software Emphasis'
-),
-(
-  'CSCI 161',
-  'Computer Science, Security Emphasis'
 ),
 (
   'CSCI 163A',
   'Computer Science, Algorithms and Complexity Emphasis'
 ),
 (
-  'CSCI 163A',
-  'Computer Science, Data Science Emphasis'
-),
-(
-  'CSCI 163A',
-  'Computer Science, Software Emphasis'
-),
-(
-  'CSCI 163A',
-  'Computer Science, Security Emphasis'
-),
-(
   'MATH 122',
   'Computer Science, Algorithms and Complexity Emphasis'
-),
-(
-  'MATH 122',
-  'Computer Science, Data Science Emphasis'
-),
-(
-  'MATH 122',
-  'Computer Science, Software Emphasis'
-),
-(
-  'MATH 122',
-  'Computer Science, Security Emphasis'
 ),
 (
   'COEN 177 & L',
   'Computer Science, Algorithms and Complexity Emphasis'
 ),
 (
-  'COEN 177 & L',
+  'CSCI 10 & L',
+  'Computer Science, Data Science Emphasis'
+),
+(
+  'CSCI 60 & L',
+  'Computer Science, Data Science Emphasis'
+),
+(
+  'CSCI 61',
+  'Computer Science, Data Science Emphasis'
+),
+(
+  'MATH 11',
+  'Computer Science, Data Science Emphasis'
+),
+(
+  'MATH 12',
+  'Computer Science, Data Science Emphasis'
+),
+(
+  'MATH 13',
+  'Computer Science, Data Science Emphasis'
+),
+(
+  'MATH 14',
+  'Computer Science, Data Science Emphasis'
+),
+(
+  'COEN 20 & L',
+  'Computer Science, Data Science Emphasis'
+),
+(
+  'COEN 21 & L',
+  'Computer Science, Data Science Emphasis'
+),
+(
+  'MATH 51',
+  'Computer Science, Data Science Emphasis'
+),
+(
+  'MATH 53',
+  'Computer Science, Data Science Emphasis'
+),
+(
+  'CSCI 161',
+  'Computer Science, Data Science Emphasis'
+),
+(
+  'CSCI 163A',
+  'Computer Science, Data Science Emphasis'
+),
+(
+  'MATH 122',
   'Computer Science, Data Science Emphasis'
 ),
 (
   'COEN 177 & L',
+  'Computer Science, Data Science Emphasis'
+),
+(
+  'CSCI 10 & L',
   'Computer Science, Software Emphasis'
+),
+(
+  'CSCI 60 & L',
+  'Computer Science, Software Emphasis'
+),
+(
+  'CSCI 61',
+  'Computer Science, Software Emphasis'
+),
+(
+  'MATH 11',
+  'Computer Science, Software Emphasis'
+),
+(
+  'MATH 12',
+  'Computer Science, Software Emphasis'
+),
+(
+  'MATH 13',
+  'Computer Science, Software Emphasis'
+),
+(
+  'MATH 14',
+  'Computer Science, Software Emphasis'
+),
+(
+  'COEN 20 & L',
+  'Computer Science, Software Emphasis'
+),
+(
+  'COEN 21 & L',
+  'Computer Science, Software Emphasis'
+),
+(
+  'MATH 51',
+  'Computer Science, Software Emphasis'
+),
+(
+  'MATH 53',
+  'Computer Science, Software Emphasis'
+),
+(
+  'CSCI 161',
+  'Computer Science, Software Emphasis'
+),
+(
+  'CSCI 163A',
+  'Computer Science, Software Emphasis'
+),
+(
+  'MATH 122',
+  'Computer Science, Software Emphasis'
+),
+(
+  'COEN 177 & L',
+  'Computer Science, Software Emphasis'
+),
+(
+  'CSCI 10 & L',
+  'Computer Science, Security Emphasis'
+),
+(
+  'CSCI 60 & L',
+  'Computer Science, Security Emphasis'
+),
+(
+  'CSCI 61',
+  'Computer Science, Security Emphasis'
+),
+(
+  'MATH 11',
+  'Computer Science, Security Emphasis'
+),
+(
+  'MATH 12',
+  'Computer Science, Security Emphasis'
+),
+(
+  'MATH 13',
+  'Computer Science, Security Emphasis'
+),
+(
+  'MATH 14',
+  'Computer Science, Security Emphasis'
+),
+(
+  'COEN 20 & L',
+  'Computer Science, Security Emphasis'
+),
+(
+  'COEN 21 & L',
+  'Computer Science, Security Emphasis'
+),
+(
+  'MATH 51',
+  'Computer Science, Security Emphasis'
+),
+(
+  'MATH 53',
+  'Computer Science, Security Emphasis'
+),
+(
+  'CSCI 161',
+  'Computer Science, Security Emphasis'
+),
+(
+  'CSCI 163A',
+  'Computer Science, Security Emphasis'
+),
+(
+  'MATH 122',
+  'Computer Science, Security Emphasis'
 ),
 (
   'COEN 177 & L',
