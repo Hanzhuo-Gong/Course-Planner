@@ -74,7 +74,21 @@ VALUES
   true
 ),
 (
+  'CSCI 162',
+  '',
+  5,
+  0,
+  true
+),
+(
   'CSCI 163A',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'CSCI 163B',
   '',
   5,
   0,
@@ -149,6 +163,13 @@ VALUES
   5,
   0,
   true
+),
+(
+  'MATH 177',
+  '',
+  5,
+  0,
+  true
 )
 
 INSERT INTO Prereqs
@@ -208,6 +229,20 @@ VALUES
 (
   'CSCI 61',
   'COEN 177 & L'
+),
+-- Algorithm Emphasis
+(
+  'CSCI 161',
+  'CSCI 162'
+),
+-- pre req for CSCI 163B is CSCI 163A OR COEN 179
+(
+  'CSCI 163A',
+  'CSCI 163B'
+),
+(
+  'MATH 51',
+  'MATH 177'
 )
 
 INSERT INTO MajorReqs

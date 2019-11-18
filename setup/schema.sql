@@ -11,7 +11,7 @@ CREATE TABLE MajornEmphasis
 CREATE TABLE Classes
 (
   CourseName VARCHAR NOT NULL,
-  CourseID INT,
+  CourseID VARCHAR NOT NULL,
   QuarterOffered VARCHAR NOT NULL,
   CreditGiven INT NOT NULL,
   CreditReq INT NOT NULL,
