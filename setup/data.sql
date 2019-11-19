@@ -86,6 +86,7 @@ VALUES
   0,
   true
 ),
+-- Also COEN 179
 (
   'Theory of Algorithms',
   'CSCI 163A',
@@ -103,8 +104,64 @@ VALUES
   true
 ),
 (
+  'Computer Simulation',
+  'CSCI 164',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Linear Programming',
+  'CSCI 165',
+  '',
+  5,
+  0,
+  false
+),
+(
+  'Numerical Analysis',
+  'CSCI 166',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Switching Theory and Boolean Algebra',
+  'CSCI 167',
+  '',
+  5,
+  0,
+  false
+),
+(
+  'Computer Graphics',
+  'CSCI 168',
+  '',
+  5,
+  0,
+  true
+),
+(
   'Programming Languages',
   'CSCI 169',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Applied Cryptography',
+  'CSCI 181',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Digital Steganography',
+  'CSCI 182',
   '',
   5,
   0,
@@ -134,6 +191,15 @@ VALUES
   0,
   true
 ),
+-- not sure if we need this lol
+(
+  'Advanced Topics',
+  'CSCI 197',
+  '',
+  5,
+  0,
+  false
+),
 (
   'Introduction to Embedded Systems',
   'COEN 20 & L',
@@ -151,8 +217,168 @@ VALUES
   false
 ),
 (
+  'Real-Time Systems',
+  'COEN 120 & L',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Computer Architecture',
+  'COEN 122 & L',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Advanced Logic Design',
+  'COEN 127 & L',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Introduction to Parallel Programming',
+  'COEN 145 & L',
+  '',
+  5,
+  0,
+  true
+),
+(
   'Computer Networks',
   'COEN 146 & L',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Computer Graphics Systems',
+  'COEN 148',
+  '',
+  4,
+  0,
+  true
+),
+(
+  'Introduction to Information Security',
+  'COEN 150',
+  '',
+  4,
+  88,
+  false
+),
+(
+  'Introduction to Computer Forensics',
+  'COEN 152 & L',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Object-Oriented Analysis, Design, and Programming',
+  'COEN 160 & L',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Web Development',
+  'COEN 161 & L',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Web Infrastructure',
+  'COEN 162',
+  '',
+  4,
+  0,
+  true
+),
+(
+  'Web Usability',
+  'COEN 163 & L',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Advanced Web Development',
+  'COEN 164 & L',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Introduction to 3D Animation & Modeling/Modeling & Control Rigid Body Dynamics',
+  'COEN 165',
+  '',
+  4,
+  0,
+  false
+),
+(
+  'Artificial Intelligence',
+  'COEN 166 & L',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Mobile Application Development',
+  'COEN 168 & L',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Web Information Management',
+  'COEN 169',
+  '',
+  4,
+  0,
+  true
+),
+(
+  'Principles of Design and Implementation of Programming Languages',
+  'COEN 171',
+  '',
+  4,
+  0,
+  true
+),
+(
+  'Structure and Interpretation of Computer Programs',
+  'COEN 172 & L',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Logic Programming',
+  'COEN 173 & L',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Software Engineering Laboratory',
+  'COEN 174 & L',
   '',
   5,
   0,
@@ -163,6 +389,22 @@ VALUES
   'COEN 177 & L',
   '',
   5,
+  0,
+  true
+),
+(
+  'Introduction to Database Systems',
+  'COEN 178 & L',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Introduction to Information Storage',
+  'COEN 180',
+  '',
+  4,
   0,
   true
 ),
@@ -207,10 +449,26 @@ VALUES
   false
 ),
 (
+  'Introduction to Abstract Algebra',
+  'MATH 52',
+  '',
+  4,
+  0,
+  true
+),
+(
   'Linear Algebra',
   'MATH 53',
   '',
   4,
+  0,
+  true
+),
+(
+  'A Survey of Geometry',
+  'MATH 101',
+  '',
+  5,
   0,
   true
 ),
@@ -225,6 +483,22 @@ VALUES
 (
   'Probability and Statistics II',
   'MATH 123',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Theory of Numbers',
+  'MATH 175',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Combinatorics',
+  'MATH 176',
   '',
   5,
   0,
@@ -372,6 +646,147 @@ VALUES
 (
   'CSCI 10 & L',
   'CSCI 181'
+),
+-- Other Upper Division Classes
+(
+  'CSCI 10 & L',
+  'CSCI 166'
+),
+(
+  'MATH 53',
+  'CSCI 166'
+),
+(
+  'CSCI 10 & L',
+  'CSCI 168'
+),
+(
+  'MATH 13',
+  'CSCI 168'
+),
+(
+  'CSCI 61',
+  'COEN 120 & L'
+),
+(
+  'COEN 20 & L',
+  'COEN 122 & L'
+),
+(
+  'CSCI 21 & L',
+  'COEN 122 & L'
+),
+(
+  'COEN 21 & L',
+  'COEN 127 & L'
+),
+(
+  'CSCI 61',
+  'COEN 145 & L'
+),
+(
+  'CSCI 61',
+  'COEN 148'
+),
+(
+  'MATH 53',
+  'COEN 148'
+),
+(
+  'CSCI 61',
+  'COEN 152 & L'
+),
+(
+  'COEN 20 & L',
+  'COEN 152 & L'
+),
+(
+  'CSCI 61',
+  'COEN 160 & L'
+),
+(
+  'CSCI 61',
+  'COEN 161 & L'
+),
+(
+  'COEN 146 & L',
+  'COEN 162'
+),
+(
+  'CSCI 61',
+  'COEN 163 & L'
+),
+(
+  'COEN 161 & L',
+  'COEN 164 & L'
+),
+(
+  'CSCI 61',
+  'COEN 166 & L'
+),
+(
+  'MATH 51',
+  'COEN 166 & L'
+),
+(
+  'COEN 20 & L',
+  'COEN 168 & L'
+),
+(
+  'CSCI 61',
+  'COEN 169'
+),
+(
+  'MATH 122',
+  'COEN 169'
+),
+(
+  'CSCI 61',
+  'COEN 171'
+),
+(
+  'CSCI 61',
+  'COEN 172 & L'
+),
+(
+  'MATH 51',
+  'COEN 172 & L'
+),
+(
+  'CSCI 61',
+  'COEN 173 & L'
+),
+(
+  'MATH 51',
+  'COEN 173 & L'
+),
+(
+  'CSCI 61',
+  'COEN 174 & L'
+),
+(
+  'CSCI 61',
+  'COEN 178 & L'
+),
+(
+  'CSCI 61',
+  'COEN 180'
+),
+(
+  'MATH 13',
+  'MATH 101'
+),
+(
+  'MATH 52',
+  'MATH 175'
+),
+(
+  'MATH 51',
+  'MATH 176'
+),
+(
+  'MATH 51',
+  'MATH 52'
 )
 
 INSERT INTO MajorReqs
