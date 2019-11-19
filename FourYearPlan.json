@@ -10,7 +10,7 @@
         "prereqs": null,
         "units": 5,
         "satifies": [
-          "CSCI Major"
+          "Major"
         ]
       },
       {
@@ -18,7 +18,7 @@
         "prereqs": null,
         "units": 4,
         "satifies": [
-          "CSCI Major"
+          "Major"
         ]
       }
     ]
@@ -36,15 +36,15 @@
         ],
         "units": 5,
         "satifies": [
-          "CSCI Major"
+          "Major"
         ]
       },
       {
-        "name": "Diversity",
+        "name": "Natural Science",
         "prereqs": null,
         "units": 4,
         "satifies": [
-          "CTW 1"
+          "Natural Science"
         ]
       }
     ]
@@ -62,7 +62,7 @@
         ],
         "units": 4,
         "satifies": [
-          "CSCI Major"
+          "Major"
         ]
       },
       {
@@ -72,7 +72,7 @@
         ],
         "units": 4,
         "satifies": [
-          "CSCI Major"
+          "Major"
         ]
       }
     ]
@@ -90,7 +90,7 @@
         ],
         "units": 4,
         "satifies": [
-          "CSCI Major"
+          "Major"
         ]
       },
       {
@@ -100,15 +100,15 @@
         ],
         "units": 4,
         "satifies": [
-          "CSCI Major"
+          "Major"
         ]
       },
       {
-        "name": "Arts",
+        "name": "Diversity",
         "prereqs": null,
         "units": 4,
         "satifies": [
-          "Arts"
+          "Diversity"
         ]
       }
     ]
