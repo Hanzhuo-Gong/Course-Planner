@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>SCU Course Planner</title>
+
+  <link rel="icon" href="{{ url_for('static', filename='favicon/SCU-Favicon.png') }}">
+  <!--------------------Implement Bootstrap---------------->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!--<link rel="stylesheet" href="css/styles.css">-->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/schedule_styles.css') }}">
+  <!--<script src="{{ url_for('static', filename='js/survey.js') }}"></script>-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <section id="top_navbar">
+    <nav class="navbar navbar-inverse navbar-fixed-top Course_Planner_Navbar">
+      <div class="container-fluid container-fluid-spacious">
+        <div class="navbar-brand navbar-brand-emphasized navbar_left_float">
+          <div class="logo">
+            <!--<img class="navbar_logo" src="{{ url_for('static', filename='img/Santa_Clara_U_Seal.svg.png') }}" alt="IHS_logo">-->
+            <img class="navbar_logo" src="{{ url_for('static', filename='img/Santa_Clara_U_Seal.svg.png') }}" alt="IHS_logo">
+          </div>
+          <div class="school_name">
+            <small class='text-sans-bold sch_text'>SANTA CLARA UNIVERSITY</small>
+          </div>
+          <div class="project_name">
+            <br>
+            <small>Course Planner</small>
+          </div>
+        </div>
+        <div class="navbar_right_float">
+          <button class="btn btn-danger home" type="button" name="home-button" onclick="location.href='index'">Home</button>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="freshman_year">
+        <h2 class="year_title">Freshman</h2>
+        <div class="card-columns d-flex justify-content-center">
+          <div class="card Four-Year-Schedule">
+            <div class="card-block">
+              <div class="card-header">
+                Fall
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="freshman_fall_course_1">CSCI 10</li>
+                <li class="list-group-item" id="freshman_fall_course_2">Math 11</li>
+                <li class="list-group-item" id="freshman_fall_course_3">Electives</li>
+                <li class="list-group-item" id="freshman_fall_course_4">Electives</li>
+                <li class="list-group-item" id="freshman_fall_course_5">Electives</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card Four-Year-Schedule">
+            <div class="card-block">
+              <div class="card-header">
+                Winter
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="freshman_winter_course_1">CSCI 60</li>
+                <li class="list-group-item" id="freshman_winter_course_2">Math 12</li>
+                <li class="list-group-item" id="freshman_winter_course_3">Electives</li>
+                <li class="list-group-item" id="freshman_winter_course_4">Electives</li>
+                <li class="list-group-item" id="freshman_winter_course_5">Electives</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card Four-Year-Schedule">
+            <div class="card-block">
+              <div class="card-header">
+                Spring
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="freshman_spring_course_1">CSCI 61</li>
+                <li class="list-group-item" id="freshman_spring_course_2">Math 13</li>
+                <li class="list-group-item" id="freshman_spring_course_3">Electives</li>
+                <li class="list-group-item" id="freshman_spring_course_4">Electives</li>
+                <li class="list-group-item" id="freshman_spring_course_5">Electives</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="sophomore_year">
+        <h2>Sophomore</h2>
+        <div class="card-columns d-flex justify-content-center">
+          <div class="card Four-Year-Schedule">
+            <div class="card-block">
+              <div class="card-header">
+                Fall
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="sophomore_fall_course_1">CSCI 169</li>
+                <li class="list-group-item" id="sophomore_fall_course_2">Math 53</li>
+                <li class="list-group-item" id="sophomore_fall_course_3">Electives</li>
+                <li class="list-group-item" id="sophomore_fall_course_4">Electives</li>
+                <li class="list-group-item" id="sophomore_fall_course_5">Electives</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card Four-Year-Schedule">
+            <div class="card-block">
+              <div class="card-header">
+                Winter
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="sophomore_winter_course_1">CSCI 186</li>
+                <li class="list-group-item" id="sophomore_winter_course_2">Math 122</li>
+                <li class="list-group-item" id="sophomore_winter_course_3">Electives</li>
+                <li class="list-group-item" id="sophomore_winter_course_4">Electives</li>
+                <li class="list-group-item" id="sophomore_winter_course_5">Electives</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card Four-Year-Schedule">
+            <div class="card-block">
+              <div class="card-header">
+                Spring
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="sophomore_spring_course_1">CSCI xxx</li>
+                <li class="list-group-item" id="sophomore_spring_course_2">COEN xxx</li>
+                <li class="list-group-item" id="sophomore_spring_course_3">Electives</li>
+                <li class="list-group-item" id="sophomore_spring_course_4">Electives</li>
+                <li class="list-group-item" id="sophomore_spring_course_5">Electives</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="junior_year">
+        <h2>Junior</h2>
+        <div class="card-columns d-flex justify-content-center">
+          <div class="card Four-Year-Schedule">
+            <div class="card-block">
+              <div class="card-header">
+                Fall
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="junior_fall_course_1">CSCI xxx</li>
+                <li class="list-group-item" id="junior_fall_course_2">Math xxx</li>
+                <li class="list-group-item" id="junior_fall_course_3">Electives</li>
+                <li class="list-group-item" id="junior_fall_course_4">Electives</li>
+                <li class="list-group-item" id="junior_fall_course_5">Electives</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card Four-Year-Schedule">
+            <div class="card-block">
+              <div class="card-header">
+                Winter
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="junior_winter_course_1">CSCI xxx</li>
+                <li class="list-group-item" id="junior_winter_course_2">Math xxx</li>
+                <li class="list-group-item" id="junior_winter_course_3">Electives</li>
+                <li class="list-group-item" id="junior_winter_course_4">Electives</li>
+                <li class="list-group-item" id="junior_winter_course_5">Electives</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card Four-Year-Schedule">
+            <div class="card-block">
+              <div class="card-header">
+                Spring
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="junior_spring_course_1">CSCI xxx</li>
+                <li class="list-group-item" id="junior_spring_course_2">COEN xxx</li>
+                <li class="list-group-item" id="junior_spring_course_3">Electives</li>
+                <li class="list-group-item" id="junior_spring_course_4">Electives</li>
+                <li class="list-group-item" id="junior_spring_course_5">Electives</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="senior_year">
+        <h2>Senior</h2>
+        <div class="card-columns d-flex justify-content-center">
+          <div class="card Four-Year-Schedule">
+            <div class="card-block">
+              <div class="card-header">
+                Fall
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="senior_fall_course_1">CSCI xxx</li>
+                <li class="list-group-item" id="senior_fall_course_2">Math xxx</li>
+                <li class="list-group-item" id="senior_fall_course_3">Electives</li>
+                <li class="list-group-item" id="senior_fall_course_4">Electives</li>
+                <li class="list-group-item" id="senior_fall_course_5">Electives</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card Four-Year-Schedule">
+            <div class="card-block">
+              <div class="card-header">
+                Winter
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="senior_winter_course_1">CSCI xxx</li>
+                <li class="list-group-item" id="senior_winter_course_2">Math xxx</li>
+                <li class="list-group-item" id="senior_winter_course_3">Electives</li>
+                <li class="list-group-item" id="senior_winter_course_4">Electives</li>
+                <li class="list-group-item" id="senior_winter_course_5">Electives</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card Four-Year-Schedule">
+            <div class="card-block">
+              <div class="card-header">
+                Spring
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="senior_spring_course_1">CSCI xxx</li>
+                <li class="list-group-item" id="senior_spring_course_2">COEN xxx</li>
+                <li class="list-group-item" id="senior_spring_course_3">Electives</li>
+                <li class="list-group-item" id="senior_spring_course_4">Electives</li>
+                <li class="list-group-item" id="senior_spring_course_5">Electives</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button class="btn btn-secondary btn-lg save_button" type="button" name="button">Save</button>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

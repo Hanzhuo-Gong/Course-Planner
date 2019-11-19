@@ -1,0 +1,116 @@
+[
+  {
+    "term": {
+      "year": 1,
+      "quarter": 1
+    },
+    "classes": [
+      {
+        "name": "CSCI 10 & L",
+        "prereqs": null,
+        "units": 5,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "MATH 11",
+        "prereqs": null,
+        "units": 4,
+        "satifies": [
+          "Major"
+        ]
+      }
+    ]
+  },
+  {
+    "term": {
+      "year": 1,
+      "quarter": 2
+    },
+    "classes": [
+      {
+        "name": "CSCI 60 & L",
+        "prereqs": [
+          "CSCI 10 & L"
+        ],
+        "units": 5,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "Natural Science",
+        "prereqs": null,
+        "units": 4,
+        "satifies": [
+          "Natural Science"
+        ]
+      }
+    ]
+  },
+  {
+    "term": {
+      "year": 1,
+      "quarter": 3
+    },
+    "classes": [
+      {
+        "name": "CSCI 61",
+        "prereqs": [
+          "CSCI 60 & L"
+        ],
+        "units": 4,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "MATH 13",
+        "prereqs": [
+          "MATH 12"
+        ],
+        "units": 4,
+        "satifies": [
+          "Major"
+        ]
+      }
+    ]
+  },
+  {
+    "term": {
+      "year": 2,
+      "quarter": 1
+    },
+    "classes": [
+      {
+        "name": "MATH 51",
+        "prereqs": [
+          "MATH 13"
+        ],
+        "units": 4,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "MATH 14",
+        "prereqs": [
+          "MATH 13"
+        ],
+        "units": 4,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "Diversity",
+        "prereqs": null,
+        "units": 4,
+        "satifies": [
+          "Diversity"
+        ]
+      }
+    ]
+  }
+]
