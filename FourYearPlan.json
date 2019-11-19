@@ -6,17 +6,9 @@
     },
     "classes": [
       {
-        "name": "CSCI 10",
+        "name": "CSCI 10 & L",
         "prereqs": null,
-        "units": 4,
-        "satifies": [
-          "CSCI Major"
-        ]
-      },
-      {
-        "name": "CSCI 10L",
-        "prereqs": null,
-        "units": 1,
+        "units": 5,
         "satifies": [
           "CSCI Major"
         ]
@@ -38,31 +30,21 @@
     },
     "classes": [
       {
-        "name": "CSCI 60",
+        "name": "CSCI 60 & L",
         "prereqs": [
-          "CSCI 10"
+          "CSCI 10 & L"
         ],
-        "units": 4,
+        "units": 5,
         "satifies": [
           "CSCI Major"
         ]
       },
       {
-        "name": "MATH 12",
-        "prereqs": [
-          "MATH 11"
-        ],
-        "units": 4,
-        "satifies": [
-          "CSCI Major"
-        ]
-      },
-      {
-        "name": "ARTS 30",
+        "name": "Diversity",
         "prereqs": null,
         "units": 4,
         "satifies": [
-          "Arts"
+          "CTW 1"
         ]
       }
     ]
@@ -76,7 +58,7 @@
       {
         "name": "CSCI 61",
         "prereqs": [
-          "CSCI 60"
+          "CSCI 60 & L"
         ],
         "units": 4,
         "satifies": [
@@ -122,7 +104,7 @@
         ]
       },
       {
-        "name": "ARTS 30",
+        "name": "Arts",
         "prereqs": null,
         "units": 4,
         "satifies": [
@@ -130,5 +112,5 @@
         ]
       }
     ]
-  },
+  }
 ]
