@@ -2,6 +2,10 @@ body {
   background-color: #f6f6f6;
 }
 
+h2 {
+  text-align: center;
+  margin-top: 60px;
+}
 /*-------------------------top nav bar-----------------------------*/
 #top_navbar {
   color: white;
@@ -53,41 +57,11 @@ body {
   border-width: 0px;
 }
 
-/*----------------------Body Section----------------------------*/
-#body_content {
-  text-align: center;
-}
-
-/*center all cards elements*/
-.card {
-  margin: 0 auto;
-  float: none;
-  margin-bottom: 10px;
-}
-
-.contexts {
-  padding-top: 80px;
-}
-
-.top_title {
-  text-align: center;
-  padding-bottom: 50px;
-}
-
-/*bold the font*/
-.card-header {
-  font-weight: bold;
-}
-
-.card-input-element {
-  margin: 10px;
-}
-
-.card-input:hover {
-    cursor: pointer;
-}
-
-.survey_name {
-  margin-bottom: 50px;
+/*----------------------------Schedule------------------------*/
+.Four-Year-Schedule {
   width: 30rem;
+}
+
+.save_button {
+  text-align: center;
 }
