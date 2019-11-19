@@ -39,6 +39,7 @@ VALUES
 INSERT INTO Classes
 (
   CourseName,
+  CourseID,
   QuarterOffered,
   CreditGiven,
   CreditReq,
@@ -46,6 +47,7 @@ INSERT INTO Classes
 )
 VALUES
 (
+  'Introduction to Computer Science',
   'CSCI 10 & L',
   '',
   5,
@@ -53,6 +55,7 @@ VALUES
   false
 ),
 (
+  'Object-Oriented Programming',
   'CSCI 60 & L',
   '',
   5,
@@ -60,6 +63,7 @@ VALUES
   true
 ),
 (
+  'Data Structures',
   'CSCI 61',
   '',
   4,
@@ -67,6 +71,7 @@ VALUES
   true
 ),
 (
+  'Theory of Automata and Languages',
   'CSCI 161',
   '',
   5,
@@ -74,6 +79,7 @@ VALUES
   true
 ),
 (
+  'Computational Complexity',
   'CSCI 162',
   '',
   5,
@@ -81,6 +87,7 @@ VALUES
   true
 ),
 (
+  'Theory of Algorithms',
   'CSCI 163A',
   '',
   5,
@@ -88,6 +95,7 @@ VALUES
   true
 ),
 (
+  'Advanced Theory of Algorithms',
   'CSCI 163B',
   '',
   5,
@@ -95,6 +103,39 @@ VALUES
   true
 ),
 (
+  'Programming Languages',
+  'CSCI 169',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Data Science',
+  'CSCI 183',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Applied Machine Learning',
+  'CSCI 184',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'The Design and Management of Software',
+  'CSCI 187',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Introduction to Embedded Systems',
   'COEN 20 & L',
   '',
   5,
@@ -102,6 +143,7 @@ VALUES
   true
 ),
 (
+  'Introduction to Logic Design',
   'COEN 21 & L',
   '',
   5,
@@ -109,6 +151,15 @@ VALUES
   false
 ),
 (
+  'Computer Networks',
+  'COEN 146 & L',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Operating Systems',
   'COEN 177 & L',
   '',
   5,
@@ -116,6 +167,7 @@ VALUES
   true
 ),
 (
+  'Calculus and Analytic Geometry I',
   'MATH 11',
   '',
   4,
@@ -123,6 +175,7 @@ VALUES
   false
 ),
 (
+  'Calculus and Analytic Geometry II',
   'MATH 12',
   '',
   4,
@@ -130,6 +183,7 @@ VALUES
   true
 ),
 (
+  'Calculus and Analytic Geometry III',
   'MATH 13',
   '',
   4,
@@ -137,6 +191,7 @@ VALUES
   true
 ),
 (
+  'Calculus and Analytic Geometry IV',
   'MATH 14',
   '',
   4,
@@ -144,6 +199,7 @@ VALUES
   true
 ),
 (
+  'Discrete Mathematics',
   'MATH 51',
   '',
   4,
@@ -151,6 +207,7 @@ VALUES
   false
 ),
 (
+  'Linear Algebra',
   'MATH 53',
   '',
   4,
@@ -158,6 +215,7 @@ VALUES
   true
 ),
 (
+  'Probability and Statistics I',
   'MATH 122',
   '',
   5,
@@ -165,17 +223,34 @@ VALUES
   true
 ),
 (
+  'Probability and Statistics II',
+  'MATH 123',
+  '',
+  5,
+  0,
+  true
+),
+(
+  'Graph Theory',
   'MATH 177',
   '',
   5,
   0,
   true
+),
+(
+  'Cryptography',
+  'MATH 178',
+  '',
+  5,
+  0,
+  false
 )
 
 INSERT INTO Prereqs
 (
   PreReqName,
-  CourseName
+  CourseID
 )
 VALUES
 (
@@ -235,7 +310,6 @@ VALUES
   'CSCI 161',
   'CSCI 162'
 ),
--- pre req for CSCI 163B is CSCI 163A OR COEN 179
 (
   'CSCI 163A',
   'CSCI 163B'
@@ -244,10 +318,65 @@ VALUES
   'MATH 51',
   'MATH 177'
 )
+-- Data Science Emphasis
+(
+  'CSCI 61',
+  'CSCI 183'
+),
+(
+  'MATH 53',
+  'CSCI 183'
+),
+(
+  'MATH 122',
+  'CSCI 183'
+),
+(
+  'CSCI 183',
+  'CSCI 184'
+),
+(
+  'MATH 53',
+  'MATH 123'
+),
+(
+  'MATH 122',
+  'MATH 123'
+),
+-- Software Emphasis
+(
+  'CSCI 61',
+  'CSCI 169'
+),
+(
+  'MATH 51',
+  'CSCI 169'
+),
+(
+  'CSCI 61',
+  'CSCI 187'
+),
+(
+  'CSCI 61',
+  'COEN 146'
+),
+-- Security Emphasis
+(
+  'COEN 20 & L',
+  'CSCI 180'
+),
+(
+  'MATH 178',
+  'CSCI 181'
+),
+(
+  'CSCI 10 & L',
+  'CSCI 181'
+)
 
 INSERT INTO MajorReqs
 (
-  CourseName,
+  CourseID,
   MajorName
 )
 VALUES
@@ -312,6 +441,19 @@ VALUES
   'Computer Science, Algorithms and Complexity Emphasis'
 ),
 (
+  'CSCI 162',
+  'Computer Science, Algorithms and Complexity Emphasis'
+),
+(
+  'CSCI 163B',
+  'Computer Science, Algorithms and Complexity Emphasis'
+),
+(
+  'MATH 177',
+  'Computer Science, Algorithms and Complexity Emphasis'
+),
+--  two more courses from MATH 175, MATH 176, MATH 178, CSCI 165, CSCI 181, MATH 101 or any other additional upper division CSCI or COEN courses
+(
   'CSCI 10 & L',
   'Computer Science, Data Science Emphasis'
 ),
@@ -372,6 +514,19 @@ VALUES
   'Computer Science, Data Science Emphasis'
 ),
 (
+  'CSCI 183',
+  'Computer Science, Data Science Emphasis'
+),
+(
+  'CSCI 184',
+  'Computer Science, Data Science Emphasis'
+),
+(
+  'MATH 123',
+  'Computer Science, Data Science Emphasis'
+),
+-- two more courses from CSCI 164, CSCI 166 or any other upper division CSCI or COEN course
+(
   'CSCI 10 & L',
   'Computer Science, Software Emphasis'
 ),
@@ -432,6 +587,19 @@ VALUES
   'Computer Science, Software Emphasis'
 ),
 (
+  'CSCI 169',
+  'Computer Science, Software Emphasis'
+),
+(
+  'CSCI 187',
+  'Computer Science, Software Emphasis'
+),
+(
+  'COEN 146 & L',
+  'Computer Science, Software Emphasis'
+),
+-- one more course from CSCI 183, CSCI 168, CSCI 164, or any other upper division CSCI course. One more course from CSCI 183, 164, 168; COEN 163, 166, 168, or any other upper division CSCI or COEN course.
+(
   'CSCI 10 & L',
   'Computer Science, Security Emphasis'
 ),
@@ -489,5 +657,18 @@ VALUES
 ),
 (
   'COEN 177 & L',
+  'Computer Science, Security Emphasis'
+),
+(
+  'MATH 178',
+  'Computer Science, Security Emphasis'
+),
+(
+  'CSCI 180',
+  'Computer Science, Security Emphasis'
+),
+(
+  'CSCI 181',
   'Computer Science, Security Emphasis'
 )
+-- two more courses from MATH 175, COEN 152 & L, COEN 161 & L, COEN 146 & L or any other upper division CSCI or COEN course

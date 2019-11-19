@@ -16,23 +16,23 @@ CREATE TABLE Classes
   CreditGiven INT NOT NULL,
   CreditReq INT NOT NULL,
   HasPrereqs BOOLEAN NOT NULL,
-  PRIMARY KEY (CourseName)
+  PRIMARY KEY (CourseID)
 );
 
 CREATE TABLE Prereqs
 (
   PreReqName VARCHAR NOT NULL,
-  CourseName VARCHAR NOT NULL,
-  FOREIGN KEY (PreReqName) REFERENCES Classes(CourseName),
-  FOREIGN KEY (CourseName) REFERENCES Classes(CourseName)
+  CourseID VARCHAR NOT NULL,
+  FOREIGN KEY (PreReqName) REFERENCES Classes(CourseID),
+  FOREIGN KEY (CourseID) REFERENCES Classes(CourseID)
 );
 
 CREATE TABLE MajorReqs
 (
-  CourseName VARCHAR NOT NULL,
+  CourseID VARCHAR NOT NULL,
   MajorName VARCHAR NOT NULL,
-  PRIMARY KEY (CourseName, MajorName),
-  FOREIGN KEY (CourseName) REFERENCES Classes(CourseName),
+  PRIMARY KEY (CourseID, MajorName),
+  FOREIGN KEY (CourseID) REFERENCES Classes(CourseID),
   FOREIGN KEY (MajorName) REFERENCES MajornEmphasis(MajorName)
 );
 
@@ -50,18 +50,18 @@ CREATE TABLE FourYearPlan
 (
   PlanID INT NOT NULL,
   GradDate DATE,
-  CourseName VARCHAR NOT NULL,
+  CourseID VARCHAR NOT NULL,
   StudentID INT NOT NULL,
   PRIMARY KEY (PlanID),
-  FOREIGN KEY (CourseName) REFERENCES Classes(CourseName),
+  FOREIGN KEY (CourseID) REFERENCES Classes(CourseID),
   FOREIGN KEY (StudentID) REFERENCES Student(StudentID)
 );
 
 CREATE TABLE CoursesTaken
 (
-  CourseName VARCHAR NOT NULL,
+  CourseID VARCHAR NOT NULL,
   StudentID INT NOT NULL,
-  PRIMARY KEY (CourseName, StudentID),
-  FOREIGN KEY (CourseName) REFERENCES Classes(CourseName),
+  PRIMARY KEY (CourseID, StudentID),
+  FOREIGN KEY (CourseID) REFERENCES Classes(CourseID),
   FOREIGN KEY (StudentID) REFERENCES Student(StudentID)
 );
