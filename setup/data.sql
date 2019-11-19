@@ -36,6 +36,7 @@ VALUES
   20
 )
 
+-- Classes with unknown QuarterOffered info is set to FWS by default
 INSERT INTO Classes
 (
   CourseName,
@@ -49,7 +50,7 @@ VALUES
 (
   'Introduction to Computer Science',
   'CSCI 10 & L',
-  '',
+  'FWS',
   5,
   0,
   false
@@ -57,7 +58,7 @@ VALUES
 (
   'Object-Oriented Programming',
   'CSCI 60 & L',
-  '',
+  'FWS',
   5,
   0,
   true
@@ -65,7 +66,7 @@ VALUES
 (
   'Data Structures',
   'CSCI 61',
-  '',
+  'FWS',
   4,
   0,
   true
@@ -73,24 +74,25 @@ VALUES
 (
   'Theory of Automata and Languages',
   'CSCI 161',
-  '',
+  'FW',
   5,
   0,
   true
 ),
+-- offered every other year
+-- ALT YRS 20-21
 (
   'Computational Complexity',
   'CSCI 162',
-  '',
+  'W',
   5,
   0,
   true
 ),
--- Also COEN 179
 (
   'Theory of Algorithms',
   'CSCI 163A',
-  '',
+  'FWS',
   5,
   0,
   true
@@ -98,23 +100,25 @@ VALUES
 (
   'Advanced Theory of Algorithms',
   'CSCI 163B',
-  '',
+  'W',
   5,
   0,
   true
 ),
+-- DEMAND
 (
   'Computer Simulation',
   'CSCI 164',
-  '',
+  'FWS',
   5,
   0,
   true
 ),
+-- ALT YRS 19-20
 (
   'Linear Programming',
   'CSCI 165',
-  '',
+  'W',
   5,
   0,
   false
@@ -122,15 +126,16 @@ VALUES
 (
   'Numerical Analysis',
   'CSCI 166',
-  '',
+  'W',
   5,
   0,
   true
 ),
+-- DEMAND
 (
   'Switching Theory and Boolean Algebra',
   'CSCI 167',
-  '',
+  'FWS',
   5,
   0,
   false
@@ -138,7 +143,7 @@ VALUES
 (
   'Computer Graphics',
   'CSCI 168',
-  '',
+  'F',
   5,
   0,
   true
@@ -146,23 +151,25 @@ VALUES
 (
   'Programming Languages',
   'CSCI 169',
-  '',
+  'S',
   5,
   0,
   true
 ),
+-- ALT YRS 19-20
 (
   'Applied Cryptography',
   'CSCI 181',
-  '',
+  'S',
   5,
   0,
   true
 ),
+-- DEMAND
 (
   'Digital Steganography',
   'CSCI 182',
-  '',
+  'FWS',
   5,
   0,
   true
@@ -170,7 +177,7 @@ VALUES
 (
   'Data Science',
   'CSCI 183',
-  '',
+  'WS',
   5,
   0,
   true
@@ -178,7 +185,7 @@ VALUES
 (
   'Applied Machine Learning',
   'CSCI 184',
-  '',
+  'S',
   5,
   0,
   true
@@ -186,7 +193,7 @@ VALUES
 (
   'The Design and Management of Software',
   'CSCI 187',
-  '',
+  'F',
   5,
   0,
   true
@@ -195,7 +202,7 @@ VALUES
 (
   'Advanced Topics',
   'CSCI 197',
-  '',
+  'FWS',
   5,
   0,
   false
@@ -203,7 +210,7 @@ VALUES
 (
   'Introduction to Embedded Systems',
   'COEN 20 & L',
-  '',
+  'FWS',
   5,
   0,
   true
@@ -211,7 +218,7 @@ VALUES
 (
   'Introduction to Logic Design',
   'COEN 21 & L',
-  '',
+  'FWS',
   5,
   0,
   false
@@ -219,7 +226,7 @@ VALUES
 (
   'Real-Time Systems',
   'COEN 120 & L',
-  '',
+  'FWS',
   5,
   0,
   true
@@ -227,7 +234,7 @@ VALUES
 (
   'Computer Architecture',
   'COEN 122 & L',
-  '',
+  'FWS',
   5,
   0,
   true
@@ -235,7 +242,7 @@ VALUES
 (
   'Advanced Logic Design',
   'COEN 127 & L',
-  '',
+  'FWS',
   5,
   0,
   true
@@ -243,7 +250,7 @@ VALUES
 (
   'Introduction to Parallel Programming',
   'COEN 145 & L',
-  '',
+  'FWS',
   5,
   0,
   true
@@ -251,7 +258,7 @@ VALUES
 (
   'Computer Networks',
   'COEN 146 & L',
-  '',
+  'FWS',
   5,
   0,
   true
@@ -259,7 +266,7 @@ VALUES
 (
   'Computer Graphics Systems',
   'COEN 148',
-  '',
+  'FWS',
   4,
   0,
   true
@@ -267,7 +274,7 @@ VALUES
 (
   'Introduction to Information Security',
   'COEN 150',
-  '',
+  'FWS',
   4,
   88,
   false
@@ -275,7 +282,7 @@ VALUES
 (
   'Introduction to Computer Forensics',
   'COEN 152 & L',
-  '',
+  'FWS',
   5,
   0,
   true
@@ -283,7 +290,7 @@ VALUES
 (
   'Object-Oriented Analysis, Design, and Programming',
   'COEN 160 & L',
-  '',
+  'FWS',
   5,
   0,
   true
@@ -291,7 +298,7 @@ VALUES
 (
   'Web Development',
   'COEN 161 & L',
-  '',
+  'FWS',
   5,
   0,
   true
@@ -299,7 +306,7 @@ VALUES
 (
   'Web Infrastructure',
   'COEN 162',
-  '',
+  'FWS',
   4,
   0,
   true
@@ -307,7 +314,7 @@ VALUES
 (
   'Web Usability',
   'COEN 163 & L',
-  '',
+  'FWS',
   5,
   0,
   true
@@ -315,7 +322,7 @@ VALUES
 (
   'Advanced Web Development',
   'COEN 164 & L',
-  '',
+  'FWS',
   5,
   0,
   true
@@ -323,7 +330,7 @@ VALUES
 (
   'Introduction to 3D Animation & Modeling/Modeling & Control Rigid Body Dynamics',
   'COEN 165',
-  '',
+  'FWS',
   4,
   0,
   false
@@ -331,7 +338,7 @@ VALUES
 (
   'Artificial Intelligence',
   'COEN 166 & L',
-  '',
+  'FWS',
   5,
   0,
   true
@@ -339,7 +346,7 @@ VALUES
 (
   'Mobile Application Development',
   'COEN 168 & L',
-  '',
+  'FWS',
   5,
   0,
   true
@@ -347,7 +354,7 @@ VALUES
 (
   'Web Information Management',
   'COEN 169',
-  '',
+  'FWS',
   4,
   0,
   true
@@ -355,7 +362,7 @@ VALUES
 (
   'Principles of Design and Implementation of Programming Languages',
   'COEN 171',
-  '',
+  'FWS',
   4,
   0,
   true
@@ -363,7 +370,7 @@ VALUES
 (
   'Structure and Interpretation of Computer Programs',
   'COEN 172 & L',
-  '',
+  'FWS',
   5,
   0,
   true
@@ -371,7 +378,7 @@ VALUES
 (
   'Logic Programming',
   'COEN 173 & L',
-  '',
+  'FWS',
   5,
   0,
   true
@@ -379,7 +386,7 @@ VALUES
 (
   'Software Engineering Laboratory',
   'COEN 174 & L',
-  '',
+  'FWS',
   5,
   0,
   true
@@ -387,7 +394,7 @@ VALUES
 (
   'Operating Systems',
   'COEN 177 & L',
-  '',
+  'FWS',
   5,
   0,
   true
@@ -395,7 +402,7 @@ VALUES
 (
   'Introduction to Database Systems',
   'COEN 178 & L',
-  '',
+  'FWS',
   5,
   0,
   true
@@ -403,7 +410,7 @@ VALUES
 (
   'Introduction to Information Storage',
   'COEN 180',
-  '',
+  'FWS',
   4,
   0,
   true
@@ -411,7 +418,7 @@ VALUES
 (
   'Calculus and Analytic Geometry I',
   'MATH 11',
-  '',
+  'FWS',
   4,
   0,
   false
@@ -419,7 +426,7 @@ VALUES
 (
   'Calculus and Analytic Geometry II',
   'MATH 12',
-  '',
+  'FWS',
   4,
   0,
   true
@@ -427,7 +434,7 @@ VALUES
 (
   'Calculus and Analytic Geometry III',
   'MATH 13',
-  '',
+  'FWS',
   4,
   0,
   true
@@ -435,7 +442,7 @@ VALUES
 (
   'Calculus and Analytic Geometry IV',
   'MATH 14',
-  '',
+  'FWS',
   4,
   0,
   true
@@ -443,7 +450,7 @@ VALUES
 (
   'Discrete Mathematics',
   'MATH 51',
-  '',
+  'FWS',
   4,
   0,
   false
@@ -451,7 +458,7 @@ VALUES
 (
   'Introduction to Abstract Algebra',
   'MATH 52',
-  '',
+  'FWS',
   4,
   0,
   true
@@ -459,15 +466,16 @@ VALUES
 (
   'Linear Algebra',
   'MATH 53',
-  '',
+  'FWS',
   4,
   0,
   true
 ),
+-- ALT YRS 19-20
 (
   'A Survey of Geometry',
   'MATH 101',
-  '',
+  'W',
   5,
   0,
   true
@@ -475,7 +483,7 @@ VALUES
 (
   'Probability and Statistics I',
   'MATH 122',
-  '',
+  'FW',
   5,
   0,
   true
@@ -483,15 +491,16 @@ VALUES
 (
   'Probability and Statistics II',
   'MATH 123',
-  '',
+  'WS',
   5,
   0,
   true
 ),
+-- ALT YRS 19-20
 (
   'Theory of Numbers',
   'MATH 175',
-  '',
+  'S',
   5,
   0,
   true
@@ -499,15 +508,16 @@ VALUES
 (
   'Combinatorics',
   'MATH 176',
-  '',
+  'S',
   5,
   0,
   true
 ),
+-- ALT YRS 20-21
 (
   'Graph Theory',
   'MATH 177',
-  '',
+  'W',
   5,
   0,
   true
@@ -515,7 +525,7 @@ VALUES
 (
   'Cryptography',
   'MATH 178',
-  '',
+  'W',
   5,
   0,
   false
