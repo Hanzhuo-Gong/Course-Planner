@@ -79,12 +79,10 @@ VALUES
   0,
   true
 ),
--- offered every other year
--- ALT YRS 20-21
 (
   'Computational Complexity',
   'CSCI 162',
-  'W',
+  'WE',
   5,
   0,
   true
@@ -114,11 +112,10 @@ VALUES
   0,
   true
 ),
--- ALT YRS 19-20
 (
   'Linear Programming',
   'CSCI 165',
-  'W',
+  'WO',
   5,
   0,
   false
@@ -156,11 +153,10 @@ VALUES
   0,
   true
 ),
--- ALT YRS 19-20
 (
   'Applied Cryptography',
   'CSCI 181',
-  'S',
+  'SO',
   5,
   0,
   true
@@ -198,7 +194,6 @@ VALUES
   0,
   true
 ),
--- not sure if we need this lol
 (
   'Advanced Topics',
   'CSCI 197',
@@ -207,6 +202,7 @@ VALUES
   0,
   false
 ),
+-- QuartersOffered data for COEN is incomplete/inaccurate
 (
   'Introduction to Embedded Systems',
   'COEN 20 & L',
@@ -471,11 +467,10 @@ VALUES
   0,
   true
 ),
--- ALT YRS 19-20
 (
   'A Survey of Geometry',
   'MATH 101',
-  'W',
+  'WO',
   5,
   0,
   true
@@ -496,11 +491,10 @@ VALUES
   0,
   true
 ),
--- ALT YRS 19-20
 (
   'Theory of Numbers',
   'MATH 175',
-  'S',
+  'SO',
   5,
   0,
   true
@@ -513,11 +507,10 @@ VALUES
   0,
   true
 ),
--- ALT YRS 20-21
 (
   'Graph Theory',
   'MATH 177',
-  'W',
+  'WE',
   5,
   0,
   true
