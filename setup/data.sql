@@ -582,7 +582,7 @@ VALUES
   'MATH 122'
 ),
 (
-  'COEN 20',
+  'COEN 20 & L',
   'COEN 177 & L'
 ),
 (
@@ -683,7 +683,7 @@ VALUES
   'COEN 122 & L'
 ),
 (
-  'CSCI 21 & L',
+  'COEN 21 & L',
   'COEN 122 & L'
 ),
 (
