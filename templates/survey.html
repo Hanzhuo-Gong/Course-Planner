@@ -41,7 +41,7 @@
     </nav>
   </section>
 
-  <!---------------------------body section---------------------------->
+  <!---------------------------body section-------------------------->
   <section id="body_content">
     <div class="body_texts">
       <div class="contexts">
@@ -89,7 +89,7 @@
           </ul>
         </div>
 
-        <!------need to set up a fucntion allow number change--------->
+        <!------need to set up a fucntion allow number change------>
         <div class="card survey_name">
           <div class="card-header">
             Within how many quarters are you trying to graduate?
@@ -100,7 +100,7 @@
           </div>
         </div>
 
-        <!------need to set up a fucntion allow number change--------->
+        <!------need to set up a fucntion allow number change------>
         <div class="card survey_name">
           <div class="card-header">
             Maximum units you want to take each quarter
@@ -141,7 +141,9 @@
         </div>
       </div>
       <div>
-        <button class="btn btn-secondary btn-lg submit_button" type="button" name="button" onclick="location.href='schedule'">Submit</button>
+        <button class="btn btn-secondary btn-lg submit_button" type="button" name="button">
+          <a href="{{ url_for('schedule') }}">Submit</a>
+        </button>
       </div>
     </div>
   </section>
