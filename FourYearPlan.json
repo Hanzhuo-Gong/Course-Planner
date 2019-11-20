@@ -298,7 +298,7 @@
       },
       {
         "name": "Advanced Writing",
-        "prereqs": null
+        "prereqs": null,
         "units": 5,
         "satifies": [
           "Advanced Writing"
