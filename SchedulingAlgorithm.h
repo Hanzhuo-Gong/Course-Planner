@@ -49,7 +49,7 @@ namespace Schedule
       int classesPerQuarter;
       string excludedSubjects[100];
       Classes excludedClasses;
-  };
+  }; //not necessary? moved to Student
 
   class Major {
     public:
@@ -60,7 +60,7 @@ namespace Schedule
       int requiredCredits;
       double requiredGPA;
       Classes requiredMajorClasses;
-  };
+    };// DHanush factors this
 
   class Emphasis {
   public:
@@ -72,7 +72,7 @@ namespace Schedule
     string emphasis;
     Classes requiredEmphasisClasses;
     Classes electiveEmphasisClasses;
-  };
+  }; // DHanush factors this
 
   class Core {
     public:
@@ -90,7 +90,7 @@ namespace Schedule
       int requiredCredits;
       int requiredUpperCredits;
       Classes allCoreClasses;
-  };
+  };// DHanush factors this
 
   class FourYearPlan {
     public:
@@ -103,12 +103,12 @@ namespace Schedule
       void forwardSearch();
       void backwardInduction();
     private:
-      int quarters = 20; //few extra just in case
+      int quarters = 20;
       int currentCredits;
       int remainingCredits;
-      Emphasis theEmphasis;
-      Major theMajor;
-      Core theCore;
+      Emphasis E;
+      Major M;
+      Core C;
       Classes allClasses;
       Classes feasibleClasses;
       Classes availableClasses[20];
@@ -126,8 +126,12 @@ namespace Schedule
     string major;
     string emphasis;
     int credits;
-    Preferences thePreferences;
-    FourYearPlan thePlan;
+    int difficulty;
+    vector <string> excludedSubjects;
+    vector <string> excludedClasses;
+    vector <string> finishedClasses;
+    Preferences prefs;
+    FourYearPlan plan;
   };
 
 }

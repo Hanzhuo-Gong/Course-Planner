@@ -2,7 +2,7 @@
 
 using namespace Schedule;
 
-Class::Class(string theID, string theName, string theSubject, double theDifficulty, int theCreditsGiven, int theCreditsRequired, vector <string> thePreRequisites, vector <bool> thePreRequisiteStates, bool theState, string quarters) {
+Class::Class(string theID, string theName, string theSubject, double theDifficulty, int theCreditsGiven, int theCreditsRequired, bool theState, string quarters) {
   classID = theID;
   name = theName;
   subject = theSubject;
@@ -11,14 +11,10 @@ Class::Class(string theID, string theName, string theSubject, double theDifficul
   creditsRequired = theCreditsRequired;
   finished = theState;
   quartersOffered = quarters;
-  for (int i=0 ; i < thePreRequisites.size() ; i++) {
-    preRequisites.push_back(thePreRequisites[i]);
-    preRequisiteStates.push_back(thePreRequisiteStates[i]);
-  }
-}
-
-bool Class::getState() {
-  return finished;
+  // for (int i=0 ; i < thePreRequisites.size() ; i++) {
+  //   preRequisites.push_back(thePreRequisites[i]);
+  //   preRequisiteStates.push_back(thePreRequisiteStates[i]);
+  // }
 }
 
 bool Class::available(string currentQuarter, int year) {
@@ -57,12 +53,81 @@ bool Class::feasible() {
   return true;
 }
 
+string Class::getID() {
+  return classID;
+}
+
 string Class::getName() {
   return name;
 }
 
-string Class::getID() {
-  return classID;
+string Class::getSubject() {
+  return subject;
+}
+
+double Class::getDifficulty() {
+  return difficulty;
+}
+
+int Class::getCreditsGiven() {
+  return creditsGiven;
+}
+
+int Class::getCreditsRequired() {
+  return creditsRequired;
+}
+
+bool Class::getState() {
+  return finished;
+}
+
+string Class::getQuarters() {
+  return quartersOffered;
+}
+
+void Class::pushPreReq(string cID, bool state) {
+  preRequisites.push_back(cID);
+  preRequisiteStates.push_back(state);
+}
+
+void Class::setPreReq(string cID, bool state) {
+  for (int i = 0 ; i < preRequisites.size() ; i++) {
+    if (preRequisites[i] == cID) {
+      preRequisiteStates[i] = state;
+      if (state) {
+        cout<<preRequisites[i]<<" has been set to complete."<<endl;
+        return;
+      }
+      else {
+        cout<<preRequisites[i]<<"has been set to incomplete."<<endl;
+        return;
+      }
+    }
+  }
+  cout<<"The class is not a PreReq of "<<classID<<"."<<endl;
+}
+
+void Class::setState(bool state) {
+  finished = state;
+}
+
+void Class::printPreReqs() {
+  if (preRequisites.empty()==false) {
+    cout<<"The prerequisites are ";
+    for (int i = 0; i < preRequisites.size(); i++) {
+      cout << preRequisites[i];
+      if (preRequisiteStates[i]) {
+        cout<<" (complete) , ";
+      }
+      else {
+        cout<<" (incomplete) , ";
+      }
+    }
+    cout<<endl;
+  }
+  else {
+    cout<<"This class has no prerequisites"<<endl;
+  }
 }
 
 void Class::printDetails() {
@@ -126,71 +191,4 @@ void Class::printDetails() {
   }
 
   cout<<endl;
-}
-
-int main() {
-  vector <string> cs10PreReqs;
-  vector <bool> cs10PreReqStates;
-  Class CS10 ("CS10", "Intro to Computer Science", "Computer Science", 0, 5, 0, cs10PreReqs, cs10PreReqStates, 0, "FWS");
-  CS10.printDetails();
-
-  vector <string> cs60PreReqs;
-  cs60PreReqs.push_back("CS10");
-  vector <bool> cs60PreReqStates;
-  cs60PreReqStates.push_back(0);
-  Class CS60 ("CS60", "Object-Oriented Programming", "Computer Science", 0, 5, 0, cs60PreReqs, cs60PreReqStates, 0, "WS");
-  CS60.printDetails();
-
-  vector <string> cs61PreReqs;
-  cs61PreReqs.push_back("CS60");
-  vector <bool> cs61PreReqStates;
-  cs61PreReqStates.push_back(0);
-  Class CS61 ("CS61", "Data Structures", "Computer Science", 0, 5, 0, cs61PreReqs, cs61PreReqStates, 0, "FS");
-  CS61.printDetails();
-
-  vector <string> math11PreReqs;
-  vector <bool> math11PreReqStates;
-  Class MATH11 ("MATH11", "Calculus and Analytic Geometry I", "Math", 0, 5, 0, math11PreReqs, math11PreReqStates, 0, "FWS");
-  MATH11.printDetails();
-
-  vector <string> math12PreReqs;
-  math12PreReqs.push_back("MATH11");
-  vector <bool> math12PreReqStates;
-  math12PreReqStates.push_back(0);
-  Class MATH12 ("MATH12", "Calculus and Analytic Geometry II", "Math", 0, 5, 0, math12PreReqs, math12PreReqStates, 0, "FWS");
-  MATH12.printDetails();
-
-  vector <string> math13PreReqs;
-  math13PreReqs.push_back("MATH12");
-  vector <bool> math13PreReqStates;
-  math13PreReqStates.push_back(0);
-  Class MATH13 ("MATH13", "Calculus and Analytic Geometry III", "Math", 0, 5, 0, math13PreReqs, math13PreReqStates, 0, "FWS");
-  MATH13.printDetails();
-
-  vector <string> math14PreReqs;
-  math14PreReqs.push_back("MATH13");
-  vector <bool> math14PreReqStates;
-  math14PreReqStates.push_back(1);
-  Class MATH14 ("MATH14", "Calculus and Analytic Geometry IV", "Math", 0, 5, 0, math14PreReqs, math14PreReqStates, 0, "FWS");
-  MATH14.printDetails();
-  MATH14.feasible();
-
-  vector <string> cs163aPreReqs;
-  cs163aPreReqs.push_back("MATH51");
-  cs163aPreReqs.push_back("CS61");
-  vector <bool> cs163aPreReqStates;
-  cs163aPreReqStates.push_back(0);
-  cs163aPreReqStates.push_back(0);
-  Class CS163A ("CS163A", "Theory of Algorithms", "Computer Science", 0, 5, 0, cs163aPreReqs, cs163aPreReqStates, 0, "FWS");
-  CS163A.printDetails();
-  CS163A.feasible();
-
-  vector <string> cs165PreReqs;
-  vector <bool> cs165PreReqStates;
-  Class CS165 ("CS165", "Linear Programming", "Computer Science", 0, 5, 0, cs165PreReqs, cs165PreReqStates, 0, "WO");
-  CS165.printDetails();
-  CS165.available("Winter", 2020);
-  CS165.available("Fall", 2021);
-  CS165.available("Winter", 2021);
-
 }

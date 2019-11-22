@@ -1,4 +1,7 @@
 //schedlingAlgorithm.cpp
+//split up into multiple cpp class files
+//courseID = CS10, course name = "intro to computer science" <-make this CHANGE
+//not doing actual classes for the core requirements, just like ARTs or RSOC1 etc.
 
 //CHANGE PREREQUISITES TO A DAG TREE
 
@@ -113,10 +116,8 @@ int main() {
   CS60.printDetails();
 
   vector <string> cs61PreReqs;
-  cs61PreReqs.push_back("CS10");
   cs61PreReqs.push_back("CS60");
   vector <bool> cs61PreReqStates;
-  cs61PreReqStates.push_back(0);
   cs61PreReqStates.push_back(0);
   Class CS61 (10002, "CS61", "Computer Science", 0, 5, 0, cs61PreReqs, cs61PreReqStates, 0);
   CS61.printDetails();
@@ -129,21 +130,21 @@ int main() {
   vector <string> math12PreReqs;
   math12PreReqs.push_back("MATH11");
   vector <bool> math12PreReqStates;
-  math12PreReqs.push_back(0)
+  math12PreReqStates.push_back(0);
   Class MATH12 (10020, "MATH12", "Math", 0, 5, 0, math12PreReqs, math12PreReqStates, 0);
   MATH12.printDetails();
 
   vector <string> math13PreReqs;
   math13PreReqs.push_back("MATH12");
   vector <bool> math13PreReqStates;
-  math13PreReqs.push_back(0)
+  math13PreReqStates.push_back(0);
   Class MATH13 (10030, "MATH13", "Math", 0, 5, 0, math13PreReqs, math13PreReqStates, 0);
-  MATH12.printDetails();
+  MATH13.printDetails();
 
   vector <string> math14PreReqs;
   math14PreReqs.push_back("MATH13");
   vector <bool> math14PreReqStates;
-  math14PreReqs.push_back(0)
+  math14PreReqStates.push_back(0);
   Class MATH14 (10040, "MATH14", "Math", 0, 5, 0, math14PreReqs, math14PreReqStates, 0);
-  MATH12.printDetails();
+  MATH14.printDetails();
 }
