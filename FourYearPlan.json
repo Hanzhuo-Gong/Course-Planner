@@ -1,0 +1,509 @@
+[
+  {
+    "term": {
+      "year": 1,
+      "quarter": 1
+    },
+    "classes": [
+      {
+        "name": "CSCI 10 & L",
+        "prereqs": null,
+        "units": 5,
+        "satifies": [
+          "Major",
+          "Science, Technology, & Society"
+        ]
+      },
+      {
+        "name": "MATH 11",
+        "prereqs": null,
+        "units": 4,
+        "satifies": [
+          "Major",
+          "Mathematics"
+        ]
+      },
+      {
+        "name": "CTW 1",
+        "prereqs": null,
+        "units": 4,
+        "satifies": [
+          "CTW 1"
+        ]
+      },
+      {
+        "name": "Cultures & Ideas 1",
+        "prereqs": null,
+        "units": 4,
+        "satifies": [
+          "Cultures & Ideas 1"
+        ]
+      }
+    ]
+  },
+  {
+    "term": {
+      "year": 1,
+      "quarter": 2
+    },
+    "classes": [
+      {
+        "name": "CSCI 60 & L",
+        "prereqs": [
+          "CSCI 10 & L"
+        ],
+        "units": 5,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "MATH 12",
+        "prereqs": null,
+        "units": 4,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "Cultures & Ideas 2",
+        "prereqs": [
+          "Cultures & Ideas 1"
+        ],
+        "units": 4,
+        "satifies": [
+          "Cultures & Ideas 2"
+        ]
+      },
+      {
+        "name": "Natural Science",
+        "prereqs": null,
+        "units": 4,
+        "satifies": [
+          "Natural Science"
+        ]
+      }
+    ]
+  },
+  {
+    "term": {
+      "year": 1,
+      "quarter": 3
+    },
+    "classes": [
+      {
+        "name": "CSCI 61",
+        "prereqs": [
+          "CSCI 60 & L"
+        ],
+        "units": 4,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "MATH 13",
+        "prereqs": [
+          "MATH 12"
+        ],
+        "units": 4,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "CTW 2",
+        "prereqs": [
+          "CTW 1"
+        ],
+        "units": 4,
+        "satifies": [
+          "CTW 2"
+        ]
+      },
+      {
+        "name": "Elective",
+        "prereqs": null,
+        "units": 4,
+        "satifies": null
+      }
+    ]
+  },
+  {
+    "term": {
+      "year": 2,
+      "quarter": 1
+    },
+    "classes": [
+      {
+        "name": "MATH 51",
+        "prereqs": [
+          "MATH 13"
+        ],
+        "units": 4,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "MATH 14",
+        "prereqs": [
+          "MATH 13"
+        ],
+        "units": 4,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "Diversity",
+        "prereqs": null,
+        "units": 4,
+        "satifies": [
+          "Diversity"
+        ]
+      },
+      {
+        "name": "RTC 1",
+        "prereqs": null,
+        "units": 4,
+        "satifies": [
+          "RTC 1"
+        ]
+      }
+    ]
+  },
+  {
+    "term": {
+      "year": 2,
+      "quarter": 2
+    },
+    "classes": [
+      {
+        "name": "COEN 20 & L",
+        "prereqs": [
+          "CSCI 60 & L"
+        ],
+        "units": 5,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "MATH 122",
+        "prereqs": [
+          "MATH 14"
+        ],
+        "units": 5,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "Social Science",
+        "prereqs": null,
+        "units": 4,
+        "satifies": [
+          "Social Science"
+        ]
+      },
+      {
+        "name": "RTC 2",
+        "prereqs": [
+          "RTC 1"
+        ],
+        "units": 4,
+        "satifies": [
+          "RTC 2"
+        ]
+      }
+    ]
+  },
+  {
+    "term": {
+      "year": 2,
+      "quarter": 3
+    },
+    "classes": [
+      {
+        "name": "CSCI 163A",
+        "prereqs": [
+          "CSCI 61",
+          "MATH 51"
+        ],
+        "units": 5,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "MATH 53",
+        "prereqs": [
+          "MATH 13"
+        ],
+        "units": 4,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "Arts",
+        "prereqs": null,
+        "units": 4,
+        "satifies": [
+          "Arts"
+        ]
+      },
+      {
+        "name": "Elective",
+        "prereqs": [
+          "Elective"
+        ],
+        "units": 4,
+        "satifies": null
+      }
+    ]
+  },
+  {
+    "term": {
+      "year": 3,
+      "quarter": 1
+    },
+    "classes": [
+      {
+        "name": "COEN 177 & L",
+        "prereqs": [
+          "COEN 20 & L"
+        ],
+        "units": 5,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "Civic Engagement",
+        "prereqs": null,
+        "units": 4,
+        "satifies": [
+          "Civic Engagement"
+        ]
+      },
+      {
+        "name": "Language 1",
+        "prereqs": null,
+        "units": 4,
+        "satifies": [
+          "Language 1"
+        ]
+      },
+      {
+        "name": "Advanced Writing",
+        "prereqs": null,
+        "units": 5,
+        "satifies": [
+          "Advanced Writing"
+        ]
+      }
+    ]
+  },
+  {
+    "term": {
+      "year": 3,
+      "quarter": 2
+    },
+    "classes": [
+      {
+        "name": "MATH 178",
+        "prereqs": null,
+        "units": 5,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "COEN 21 & L",
+        "prereqs": null,
+        "units": 5,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "Language 2",
+        "prereqs": [
+          "Language 1"
+        ],
+        "units": 4,
+        "satifies": [
+          "Language 2"
+        ]
+      },
+      {
+        "name": "Elective",
+        "prereqs": null,
+        "units": 4,
+        "satifies": null
+      }
+    ]
+  },
+  {
+    "term": {
+      "year": 3,
+      "quarter": 3
+    },
+    "classes": [
+      {
+        "name": "CSCI 181",
+        "prereqs": [
+          "MATH 178"
+        ],
+        "units": 5,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "Ethics",
+        "prereqs": null,
+        "units": 4,
+        "satifies": [
+          "Ethics"
+        ]
+      },
+      {
+        "name": "Cultures & Ideas 3",
+        "prereqs": [
+          "Cultures & Ideas 2"
+        ],
+        "units": 4,
+        "satifies": [
+          "Cultures & Ideas 3"
+        ]
+      },
+      {
+        "name": "Elective",
+        "prereqs": null,
+        "units": 4,
+        "satifies": null
+      }
+    ]
+  },
+  {
+    "term": {
+      "year": 4,
+      "quarter": 1
+    },
+    "classes": [
+      {
+        "name": "CSCI 161",
+        "prereqs": [
+          "MATH 51"
+        ],
+        "units": 5,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "CSCI 180",
+        "prereqs": [
+          "COEN 20 & L"
+        ],
+        "units": 5,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "RTC 3",
+        "prereqs": [
+          "RTC 2"
+        ],
+        "units": 5,
+        "satifies": [
+          "RTC 3"
+        ]
+      },
+      {
+        "name": "Elective",
+        "prereqs": null,
+        "units": 4,
+        "satifies": null
+      }
+    ]
+  },
+  {
+    "term": {
+      "year": 4,
+      "quarter": 2
+    },
+    "classes": [
+      {
+        "name": "COEN 146 & L",
+        "prereqs": [
+          "CSCI 61"
+        ],
+        "units": 5,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "ELSJ",
+        "prereqs": null,
+        "units": 4,
+        "satifies": [
+          "ELSJ"
+        ]
+      },
+      {
+        "name": "Elective",
+        "prereqs": null,
+        "units": 4,
+        "satifies": null
+      },
+      {
+        "name": "Elective",
+        "prereqs": null,
+        "units": 4,
+        "satifies": null
+      }
+    ]
+  },
+  {
+    "term": {
+      "year": 4,
+      "quarter": 3
+    },
+    "classes": [
+      {
+        "name": "COEN 178 & L",
+        "prereqs": [
+          "CSCI 61"
+        ],
+        "units": 5,
+        "satifies": [
+          "Major"
+        ]
+      },
+      {
+        "name": "Elective",
+        "prereqs": null,
+        "units": 4,
+        "satifies": null
+      },
+      {
+        "name": "Elective",
+        "prereqs": null,
+        "units": 4,
+        "satifies": null
+      },
+      {
+        "name": "Elective",
+        "prereqs": null,
+        "units": 4,
+        "satifies": null
+      }
+    ]
+  }
+]
