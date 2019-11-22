@@ -2,6 +2,9 @@ body {
   background-color: #f6f6f6;
 }
 
+h4 {
+  margin-top: 50px;
+}
 /*-------------------------top nav bar-----------------------------*/
 #top_navbar {
   color: white;
@@ -58,7 +61,6 @@ body {
   text-align: center;
 }
 
-/*center all cards elements*/
 .card {
   margin: 0 auto;
   float: none;
@@ -74,7 +76,6 @@ body {
   padding-bottom: 50px;
 }
 
-/*bold the font*/
 .card-header {
   font-weight: bold;
 }
@@ -89,5 +90,9 @@ body {
 
 .survey_name {
   margin-bottom: 50px;
+  width: 30rem;
+}
+
+.Course_Taken {
   width: 30rem;
 }

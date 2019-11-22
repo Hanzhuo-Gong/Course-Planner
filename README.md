@@ -8,6 +8,7 @@ update the project periodically.
 
 SETUP:
 Install flask for python3 using 'pip3 install flask'
+Contact jpark3@scu.edu if you are having difficulties running the app
 
 RUNNING:
 1. Run web app using 'python3 main.py'
