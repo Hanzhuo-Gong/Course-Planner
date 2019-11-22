@@ -151,6 +151,14 @@ SELECT
   1
 FROM dual UNION ALL
 SELECT
+  'Computer Security',
+  'CSCI 180',
+  'F',
+  5,
+  0,
+  1
+FROM dual UNION ALL
+SELECT
   'Applied Cryptography',
   'CSCI 181',
   'SO',
