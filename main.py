@@ -25,6 +25,22 @@ csciEmphases = {
                   ]
 }
 
+'''
+prefersMajorClassesOnly = {
+    'question'  : 'Do you prefer to take only major/core classes only or all other classes?',
+    'options'   : [
+                    {
+                      'name':'Major/Core classes only', 
+                      'id':'Major-Core-Classes-Only'
+                    },
+                    {
+                      'name':'Open to all classes',
+                      'id':'All-classes'
+                    },
+                  ]
+}
+'''
+
 csciMajorReqs = {
     'question'  : 'Department Requirements',
     'options'   : [
@@ -56,6 +72,14 @@ csciMajorReqs = {
                       {
                         'name':'MATH 14',
                         'id':'MATH-14'
+                      },
+                      {
+                        'name':'MATH 51',
+                        'id':'MATH-51'
+                      },
+                      {
+                        'name':'MATH 53',
+                        'id':'MATH-53'
                       }
                     ],
                     [
@@ -68,12 +92,8 @@ csciMajorReqs = {
                         'id':'COEN-21-and-L'
                       },
                       {
-                        'name':'MATH 51',
-                        'id':'MATH-51'
-                      },
-                      {
-                        'name':'MATH 53',
-                        'id':'MATH-53'
+                        'name':'MATH 122',
+                        'id':'MATH-122'
                       },
                       {
                         'name':'CSCI 161',
@@ -84,35 +104,59 @@ csciMajorReqs = {
                         'id':'CSCI-163A'
                       },
                       {
-                        'name':'MATH 122',
-                        'id':'MATH-122'
-                      }
-                    ],
-                    [
-                      {
                         'name':'COEN 177 and L',
                         'id':'COEN-177-and-L'
                       },
                       {
-                        'name':'CSCI Emphasis 1',
-                        'id':'CSCI-Emphasis-1'
+                        'name':'CSCI 162 (Algorithms and Complexity)',
+                        'id':'CSCI-162'
                       },
                       {
-                        'name':'CSCI Emphasis 2',
-                        'id':'CSCI-Emphasis-2'
+                        'name':'CSCI 163B (Algorithms and Complexity)',
+                        'id':'CSCI-163B'
                       },
                       {
-                        'name':'CSCI Emphasis 3',
-                        'id':'CSCI-Emphasis-3'
+                        'name':'MATH 177 (Algorithms and Complexity)',
+                        'id':'MATH-177'
+                      }
+                    ],
+                    [
+                      {
+                        'name':'CSCI 183 (Data Science)',
+                        'id':'CSCI-183'
                       },
                       {
-                        'name':'CSCI Emphasis 4',
-                        'id':'CSCI-Emphasis-4'
+                        'name':'CSCI 184 (Data Science)',
+                        'id':'CSCI-184'
                       },
                       {
-                        'name':'CSCI Emphasis 5',
-                        'id':'CSCI-Emphasis-5'
+                        'name':'MATH 123 (Data Science)',
+                        'id':'MATH-123'
                       },
+                      {
+                        'name':'CSCI 169 (Software)',
+                        'id':'CSCI-169'
+                      },
+                      {
+                        'name':'CSCI 187 (Software)',
+                        'id':'CSCI-187'
+                      },
+                      {
+                        'name':'COEN 146 and L (Software)',
+                        'id':'COEN-146-and-L'
+                      },
+                      {
+                        'name':'CSCI 180 (Security)',
+                        'id':'CSCI-180'
+                      },
+                      {
+                        'name':'MATH 178 (Security)',
+                        'id':'MATH-178'
+                      },
+                      {
+                        'name':'CSCI 181 (Security)',
+                        'id':'CSCI-181'
+                      }
                     ]
                   ]
 }
@@ -192,6 +236,10 @@ coreReqs = {
                       {
                         'name':'Civic Engagement',
                         'id':'Civic-Engagement'
+                      },
+                      {
+                        'name':'Experiential Learning and Social Justice',
+                        'id':'ELSJ'
                       }
                     ]
                   ]
@@ -227,10 +275,15 @@ def survey():
 @app.route("/schedule")
 def schedule():
     emphasis = request.args.get('csciEmphasis')
+    # Replace numberOfQuarters and maxUnits values with HTML values
+    numberOfQuarters = 12
+    maxUnits = 19
+    classesPreferred = request.args.get('classPreferences')
     majorClassesTaken = request.args.getlist('csciMajorReqsTaken')
     coresTaken = request.args.getlist('coreReqsTaken')
 
     print(emphasis)
+    print(classesPreferred)
     print(majorClassesTaken)
     print(coresTaken)
 

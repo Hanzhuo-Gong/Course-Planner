@@ -525,6 +525,150 @@ SELECT
   5,
   0,
   0
+FROM dual UNION ALL
+SELECT
+  'CTW 1',
+  'CTW 1',
+  'FWS',
+  4,
+  0,
+  0
+FROM dual UNION ALL
+SELECT
+  'CTW 2',
+  'CTW 2',
+  'FWS',
+  4,
+  0,
+  0
+FROM dual UNION ALL
+SELECT
+  'Advanced Writing',
+  'Advanced Writing',
+  'FWS',
+  5,
+  0,
+  0
+FROM dual UNION ALL
+SELECT
+  'Ethics',
+  'Ethics',
+  'FWS',
+  4,
+  0,
+  0
+FROM dual UNION ALL
+SELECT
+  'Diversity',
+  'Diversity',
+  'FWS',
+  4,
+  0,
+  0
+FROM dual UNION ALL
+SELECT
+  'Arts',
+  'Arts',
+  'FWS',
+  4,
+  0,
+  0
+FROM dual UNION ALL
+SELECT
+  'Language 1',
+  'Language 1',
+  'FWS',
+  4,
+  0,
+  0
+FROM dual UNION ALL
+SELECT
+  'Language 2',
+  'Language 2',
+  'FWS',
+  4,
+  0,
+  0
+FROM dual UNION ALL
+SELECT
+  'Natural Science',
+  'Natural Science',
+  'FWS',
+  4,
+  0,
+  0
+FROM dual UNION ALL
+SELECT
+  'RTC 1',
+  'RTC 1',
+  'FWS',
+  4,
+  0,
+  0
+FROM dual UNION ALL
+SELECT
+  'RTC 2',
+  'RTC 2',
+  'FWS',
+  4,
+  0,
+  0
+FROM dual UNION ALL
+SELECT
+  'RTC 3',
+  'RTC 3',
+  'FWS',
+  5,
+  0,
+  0
+FROM dual UNION ALL
+SELECT
+  'Social Science',
+  'Social Science',
+  'FWS',
+  4,
+  0,
+  0
+FROM dual UNION ALL
+SELECT
+  'Culture and Ideas 1',
+  'Culture and Ideas 1',
+  'FWS',
+  4,
+  0,
+  0
+FROM dual UNION ALL
+SELECT
+  'Culture and Ideas 2',
+  'Culture and Ideas 2',
+  'FWS',
+  4,
+  0,
+  0
+FROM dual UNION ALL
+SELECT
+  'Culture and Ideas 3',
+  'Culture and Ideas 3',
+  'FWS',
+  4,
+  0,
+  0
+FROM dual UNION ALL
+SELECT
+  'Civic Engagement',
+  'Civic Engagement',
+  'FWS',
+  4,
+  0,
+  0
+FROM dual UNION ALL
+SELECT
+  'Experiential Learning and Social Justice',
+  'ELSJ',
+  'FWS',
+  4,
+  0,
+  0
 FROM dual;
 
 DELETE FROM Prereqs;
