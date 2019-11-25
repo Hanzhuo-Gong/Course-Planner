@@ -41,522 +41,147 @@
     </nav>
   </section>
 
-  <!---------------------------body section---------------------------->
+  <!---------------------------body section-------------------------->
   <section id="body_content">
-    <div class="body_texts">
-      <div class="contexts">
-        <div class="top_title">
-          <h2>Preferences</h2>
-        </div>
-        <div class="card survey_name">
-          <div class="card-header">
-            Choose your emphasis
+    <form action="/schedule">
+      <div class="body_texts">
+        <div class="contexts">
+          <div class="top_title">
+            <h2>Preferences</h2>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="Algorithms-and-Complexity" value="option1">
-                <label class="form-check-label" for="Algorithms-and-Complexity">
-                  Algorithms and Complexity
-                </label>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="Data-Science" value="option2">
-                <label class="form-check-label" for="Data-Science">
-                  Data Science
-                </label>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="Security" value="option3">
-                <label class="form-check-label" for="Security">
-                  Security
-                </label>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="Software" value="option4">
-                <label class="form-check-label" for="Software">
-                  Software
-                </label>
-              </div>
-            </li>
-
-          </ul>
-        </div>
-
-        <div class="card survey_name">
-          <div class="card-header">
-            Within how many quarters are you trying to graduate?
-          </div>
-          <div class="form-group">
-            <input type="range" class="custom-range" min="9" max="16" id="maximum_quarter" value="9">
-            <span>Current Value: <span id="quarter_value"></span></span>
-          </div>
-        </div>
-
-        <div class="card survey_name">
-          <div class="card-header">
-            Maximum units you want to take each quarter
-          </div>
-          <div class="form-group">
-            <input type="range" class="custom-range" min="0" max="25" id="maximum_units" value="0">
-            <span>Current Value: <span id="units_value"></span></span>
-          </div>
-        </div>
-
-        <div class="card survey_name">
-          <div class="card-header">
-            Do you prefer to take only major/core classes only or all other classes?
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="major-core-only" value="option1">
-                <label class="form-check-label" for="major-core-only">
-                  Major/Core classes only
-                </label>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="all-classes" value="option2">
-                <label class="form-check-label" for="all-classes">
-                  Open to all classes
-                </label>
-              </div>
-            </li>
-        </div>
-
-        <h3>Please check the courses you already taken</h3>
-        <p>Link to: <a href="https://ecampus.scu.edu/psp/csprd92/?cmd=login" target="_blank">ecampus</a></p>
-
-        <div class="requirements">
-          <h4>Department Requirements:</h4>
-          <div class="card-columns d-flex justify-content-center">
-            <div class="card survey_name">
-              <div class="card-block">
-                <div class="card-header">
-                  Course
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="CSCI_10">
-                      <label class="form-check-label" for="CSCI_10">
-                        CSCI 10 & L
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="CSCI_60">
-                      <label class="form-check-label" for="CSCI_60">
-                        CSCI 60 & L
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="CSCI_61">
-                      <label class="form-check-label" for="CSCI_61">
-                        CSCI 61
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="MATH_11">
-                      <label class="form-check-label" for="MATH_11">
-                        Math 11
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="MATH_12">
-                      <label class="form-check-label" for="MATH_12">
-                        Math 12
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="MATH_13">
-                      <label class="form-check-label" for="MATH_13">
-                        Math 13
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="MATH_14">
-                      <label class="form-check-label" for="MATH_14">
-                        Math 14
-                      </label>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+          <div class="card survey_name">
+            <div class="card-header">
+              {{ csciEmphases.question }}
             </div>
-            <div class="card survey_name">
-              <div class="card-block">
-                <div class="card-header">
-                  Course
-                </div>
-                <ul class="list-group list-group-flush">
+              <ul class="list-group list-group-flush">
+                {% for option in csciEmphases.options %}
                   <li class="list-group-item">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="COEN_20">
-                      <label class="form-check-label" for="COEN_20">
-                        COEN 20 & L
+                      <input class="form-check-input" type="radio" name="csciEmphasis" id="{{ option.id }}" value="{{ option.id }}">
+                      <label class="form-check-label" for="Algorithms-and-Complexity">
+                        {{ option.name }}
                       </label>
                     </div>
                   </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="COEN_21">
-                      <label class="form-check-label" for="COEN_21">
-                        COEN/ELEN 21 & L
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="MATH_51">
-                      <label class="form-check-label" for="MATH_51">
-                        MATH 51
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="MATH_53">
-                      <label class="form-check-label" for="MATH_53">
-                        MATH 53
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="CSCI_161">
-                      <label class="form-check-label" for="CSCI_161">
-                        CSCI 161
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="CSCI_163A">
-                      <label class="form-check-label" for="CSCI_163A">
-                        CSCI 163A
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="MATH_122">
-                      <label class="form-check-label" for="MATH_122">
-                        MATH 122
-                      </label>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+                {% endfor %}
+              </ul>
+          </div>
+
+          <div class="card survey_name">
+            <div class="card-header">
+              Within how many quarters are you trying to graduate?
             </div>
-            <div class="card survey_name">
-              <div class="card-block">
-                <div class="card-header">
-                  Course
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="COEN_177">
-                      <label class="form-check-label" for="COEN_177">
-                        COEN 177 & L
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Emphasis1">
-                      <label class="form-check-label" for="Emphasis1">
-                        CSCI Emphasis I
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Emphasis2">
-                      <label class="form-check-label" for="Emphasis2">
-                        CSCI Emphasis II
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Emphasis3">
-                      <label class="form-check-label" for="Emphasis3">
-                        CSCI Emphasis III
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Emphasis4">
-                      <label class="form-check-label" for="Emphasis4">
-                        CSCI Emphasis IV
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Emphasis5">
-                      <label class="form-check-label" for="Emphasis5">
-                        CSCI Emphasis V
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item"></li>
-                </ul>
-              </div>
+            <div class="form-group">
+              <input type="range" class="custom-range" min="9" max="16" id="maximum_quarter" value="9">
+              <span>Current Value: <span id="quarter_value"></span></span>
             </div>
           </div>
-        </div>
 
-        <div class="requirements">
-          <h4>College and University Requirements:</h4>
-          <div class="card-columns d-flex justify-content-center">
-            <div class="card survey_name">
-              <div class="card-block">
-                <div class="card-header">
-                  Course
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="CTW_1">
-                      <label class="form-check-label" for="CTW_1">
-                        CTW 1
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="CTW_2">
-                      <label class="form-check-label" for="CTW_2">
-                        CTW 2
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Adv_Wrtg">
-                      <label class="form-check-label" for="Adv_Wrtg">
-                        Adv Wrtg
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Ethics">
-                      <label class="form-check-label" for="Ethics">
-                        Ethics
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Diversity">
-                      <label class="form-check-label" for="Diversity">
-                        Diversity
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Arts">
-                      <label class="form-check-label" for="Arts">
-                        Arts
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Language_1">
-                      <label class="form-check-label" for="Language_1">
-                        Language I
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Language_2">
-                      <label class="form-check-label" for="Language_2">
-                        Language II
-                      </label>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+          <div class="card survey_name">
+            <div class="card-header">
+              Maximum units you want to take each quarter
             </div>
-
-            <div class="card survey_name">
-              <div class="card-block">
-                <div class="card-header">
-                  Course
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Natural_Science">
-                      <label class="form-check-label" for="Natural_Science">
-                        Natural Science
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Religion_1">
-                      <label class="form-check-label" for="Religion_1">
-                        Rel Theol Culture I
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Religion_2">
-                      <label class="form-check-label" for="Religion_2">
-                        Rel Theol Culture II
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Religion_3">
-                      <label class="form-check-label" for="Religion_3">
-                        Rel Theol Culture III
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Social_Science">
-                      <label class="form-check-label" for="Social_Science">
-                        Social Science
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Culture_1">
-                      <label class="form-check-label" for="Culture_1">
-                        Culture&Ideas I
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Culture_2">
-                      <label class="form-check-label" for="Culture_2">
-                        Culture&Ideas II
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item"></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="card survey_name">
-              <div class="card-block">
-                <div class="card-header">
-                  Course
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Culture_3">
-                      <label class="form-check-label" for="Culture_3">
-                        Culture&Ideas III
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Civil_Engagement">
-                      <label class="form-check-label" for="Civil_Engagement">
-                        Civic Engag.
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Elective_1">
-                      <label class="form-check-label" for="Elective_1">
-                        Elective
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Elective_2">
-                      <label class="form-check-label" for="Elective_2">
-                        Elective
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Elective_3">
-                      <label class="form-check-label" for="Elective_3">
-                        Elective
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Elective_4">
-                      <label class="form-check-label" for="Elective_4">
-                        Elective
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Elective_5">
-                      <label class="form-check-label" for="Elective_5">
-                        Elective
-                      </label>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="Elective_6">
-                      <label class="form-check-label" for="Elective_6">
-                        (Elective)
-                      </label>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+            <div class="form-group">
+              <input type="range" class="custom-range" min="0" max="25" id="maximum_units" value="0">
+              <span>Current Value: <span id="units_value"></span></span>
             </div>
           </div>
-        </div>
+
+          <div class="card survey_name">
+            <div class="card-header">
+              Do you prefer to take only major/core classes only or all other classes?
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="classPreferences" id="major-core-only" value="option1">
+                  <label class="form-check-label" for="major-core-only">
+                    Major/Core classes only
+                  </label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="classPreferences" id="all-classes" value="option2">
+                  <label class="form-check-label" for="all-classes">
+                    Open to all classes
+                  </label>
+                </div>
+              </li>
+          </div>
+
+          <h3>Please select the classes you have already taken</h3>
+          <p>Link to: <a href="https://ecampus.scu.edu/psp/csprd92/?cmd=login" target="_blank">ecampus</a></p>
+
+          <div class="requirements">
+            <h4>{{ csciMajorReqs.question }}</h4>
+              <div class="card-columns d-flex justify-content-center">
+                {% for column in csciMajorReqs.options %}
+                  <div class="card survey_name">
+                    <div class="card-block">
+                      <div class="card-header">
+                        Course
+                      </div>
+                      <ul class="list-group list-group-flush">
+                        {% for class in column %}
+                          <li class="list-group-item">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="{{ class.id }}">
+                              <label class="form-check-label" for="{{ class.id }}">
+                                {{ class.name }}
+                              </label>
+                            </div>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </h4>
+          </div>
+
+          <div class="requirements">
+            <h4>{{ coreReqs.question }}</h4>
+              <div class="card-columns d-flex justify-content-center">
+                {% for column in coreReqs.options %}
+                  <div class="card survey_name">
+                    <div class="card-block">
+                      <div class="card-header">
+                        Course
+                      </div>
+                      <ul class="list-group list-group-flush">
+                        {% for class in column %}
+                          <li class="list-group-item">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="{{ class.id }}">
+                              <label class="form-check-label" for="{{ class.id }}">
+                                {{ class.name }}
+                              </label>
+                            </div>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </h4>
+          </div>
+
+      <div>
+        <input type="submit" value="Schedule" />
       </div>
-    </div>
-    </div>
-    </div>
-    <div>
-      <button class="btn btn-secondary btn-lg submit_button" type="button" name="button" onclick="location.href='schedule'">Submit</button>
-    </div>
-    </div>
+    </form>
+
   </section>
+<!--
+    <div>
+      <button class="btn btn-secondary btn-lg submit_button" type="button" name="button">
+        <a href="{{ url_for('schedule') }}">Submit</a>
+      </button>
+    </div>
+-->
 </body>
 
 </html>
