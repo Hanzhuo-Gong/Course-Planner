@@ -227,7 +227,13 @@ def survey():
 @app.route("/schedule")
 def schedule():
     emphasis = request.args.get('csciEmphasis')
+    majorClassesTaken = request.args.getlist('csciMajorReqsTaken')
+    coresTaken = request.args.getlist('coreReqsTaken')
+
     print(emphasis)
+    print(majorClassesTaken)
+    print(coresTaken)
+
     return render_template('schedule.html')
 
 # Enable debugging when running

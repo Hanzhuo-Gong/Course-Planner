@@ -58,7 +58,7 @@
                   <li class="list-group-item">
                     <div class="form-check">
                       <input class="form-check-input" type="radio" name="csciEmphasis" id="{{ option.id }}" value="{{ option.id }}">
-                      <label class="form-check-label" for="Algorithms-and-Complexity">
+                      <label class="form-check-label" for="{{ option.id }}">
                         {{ option.name }}
                       </label>
                     </div>
@@ -126,7 +126,7 @@
                         {% for class in column %}
                           <li class="list-group-item">
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="{{ class.id }}">
+                              <input class="form-check-input" type="checkbox" id="{{ class.id }}" name="csciMajorReqsTaken" value="{{ class.id }}">
                               <label class="form-check-label" for="{{ class.id }}">
                                 {{ class.name }}
                               </label>
@@ -154,7 +154,7 @@
                         {% for class in column %}
                           <li class="list-group-item">
                             <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="{{ class.id }}">
+                              <input class="form-check-input" type="checkbox" id="{{ class.id }}" name="coreReqsTaken" value="{{ class.id }}">
                               <label class="form-check-label" for="{{ class.id }}">
                                 {{ class.name }}
                               </label>
