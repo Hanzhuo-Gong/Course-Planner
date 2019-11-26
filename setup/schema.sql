@@ -18,6 +18,7 @@ CREATE TABLE Classes
   CreditGiven INT NOT NULL,
   CreditReq INT NOT NULL,
   HasPrereqs INT NOT NULL,
+  Difficulty INT,
   PRIMARY KEY (CourseID)
 );
 
@@ -46,6 +47,9 @@ CREATE TABLE Student
   StudentID INT NOT NULL,
   Password INT,
   ClassDifficulty INT,
+  NumberOfQuartersTaken INT,
+  TotalQuarters INT,
+  MaxUnitsPerQuarter INT,
   MajorEmphasis VARCHAR(255) NOT NULL,
   PRIMARY KEY (StudentID),
   FOREIGN KEY (MajorEmphasis) REFERENCES MajornEmphasis(MajorName)

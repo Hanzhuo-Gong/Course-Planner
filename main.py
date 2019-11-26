@@ -1,7 +1,18 @@
 from flask import Flask, render_template, request, redirect, url_for
 import json
+import uuid
+import cx_Oracle
 
 app = Flask(__name__)
+
+# Connection not working (DPI-1047)
+'''
+# Connect to Database
+dsn_tns = cx_Oracle.makedsn('dagobah.engr.scu.edu', '1521', service_name='db    11g')
+conn = cx_Oracle.connect(user='jpark3', password='forcsci187', dsn=dsn_tns
+)
+cur = conn.cursor()
+'''
 
 csciEmphases = {
     'question'  : 'Choose your emphasis',
@@ -274,6 +285,7 @@ def survey():
 # Schedule page
 @app.route("/schedule")
 def schedule():
+    studentID = uuid.uuid4()
     emphasis = request.args.get('csciEmphasis')
     # Replace numberOfQuarters and maxUnits values with HTML values
     numberOfQuarters = 12
@@ -282,6 +294,7 @@ def schedule():
     majorClassesTaken = request.args.getlist('csciMajorReqsTaken')
     coresTaken = request.args.getlist('coreReqsTaken')
 
+    print(studentID.int)
     print(emphasis)
     print(classesPreferred)
     print(majorClassesTaken)
