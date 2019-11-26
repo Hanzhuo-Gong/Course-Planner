@@ -42,13 +42,34 @@ bool Class::available(string currentQuarter, int year) {
   return false;
 }
 
-bool Class::feasible() {
+bool Class::feasible(int credits) {
+  if (finished) {
+    cout<<classID<<" is not feasible, it's already been finished."<<endl;
+    return false;
+  }
+
+  if (credits < creditsRequired) {
+    cout<<"Not enough credits, need at least "<<creditsRequired-credits<<" more."<<endl;
+    return false;
+  }
+
   for (int i = 0; i < preRequisiteStates.size(); i++) {
     if (!preRequisiteStates[i]) {
-      cout<<classID<<" is not feasible."<<endl;
+      cout<<classID<<" is not feasible, still need to complete ";
+      for (int j = i ; j < preRequisiteStates.size() ; j ++) {
+        if (!preRequisiteStates[j]) {
+          cout<<preRequisites[j]<<" ";
+        }
+      }
+      cout<<endl;
       return false;
     }
+    // if (finished) {
+    //   cout<<classID<<" is not feasible, it's already been finished."<<endl;
+    //   return false;
+    // }
   }
+
   cout<<classID<<" is feasible."<<endl;
   return true;
 }

@@ -5,12 +5,16 @@ using namespace Schedule;
 int Classes::getClassIndex(string classID) {
   for (int i = 0; i < classes.size(); i++) {
     if (classID == classes[i].getID()) {
-      cout<<classID<<" at index "<<i<<"."<<endl;
+      //cout<<classID<<" at index "<<i<<"."<<endl;
       return i;
     }
   }
-  cout<<classID<<" not found, returned -1."<<endl;
+  //cout<<classID<<" not found, returned -1."<<endl;
   return -1;
+}
+
+int Classes::size() {
+  return classes.size();
 }
 
 bool Classes::getClassState(string classID) {
@@ -24,10 +28,10 @@ bool Classes::getClassState(string classID) {
   }
 }
 
-bool Classes::getClassFeasible(string classID) {
+bool Classes::getClassFeasible(string classID, int credits) {
   int index = getClassIndex(classID);
   if (index!=-1) {
-    return classes[index].feasible();
+    return classes[index].feasible(credits);
   }
   else {
     cout<<"Class not found, returning false."<<endl;
@@ -53,7 +57,7 @@ void Classes::printPreReqs(string classID) {
     classes[index].printPreReqs();
   }
   else {
-    cout<<"Class not found."<<endl;
+    cout<<classID<<" not found."<<endl;
   }
 }
 
@@ -62,9 +66,11 @@ void Classes::insert(Class c) {
 }
 
 void Classes::printClassIDs() {
+  cout<<"The classIDs in here are: ";
   for (int i = 0; i < classes.size(); i++) {
     cout<<classes[i].getID()<<", ";
   }
+  cout<<endl;
 }
 
 void Classes::printDetails(string classID) {
@@ -73,6 +79,6 @@ void Classes::printDetails(string classID) {
     classes[index].printDetails();
   }
   else {
-    cout<<"Class not found."<<endl;
+    cout<<classID<<" not found."<<endl;
   }
 }
