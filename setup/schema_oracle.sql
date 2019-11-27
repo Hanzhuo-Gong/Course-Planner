@@ -1,7 +1,5 @@
-USE sdb_jpark3;
-
-DROP TABLE IF EXISTS MajornEmphasis;
-CREATE TABLE IF NOT EXISTS MajornEmphasis
+DROP TABLE MajornEmphasis;
+CREATE TABLE MajornEmphasis
 (
   MajorName VARCHAR(255) NOT NULL,
   RequiredGPA INT NOT NULL,
@@ -11,8 +9,8 @@ CREATE TABLE IF NOT EXISTS MajornEmphasis
   PRIMARY KEY (MajorName)
 );
 
-DROP TABLE IF EXISTS Classes;
-CREATE TABLE IF NOT EXISTS Classes
+DROP TABLE Classes;
+CREATE TABLE Classes
 (
   CourseName VARCHAR(255) NOT NULL,
   CourseID VARCHAR(255) NOT NULL,
@@ -24,8 +22,8 @@ CREATE TABLE IF NOT EXISTS Classes
   PRIMARY KEY (CourseID)
 );
 
-DROP TABLE IF EXISTS Prereqs;
-CREATE TABLE IF NOT EXISTS Prereqs
+DROP TABLE Prereqs;
+CREATE TABLE Prereqs
 (
   PreReqName VARCHAR(255) NOT NULL,
   CourseID VARCHAR(255) NOT NULL,
@@ -33,8 +31,8 @@ CREATE TABLE IF NOT EXISTS Prereqs
   FOREIGN KEY (CourseID) REFERENCES Classes(CourseID)
 );
 
-DROP TABLE IF EXISTS MajorReqs;
-CREATE TABLE IF NOT EXISTS MajorReqs
+DROP TABLE MajorReqs;
+CREATE TABLE MajorReqs
 (
   CourseID VARCHAR(255) NOT NULL,
   MajorName VARCHAR(255) NOT NULL,
@@ -43,22 +41,22 @@ CREATE TABLE IF NOT EXISTS MajorReqs
   FOREIGN KEY (MajorName) REFERENCES MajornEmphasis(MajorName)
 );
 
-DROP TABLE IF EXISTS Student;
-CREATE TABLE IF NOT EXISTS Student
+DROP TABLE Student;
+CREATE TABLE Student
 (
   StudentID INT NOT NULL,
   Password INT,
   ClassDifficulty INT,
-  QuartersCompleted INT NOT NULL,
-  MaxQuarters INT NOT NULL,
-  MaxUnits INT NOT NULL,
+  NumberOfQuartersTaken INT,
+  TotalQuarters INT,
+  MaxUnitsPerQuarter INT,
   MajorEmphasis VARCHAR(255) NOT NULL,
   PRIMARY KEY (StudentID),
   FOREIGN KEY (MajorEmphasis) REFERENCES MajornEmphasis(MajorName)
 );
 
-DROP TABLE IF EXISTS FourYearPlan;
-CREATE TABLE IF NOT EXISTS FourYearPlan
+DROP TABLE FourYearPlan;
+CREATE TABLE FourYearPlan
 (
   PlanID INT NOT NULL,
   GradDate DATE,
@@ -69,8 +67,8 @@ CREATE TABLE IF NOT EXISTS FourYearPlan
   FOREIGN KEY (StudentID) REFERENCES Student(StudentID)
 );
 
-DROP TABLE IF EXISTS CoursesTaken;
-CREATE TABLE IF NOT EXISTS CoursesTaken
+DROP TABLE CoursesTaken;
+CREATE TABLE CoursesTaken
 (
   CourseID VARCHAR(255) NOT NULL,
   StudentID INT NOT NULL,

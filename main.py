@@ -1,16 +1,36 @@
 from flask import Flask, render_template, request, redirect, url_for
+import sys
 import json
 import uuid
-import cx_Oracle
+import pymysql
 
 app = Flask(__name__)
 
-# Connection not working (DPI-1047)
+# MySQL database information
+MYSQLHOST = 'dbserver.engr.scu.edu'
+MYSQLPORT = 3306
+MYSQLUSER = 'jpark3'
+MYSQLDB = 'sdb_jpark3'
+
 '''
-# Connect to Database
-dsn_tns = cx_Oracle.makedsn('dagobah.engr.scu.edu', '1521', service_name='db    11g')
-conn = cx_Oracle.connect(user='jpark3', password='forcsci187', dsn=dsn_tns
-)
+# Set first command line argument as MySQL database password
+if len(sys.argv) == 2:
+    MYSQLPW = str(sys.argv[1])
+# Otherwise exit program
+else:
+    print("Usage: Enter password for MySQL server as 1st command line argument")
+    sys.exit(1)
+
+# MySQL connection
+print("Connecting to MySQL server...")
+conn = pymysql.connect( MYSQLHOST,
+                        user=MYSQLUSER,
+                        port=MYSQLPORT,
+                        passwd=MYSQLPW,
+                        db=MYSQLDB)
+print("Connected to MySQL server successfully.")
+
+# MySQL cursor for executing queries
 cur = conn.cursor()
 '''
 
@@ -47,7 +67,7 @@ prefersMajorClassesOnly = {
                     {
                       'name':'Open to all classes',
                       'id':'All-classes'
-                    },
+                    }
                   ]
 }
 '''
@@ -270,6 +290,44 @@ def parseFourYearPlanJson(dictFromJson):
     # Code
 ''' 
 
+# Replace dashes with spaces in major and emphasis and then concatenate them
+def concatenateMajorAndEmphasis(major, emphasis):
+    major = replaceDashesWithSpaces(major)
+    emphasis = replaceDashesWithSpaces(emphasis)
+    return major + ", " + emphasis + " Emphasis"
+
+# Replace dashes with spaces in an item
+def replaceDashesWithSpaces(item):
+    return item.replace('-',' ')
+
+# Replace dashes with spaces in a list
+def replaceDashesWithSpacesInList(itemList):
+    returnList = []
+    for item in itemList:
+        returnList.append(replaceDashesWithSpaces(item))
+    return returnList
+
+# Initialize Student INSERT SQL statement
+def initInsertToStudent(studentID, quartersCompleted, maxQuarters, maxUnits, majorAndEmphasis):
+    query = ["INSERT INTO Student (StudentID, QuartersCompleted, MaxQuarters, MaxUnits, MajorEmphasis)"]
+    insertValues = "VALUES (" + str(studentID) + ", " + str(quartersCompleted) + ", " + str(maxQuarters) + ", " + str(maxUnits) + ", " + majorAndEmphasis + ");"
+    query.append(insertValues)
+    return query
+
+# Initialize CoursesTaken INSERT SQL statement
+def initInsertToCoursesTaken(studentID, classes):
+    query = ["INSERT INTO CoursesTaken (CourseID, StudentID)","VALUES"]
+    numberOfClasses = len(classes)
+    for classesIndex in range(numberOfClasses):
+        value = "(" + classes[classesIndex] + ", " + str(studentID) + ")"
+        if classesIndex < numberOfClasses - 1:
+            endOfValue = ","
+        else:
+            endOfValue = ";"
+        value = value + endOfValue
+        query.append(value)
+    return query
+
 # Home page
 @app.route("/")
 @app.route("/index")
@@ -285,20 +343,48 @@ def survey():
 # Schedule page
 @app.route("/schedule")
 def schedule():
+    # Generate student ID
     studentID = uuid.uuid4()
-    emphasis = request.args.get('csciEmphasis')
-    # Replace numberOfQuarters and maxUnits values with HTML values
-    numberOfQuarters = 12
-    maxUnits = 19
-    classesPreferred = request.args.get('classPreferences')
-    majorClassesTaken = request.args.getlist('csciMajorReqsTaken')
-    coresTaken = request.args.getlist('coreReqsTaken')
 
-    print(studentID.int)
-    print(emphasis)
-    print(classesPreferred)
-    print(majorClassesTaken)
-    print(coresTaken)
+    # Get major and emphasis
+    major = "Computer-Science"
+    emphasis = request.args.get('csciEmphasis')
+
+    # Replace numberOfQuarters and maxUnits values with HTML values
+    quartersCompleted = 0
+    maxQuarters = 12
+    maxUnits = 19
+
+    # Preference on major/core classes only
+    classesPreferred = request.args.get('classPreferences')
+
+    # Return to survey page if no emphasis declared
+    if emphasis == None:
+        return render_template('survey.html', csciEmphases=csciEmphases, csciMajorReqs=csciMajorReqs, coreReqs=coreReqs)
+    else:
+        majorAndEmphasis = concatenateMajorAndEmphasis(major, emphasis)
+
+    # Initialize lists, replace dashes in names of classes with spaces
+    majorClassesTaken = replaceDashesWithSpacesInList(request.args.getlist('csciMajorReqsTaken'))
+    coresTaken = replaceDashesWithSpacesInList(request.args.getlist('coreReqsTaken'))
+    allClassesTaken = majorClassesTaken + coresTaken
+
+    # Execute insert commands to MySQL
+    sqlCommands = initInsertToStudent(studentID.int, quartersCompleted, maxQuarters, maxUnits, majorAndEmphasis) + initInsertToCoursesTaken(studentID.int, allClassesTaken)
+#   for line in sqlCommands:
+#       cur.execute(line)
+
+#   # Commit commands to database
+#   conn.commit()
+
+    # Debugging on console log
+    print("Student ID (integer):", studentID.int)
+    print("Major:", majorAndEmphasis)
+    print("Core/major preference:", classesPreferred)
+    print("Major classes taken:", majorClassesTaken)
+    print("Core classes taken:", coresTaken)
+    print("All classes taken:", allClassesTaken)
+    print("SQL commands:", sqlCommands)
 
     return render_template('schedule.html')
 
