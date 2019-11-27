@@ -12,7 +12,6 @@ MYSQLPORT = 3306
 MYSQLUSER = 'jpark3'
 MYSQLDB = 'sdb_jpark3'
 
-'''
 # Set first command line argument as MySQL database password
 if len(sys.argv) == 2:
     MYSQLPW = str(sys.argv[1])
@@ -32,7 +31,6 @@ print("Connected to MySQL server successfully.")
 
 # MySQL cursor for executing queries
 cur = conn.cursor()
-'''
 
 csciEmphases = {
     'question'  : 'Choose your emphasis',
@@ -371,11 +369,11 @@ def schedule():
 
     # Execute insert commands to MySQL
     sqlCommands = initInsertToStudent(studentID.int, quartersCompleted, maxQuarters, maxUnits, majorAndEmphasis) + initInsertToCoursesTaken(studentID.int, allClassesTaken)
-#   for line in sqlCommands:
-#       cur.execute(line)
+    for line in sqlCommands:
+        cur.execute(line)
 
-#   # Commit commands to database
-#   conn.commit()
+    # Commit commands to database
+    conn.commit()
 
     # Debugging on console log
     print("Student ID (integer):", studentID.int)
