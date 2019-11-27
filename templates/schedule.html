@@ -42,198 +42,27 @@
 
   <section id="body">
     <div class="container">
-      <div class="freshman_year">
-        <h2 class="year_title">Freshman</h2>
-        <div class="card-columns d-flex justify-content-center">
-          <div class="card Four-Year-Schedule">
-            <div class="card-block">
-              <div class="card-header">
-                Fall
+      {% for yearDict in fourYearPlan %}
+        <div class="{{ yearDict['year'] }}">
+          <h2 class="year_title">{{ yearDict['year'] }}</h2>
+          <div class="card-columns d-flex justify-content-center">
+            {% for quarterDict in yearDict['yearSchedule'] %}
+              <div class="card Four-Year-Schedule">
+                <div class="card-block">
+                  <div class="card-header">
+                    {{ quarterDict['quarter'] }}
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    {% for classDict in quarterDict['classes'] %}
+                       <li class="list-group-item" id="freshman_fall_course_1">{{ classDict['name'] }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
               </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item" id="freshman_fall_course_1">CSCI 10</li>
-                <li class="list-group-item" id="freshman_fall_course_2">Math 11</li>
-                <li class="list-group-item" id="freshman_fall_course_3">Electives</li>
-                <li class="list-group-item" id="freshman_fall_course_4">Electives</li>
-                <li class="list-group-item" id="freshman_fall_course_5">Electives</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card Four-Year-Schedule">
-            <div class="card-block">
-              <div class="card-header">
-                Winter
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item" id="freshman_winter_course_1">CSCI 60</li>
-                <li class="list-group-item" id="freshman_winter_course_2">Math 12</li>
-                <li class="list-group-item" id="freshman_winter_course_3">Electives</li>
-                <li class="list-group-item" id="freshman_winter_course_4">Electives</li>
-                <li class="list-group-item" id="freshman_winter_course_5">Electives</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card Four-Year-Schedule">
-            <div class="card-block">
-              <div class="card-header">
-                Spring
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item" id="freshman_spring_course_1">CSCI 61</li>
-                <li class="list-group-item" id="freshman_spring_course_2">Math 13</li>
-                <li class="list-group-item" id="freshman_spring_course_3">Electives</li>
-                <li class="list-group-item" id="freshman_spring_course_4">Electives</li>
-                <li class="list-group-item" id="freshman_spring_course_5">Electives</li>
-              </ul>
-            </div>
+            {% endfor %}
           </div>
         </div>
-      </div>
-
-
-      <div class="sophomore_year">
-        <h2>Sophomore</h2>
-        <div class="card-columns d-flex justify-content-center">
-          <div class="card Four-Year-Schedule">
-            <div class="card-block">
-              <div class="card-header">
-                Fall
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item" id="sophomore_fall_course_1">CSCI 169</li>
-                <li class="list-group-item" id="sophomore_fall_course_2">Math 53</li>
-                <li class="list-group-item" id="sophomore_fall_course_3">Electives</li>
-                <li class="list-group-item" id="sophomore_fall_course_4">Electives</li>
-                <li class="list-group-item" id="sophomore_fall_course_5">Electives</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card Four-Year-Schedule">
-            <div class="card-block">
-              <div class="card-header">
-                Winter
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item" id="sophomore_winter_course_1">CSCI 186</li>
-                <li class="list-group-item" id="sophomore_winter_course_2">Math 122</li>
-                <li class="list-group-item" id="sophomore_winter_course_3">Electives</li>
-                <li class="list-group-item" id="sophomore_winter_course_4">Electives</li>
-                <li class="list-group-item" id="sophomore_winter_course_5">Electives</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card Four-Year-Schedule">
-            <div class="card-block">
-              <div class="card-header">
-                Spring
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item" id="sophomore_spring_course_1">CSCI xxx</li>
-                <li class="list-group-item" id="sophomore_spring_course_2">COEN xxx</li>
-                <li class="list-group-item" id="sophomore_spring_course_3">Electives</li>
-                <li class="list-group-item" id="sophomore_spring_course_4">Electives</li>
-                <li class="list-group-item" id="sophomore_spring_course_5">Electives</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="junior_year">
-        <h2>Junior</h2>
-        <div class="card-columns d-flex justify-content-center">
-          <div class="card Four-Year-Schedule">
-            <div class="card-block">
-              <div class="card-header">
-                Fall
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item" id="junior_fall_course_1">CSCI xxx</li>
-                <li class="list-group-item" id="junior_fall_course_2">Math xxx</li>
-                <li class="list-group-item" id="junior_fall_course_3">Electives</li>
-                <li class="list-group-item" id="junior_fall_course_4">Electives</li>
-                <li class="list-group-item" id="junior_fall_course_5">Electives</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card Four-Year-Schedule">
-            <div class="card-block">
-              <div class="card-header">
-                Winter
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item" id="junior_winter_course_1">CSCI xxx</li>
-                <li class="list-group-item" id="junior_winter_course_2">Math xxx</li>
-                <li class="list-group-item" id="junior_winter_course_3">Electives</li>
-                <li class="list-group-item" id="junior_winter_course_4">Electives</li>
-                <li class="list-group-item" id="junior_winter_course_5">Electives</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card Four-Year-Schedule">
-            <div class="card-block">
-              <div class="card-header">
-                Spring
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item" id="junior_spring_course_1">CSCI xxx</li>
-                <li class="list-group-item" id="junior_spring_course_2">COEN xxx</li>
-                <li class="list-group-item" id="junior_spring_course_3">Electives</li>
-                <li class="list-group-item" id="junior_spring_course_4">Electives</li>
-                <li class="list-group-item" id="junior_spring_course_5">Electives</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="senior_year">
-        <h2>Senior</h2>
-        <div class="card-columns d-flex justify-content-center">
-          <div class="card Four-Year-Schedule">
-            <div class="card-block">
-              <div class="card-header">
-                Fall
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item" id="senior_fall_course_1">CSCI xxx</li>
-                <li class="list-group-item" id="senior_fall_course_2">Math xxx</li>
-                <li class="list-group-item" id="senior_fall_course_3">Electives</li>
-                <li class="list-group-item" id="senior_fall_course_4">Electives</li>
-                <li class="list-group-item" id="senior_fall_course_5">Electives</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card Four-Year-Schedule">
-            <div class="card-block">
-              <div class="card-header">
-                Winter
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item" id="senior_winter_course_1">CSCI xxx</li>
-                <li class="list-group-item" id="senior_winter_course_2">Math xxx</li>
-                <li class="list-group-item" id="senior_winter_course_3">Electives</li>
-                <li class="list-group-item" id="senior_winter_course_4">Electives</li>
-                <li class="list-group-item" id="senior_winter_course_5">Electives</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card Four-Year-Schedule">
-            <div class="card-block">
-              <div class="card-header">
-                Spring
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item" id="senior_spring_course_1">CSCI xxx</li>
-                <li class="list-group-item" id="senior_spring_course_2">COEN xxx</li>
-                <li class="list-group-item" id="senior_spring_course_3">Electives</li>
-                <li class="list-group-item" id="senior_spring_course_4">Electives</li>
-                <li class="list-group-item" id="senior_spring_course_5">Electives</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
       <div>
         <button class="btn btn-secondary btn-lg save_button" type="button" name="button">Save</button>
       </div>

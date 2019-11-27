@@ -377,6 +377,10 @@ def schedule():
 #   # Commit commands to database
 #   conn.commit()
 
+    # Open 4-year-plan json from algorithm
+    # Using sample plan json for now
+    fourYearPlan = getJson('FourYearPlan.json')
+
     # Debugging on console log
     print("Student ID (integer):", studentID.int)
     print("Major:", majorAndEmphasis)
@@ -386,7 +390,7 @@ def schedule():
     print("All classes taken:", allClassesTaken)
     print("SQL commands:", sqlCommands)
 
-    return render_template('schedule.html')
+    return render_template('schedule.html', fourYearPlan=fourYearPlan)
 
 # Enable debugging when running
 if __name__ == '__main__':
