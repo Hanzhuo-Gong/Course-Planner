@@ -326,7 +326,7 @@ def schedule():
     # Generate random student ID
     # Currently only serves as an identifier for data entry
     # No identifier uniqueness check currently implemented
-    studentID = random.randint(1000000000,1999999999)
+    studentID = random.randint(-1999999999,-1000000000)
     print("Student ID (integer):", studentID)
 
     # Get major and emphasis
