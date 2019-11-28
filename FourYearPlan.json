@@ -9,7 +9,7 @@
             "name": "CSCI 10 & L",
             "prereqs": null,
             "units": 5,
-            "satifies": [
+            "satisfies": [
               "Major",
               "Science, Technology, & Society"
             ]
@@ -18,7 +18,7 @@
             "name": "MATH 11",
             "prereqs": null,
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "Major",
               "Mathematics"
             ]
@@ -27,7 +27,7 @@
             "name": "CTW 1",
             "prereqs": null,
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "CTW 1"
             ]
           },
@@ -35,7 +35,7 @@
             "name": "Cultures & Ideas 1",
             "prereqs": null,
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "Cultures & Ideas 1"
             ]
           }
@@ -50,7 +50,7 @@
               "CSCI 10 & L"
             ],
             "units": 5,
-            "satifies": [
+            "satisfies": [
               "Major"
             ]
           },
@@ -58,7 +58,7 @@
             "name": "MATH 12",
             "prereqs": null,
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "Major"
             ]
           },
@@ -68,7 +68,7 @@
               "Cultures & Ideas 1"
             ],
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "Cultures & Ideas 2"
             ]
           },
@@ -76,7 +76,7 @@
             "name": "Natural Science",
             "prereqs": null,
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "Natural Science"
             ]
           }
@@ -91,7 +91,7 @@
               "CSCI 60 & L"
             ],
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "Major"
             ]
           },
@@ -101,7 +101,7 @@
               "MATH 12"
             ],
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "Major"
             ]
           },
@@ -111,7 +111,7 @@
               "CTW 1"
             ],
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "CTW 2"
             ]
           },
@@ -119,7 +119,7 @@
             "name": "Elective",
             "prereqs": null,
             "units": 4,
-            "satifies": null
+            "satisfies": null
           }
         ]
       }
@@ -137,7 +137,7 @@
               "MATH 13"
             ],
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "Major"
             ]
           },
@@ -147,7 +147,7 @@
               "MATH 13"
             ],
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "Major"
             ]
           },
@@ -155,7 +155,7 @@
             "name": "Diversity",
             "prereqs": null,
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "Diversity"
             ]
           },
@@ -163,7 +163,7 @@
             "name": "RTC 1",
             "prereqs": null,
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "RTC 1"
             ]
           }
@@ -178,7 +178,7 @@
               "CSCI 60 & L"
             ],
             "units": 5,
-            "satifies": [
+            "satisfies": [
               "Major"
             ]
           },
@@ -188,7 +188,7 @@
               "MATH 14"
             ],
             "units": 5,
-            "satifies": [
+            "satisfies": [
               "Major"
             ]
           },
@@ -196,7 +196,7 @@
             "name": "Social Science",
             "prereqs": null,
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "Social Science"
             ]
           },
@@ -206,7 +206,7 @@
               "RTC 1"
             ],
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "RTC 2"
             ]
           }
@@ -222,7 +222,7 @@
               "MATH 51"
             ],
             "units": 5,
-            "satifies": [
+            "satisfies": [
               "Major"
             ]
           },
@@ -232,7 +232,7 @@
               "MATH 13"
             ],
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "Major"
             ]
           },
@@ -240,7 +240,7 @@
             "name": "Arts",
             "prereqs": null,
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "Arts"
             ]
           },
@@ -250,7 +250,7 @@
               "Elective"
             ],
             "units": 4,
-            "satifies": null
+            "satisfies": null
           }
         ]
       }
@@ -268,7 +268,7 @@
               "COEN 20 & L"
             ],
             "units": 5,
-            "satifies": [
+            "satisfies": [
               "Major"
             ]
           },
@@ -276,7 +276,7 @@
             "name": "Civic Engagement",
             "prereqs": null,
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "Civic Engagement"
             ]
           },
@@ -284,7 +284,7 @@
             "name": "Language 1",
             "prereqs": null,
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "Language 1"
             ]
           },
@@ -292,7 +292,7 @@
             "name": "Advanced Writing",
             "prereqs": null,
             "units": 5,
-            "satifies": [
+            "satisfies": [
               "Advanced Writing"
             ]
           }
@@ -305,7 +305,7 @@
             "name": "MATH 178",
             "prereqs": null,
             "units": 5,
-            "satifies": [
+            "satisfies": [
               "Major"
             ]
           },
@@ -313,7 +313,7 @@
             "name": "COEN 21 & L",
             "prereqs": null,
             "units": 5,
-            "satifies": [
+            "satisfies": [
               "Major"
             ]
           },
@@ -323,7 +323,7 @@
               "Language 1"
             ],
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "Language 2"
             ]
           },
@@ -331,7 +331,7 @@
             "name": "Elective",
             "prereqs": null,
             "units": 4,
-            "satifies": null
+            "satisfies": null
           }
         ]
       },
@@ -344,7 +344,7 @@
               "MATH 178"
             ],
             "units": 5,
-            "satifies": [
+            "satisfies": [
               "Major"
             ]
           },
@@ -352,7 +352,7 @@
             "name": "Ethics",
             "prereqs": null,
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "Ethics"
             ]
           },
@@ -362,7 +362,7 @@
               "Cultures & Ideas 2"
             ],
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "Cultures & Ideas 3"
             ]
           },
@@ -370,7 +370,7 @@
             "name": "Elective",
             "prereqs": null,
             "units": 4,
-            "satifies": null
+            "satisfies": null
           }
         ]
       }
@@ -388,7 +388,7 @@
               "MATH 51"
             ],
             "units": 5,
-            "satifies": [
+            "satisfies": [
               "Major"
             ]
           },
@@ -398,7 +398,7 @@
               "COEN 20 & L"
             ],
             "units": 5,
-            "satifies": [
+            "satisfies": [
               "Major"
             ]
           },
@@ -408,7 +408,7 @@
               "RTC 2"
             ],
             "units": 5,
-            "satifies": [
+            "satisfies": [
               "RTC 3"
             ]
           },
@@ -416,7 +416,7 @@
             "name": "Elective",
             "prereqs": null,
             "units": 4,
-            "satifies": null
+            "satisfies": null
           }
         ]
       },
@@ -429,7 +429,7 @@
               "CSCI 61"
             ],
             "units": 5,
-            "satifies": [
+            "satisfies": [
               "Major"
             ]
           },
@@ -437,7 +437,7 @@
             "name": "ELSJ",
             "prereqs": null,
             "units": 4,
-            "satifies": [
+            "satisfies": [
               "ELSJ"
             ]
           },
@@ -445,13 +445,13 @@
             "name": "Elective",
             "prereqs": null,
             "units": 4,
-            "satifies": null
+            "satisfies": null
           },
           {
             "name": "Elective",
             "prereqs": null,
             "units": 4,
-            "satifies": null
+            "satisfies": null
           }
         ]
       },
@@ -464,7 +464,7 @@
               "CSCI 61"
             ],
             "units": 5,
-            "satifies": [
+            "satisfies": [
               "Major"
             ]
           },
@@ -472,19 +472,19 @@
             "name": "Elective",
             "prereqs": null,
             "units": 4,
-            "satifies": null
+            "satisfies": null
           },
           {
             "name": "Elective",
             "prereqs": null,
             "units": 4,
-            "satifies": null
+            "satisfies": null
           },
           {
             "name": "Elective",
             "prereqs": null,
             "units": 4,
-            "satifies": null
+            "satisfies": null
           }
         ]
       }
