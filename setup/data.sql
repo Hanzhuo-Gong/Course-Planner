@@ -1,4 +1,4 @@
-USE sdb_jpark3;
+USE GYTE3BoCBP;
 
 DELETE FROM MajornEmphasis;
 INSERT INTO MajornEmphasis

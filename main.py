@@ -1,38 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for
 import sys
 import json
-import uuid
+import random
 import pymysql
 
 app = Flask(__name__)
-
-# MySQL database information
-MYSQLHOST = 'dbserver.engr.scu.edu'
-MYSQLPORT = 3306
-MYSQLUSER = 'jpark3'
-MYSQLDB = 'sdb_jpark3'
-
-'''
-# Set first command line argument as MySQL database password
-if len(sys.argv) == 2:
-    MYSQLPW = str(sys.argv[1])
-# Otherwise exit program
-else:
-    print("Usage: Enter password for MySQL server as 1st command line argument")
-    sys.exit(1)
-
-# MySQL connection
-print("Connecting to MySQL server...")
-conn = pymysql.connect( MYSQLHOST,
-                        user=MYSQLUSER,
-                        port=MYSQLPORT,
-                        passwd=MYSQLPW,
-                        db=MYSQLDB)
-print("Connected to MySQL server successfully.")
-
-# MySQL cursor for executing queries
-cur = conn.cursor()
-'''
 
 csciEmphases = {
     'question'  : 'Choose your emphasis',
@@ -276,9 +248,9 @@ coreReqs = {
                   ]
 }
 
-print(csciEmphases)
-print(csciMajorReqs)
-print(coreReqs)
+#print(csciEmphases)
+#print(csciMajorReqs)
+#print(coreReqs)
 
 def getJson(jsonFileName):
     with open(jsonFileName, 'r') as data_f:
@@ -308,23 +280,11 @@ def replaceDashesWithSpacesInList(itemList):
     return returnList
 
 # Initialize Student INSERT SQL statement
-def initInsertToStudent(studentID, quartersCompleted, maxQuarters, maxUnits, majorAndEmphasis):
-    query = ["INSERT INTO Student (StudentID, QuartersCompleted, MaxQuarters, MaxUnits, MajorEmphasis)"]
-    insertValues = "VALUES (" + str(studentID) + ", " + str(quartersCompleted) + ", " + str(maxQuarters) + ", " + str(maxUnits) + ", " + majorAndEmphasis + ");"
-    query.append(insertValues)
-    return query
-
-# Initialize CoursesTaken INSERT SQL statement
-def initInsertToCoursesTaken(studentID, classes):
-    query = ["INSERT INTO CoursesTaken (CourseID, StudentID)","VALUES"]
+def sqlFromSurvey(studentID, quartersCompleted, maxQuarters, maxUnits, majorAndEmphasis, classes):
+    query = ["INSERT INTO Student (StudentID, QuartersCompleted, MaxQuarters, MaxUnits, MajorEmphasis) VALUES (" + str(studentID) + ", " + str(quartersCompleted) + ", " + str(maxQuarters) + ", " + str(maxUnits) + ", \'" + majorAndEmphasis + "\');"]
     numberOfClasses = len(classes)
     for classesIndex in range(numberOfClasses):
-        value = "(" + classes[classesIndex] + ", " + str(studentID) + ")"
-        if classesIndex < numberOfClasses - 1:
-            endOfValue = ","
-        else:
-            endOfValue = ";"
-        value = value + endOfValue
+        value = "INSERT INTO CoursesTaken (CourseID, StudentID) VALUES (\'" + classes[classesIndex] + "\', " + str(studentID) + ");"
         query.append(value)
     return query
 
@@ -343,8 +303,31 @@ def survey():
 # Schedule page
 @app.route("/schedule")
 def schedule():
-    # Generate student ID
-    studentID = uuid.uuid4()
+    # MySQL database information
+    MYSQLHOST = 'remotemysql.com'
+    MYSQLPORT = 3306
+    MYSQLUSER = 'GYTE3BoCBP'
+    MYSQLDB = 'GYTE3BoCBP'
+    MYSQLPW = '27v0MR70aB'
+
+    # MySQL connection
+    print("Connecting to MySQL server...")
+    conn = pymysql.connect( MYSQLHOST,
+                            user=MYSQLUSER,
+                            port=MYSQLPORT,
+                            passwd=MYSQLPW,
+                            db=MYSQLDB)
+    print("Connected to MySQL server successfully.")
+
+    # MySQL cursor for executing queries
+    cur = conn.cursor()
+    print("Cursor initiated")
+
+    # Generate random student ID
+    # Currently only serves as an identifier for data entry
+    # No identifier uniqueness check currently implemented
+    studentID = random.randint(1000000000,1999999999)
+    print("Student ID (integer):", studentID)
 
     # Get major and emphasis
     major = "Computer-Science"
@@ -359,36 +342,43 @@ def schedule():
     classesPreferred = request.args.get('classPreferences')
 
     # Return to survey page if no emphasis declared
+    # No error message is displayed currently
     if emphasis == None:
         return render_template('survey.html', csciEmphases=csciEmphases, csciMajorReqs=csciMajorReqs, coreReqs=coreReqs)
     else:
         majorAndEmphasis = concatenateMajorAndEmphasis(major, emphasis)
 
+    print("Major:", majorAndEmphasis)
+    print("Core/major preference:", classesPreferred)
+
     # Initialize lists, replace dashes in names of classes with spaces
     majorClassesTaken = replaceDashesWithSpacesInList(request.args.getlist('csciMajorReqsTaken'))
     coresTaken = replaceDashesWithSpacesInList(request.args.getlist('coreReqsTaken'))
     allClassesTaken = majorClassesTaken + coresTaken
+    print("\nAll classes taken:")
+    for aClass in allClassesTaken:
+        print(aClass)
 
     # Execute insert commands to MySQL
-    sqlCommands = initInsertToStudent(studentID.int, quartersCompleted, maxQuarters, maxUnits, majorAndEmphasis) + initInsertToCoursesTaken(studentID.int, allClassesTaken)
-#   for line in sqlCommands:
-#       cur.execute(line)
+    sqlCommands = sqlFromSurvey(studentID, quartersCompleted, maxQuarters, maxUnits, majorAndEmphasis, allClassesTaken)
+    print("\nSQL commands:")
+    for sqlCommand in sqlCommands:
+        print(sqlCommand)
+        cur.execute(sqlCommand)
 
-#   # Commit commands to database
-#   conn.commit()
+    # Commit commands to database
+    conn.commit()
+    print("\nSQL commands committed to database")
 
     # Open 4-year-plan json from algorithm
     # Using sample plan json for now
     fourYearPlan = getJson('FourYearPlan.json')
 
-    # Debugging on console log
-    print("Student ID (integer):", studentID.int)
-    print("Major:", majorAndEmphasis)
-    print("Core/major preference:", classesPreferred)
-    print("Major classes taken:", majorClassesTaken)
-    print("Core classes taken:", coresTaken)
-    print("All classes taken:", allClassesTaken)
-    print("SQL commands:", sqlCommands)
+    # Close connection to database
+    cur.close()
+    print("Cursor closed.")
+    conn.close()
+    print("Connection to database closed.")
 
     return render_template('schedule.html', fourYearPlan=fourYearPlan)
 
