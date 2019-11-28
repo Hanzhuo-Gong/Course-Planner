@@ -1,0 +1,119 @@
+{
+  "question":"Department Requirements",
+  "options":[
+    [
+      {
+        "name":"CSCI 10 and L",
+        "id":"CSCI-10-and-L"
+      },
+      {
+        "name":"CSCI 60 and L",
+        "id":"CSCI-60-and-L"
+      },
+      {
+        "name":"CSCI 61",
+        "id":"CSCI-61"
+      },
+      {
+        "name":"MATH 11",
+        "id":"MATH-11"
+      },
+      {
+        "name":"MATH 12",
+        "id":"MATH-12"
+      },
+      {
+        "name":"MATH 13",
+        "id":"MATH-13"
+      },
+      {
+        "name":"MATH 14",
+        "id":"MATH-14"
+      },
+      {
+        "name":"MATH 51",
+        "id":"MATH-51"
+      },
+      {
+        "name":"MATH 53",
+        "id":"MATH-53"
+      }
+    ],
+    [
+      {
+        "name":"COEN 20 and L",
+        "id":"COEN-20-and-L"
+      },
+      {
+        "name":"COEN 21 and L",
+        "id":"COEN-21-and-L"
+      },
+      {
+        "name":"MATH 122",
+        "id":"MATH-122"
+      },
+      {
+        "name":"CSCI 161",
+        "id":"CSCI-161"
+      },
+      {
+        "name":"CSCI 163A",
+        "id":"CSCI-163A"
+      },
+      {
+        "name":"COEN 177 and L",
+        "id":"COEN-177-and-L"
+      },
+      {
+        "name":"CSCI 162 (Algorithms and Complexity)",
+        "id":"CSCI-162"
+      },
+      {
+        "name":"CSCI 163B (Algorithms and Complexity)",
+        "id":"CSCI-163B"
+      },
+      {
+        "name":"MATH 177 (Algorithms and Complexity)",
+        "id":"MATH-177"
+      }
+    ],
+    [
+      {
+        "name":"CSCI 183 (Data Science)",
+        "id":"CSCI-183"
+      },
+      {
+        "name":"CSCI 184 (Data Science)",
+        "id":"CSCI-184"
+      },
+      {
+        "name":"MATH 123 (Data Science)",
+        "id":"MATH-123"
+      },
+      {
+        "name":"CSCI 169 (Software)",
+        "id":"CSCI-169"
+      },
+      {
+        "name":"CSCI 187 (Software)",
+        "id":"CSCI-187"
+      },
+      {
+        "name":"COEN 146 and L (Software)",
+        "id":"COEN-146-and-L"
+      },
+      {
+        "name":"CSCI 180 (Security)",
+        "id":"CSCI-180"
+      },
+      {
+        "name":"MATH 178 (Security)",
+        "id":"MATH-178"
+      },
+      {
+        "name":"CSCI 181 (Security)",
+        "id":"CSCI-181"
+      }
+    ]
+  ]
+}

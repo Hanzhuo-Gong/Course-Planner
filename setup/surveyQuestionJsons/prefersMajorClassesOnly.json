@@ -1,0 +1,13 @@
+{
+  "question" : "Do you prefer to take only major/core classes only or all     other classes?",
+  "options" : [
+    {
+      "name":"Major/Core classes only", 
+      "id":"Major-Core-Classes-Only"
+    },
+    {
+      "name":"Open to all classes",
+      "id":"All-classes"
+    }
+  ]
+}

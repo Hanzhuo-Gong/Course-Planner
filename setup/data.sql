@@ -1,4 +1,4 @@
-USE GYTE3BoCBP;
+USE PlanToGrad;
 
 DELETE FROM MajornEmphasis;
 INSERT INTO MajornEmphasis
@@ -37,6 +37,13 @@ VALUES
   175,
   5,
   20
+),
+(
+  'Core',
+  0,
+  0,
+  0,
+  0
 );
 
 DELETE FROM Classes;
@@ -544,7 +551,7 @@ VALUES
   'FWS',
   4,
   0,
-  0
+  1
 ),
 (
   'Advanced Writing',
@@ -552,7 +559,7 @@ VALUES
   'FWS',
   5,
   0,
-  0
+  1
 ),
 (
   'Ethics',
@@ -592,7 +599,7 @@ VALUES
   'FWS',
   4,
   0,
-  0
+  1
 ),
 (
   'Natural Science',
@@ -616,15 +623,15 @@ VALUES
   'FWS',
   4,
   0,
-  0
+  1
 ),
 (
   'RTC 3',
   'RTC 3',
   'FWS',
   5,
-  0,
-  0
+  88,
+  1
 ),
 (
   'Social Science',
@@ -648,7 +655,7 @@ VALUES
   'FWS',
   4,
   0,
-  0
+  1
 ),
 (
   'Culture and Ideas 3',
@@ -656,7 +663,7 @@ VALUES
   'FWS',
   4,
   0,
-  0
+  1
 ),
 (
   'Civic Engagement',
@@ -937,6 +944,34 @@ VALUES
 (
   'MATH 51',
   'MATH 52'
+),
+(
+  'Language 1',
+  'Language 2'
+),
+(
+  'RTC 1',
+  'RTC 2'
+),
+(
+  'RTC 2',
+  'RTC 3'
+),
+(
+  'Culture and Ideas 1',
+  'Culture and Ideas 2'
+),
+(
+  'Culture and Ideas 2',
+  'Culture and Ideas 3'
+),
+(
+  'CTW 1',
+  'CTW 2'
+),
+(
+  'CTW 2',
+  'Advanced Writing'
 );
 
 DELETE FROM MajorReqs;
@@ -1233,4 +1268,76 @@ VALUES
 (
   'CSCI 181',
   'Computer Science, Security Emphasis'
+),
+(
+  'CTW 1',
+  'Core'
+),
+(
+  'CTW 2',
+  'Core'
+),
+(
+  'Advanced Writing',
+  'Core'
+),
+(
+  'Ethics',
+  'Core'
+),
+(
+  'Diversity',
+  'Core'
+),
+(
+  'Arts',
+  'Core'
+),
+(
+  'Language 1',
+  'Core'
+),
+(
+  'Language 2',
+  'Core'
+),
+(
+  'Natural Science',
+  'Core'
+),
+(
+  'RTC 1',
+  'Core'
+),
+(
+  'RTC 2',
+  'Core'
+),
+(
+  'RTC 3',
+  'Core'
+),
+(
+  'Social Science',
+  'Core'
+),
+(
+  'Culture and Ideas 1',
+  'Core'
+),
+(
+  'Culture and Ideas 2',
+  'Core'
+),
+(
+  'Culture and Ideas 3',
+  'Core'
+),
+(
+  'Civic Engagement',
+  'Core'
+),
+(
+  'ELSJ',
+  'Core'
 );
