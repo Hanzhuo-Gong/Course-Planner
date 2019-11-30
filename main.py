@@ -264,29 +264,68 @@ def parseFourYearPlanJson(dictFromJson):
 
 # Replace dashes with spaces in major and emphasis and then concatenate them
 def concatenateMajorAndEmphasis(major, emphasis):
-    major = replaceDashesWithSpaces(major)
-    emphasis = replaceDashesWithSpaces(emphasis)
-    return major + ", " + emphasis + " Emphasis"
+    try:
+        major = replaceDashesWithSpaces(major)
+        emphasis = replaceDashesWithSpaces(emphasis)
+        return major + ", " + emphasis + " Emphasis"
+    except:
+        raise TypeError("Major and emphasis could not be concatenated")
 
 # Replace dashes with spaces in an item
 def replaceDashesWithSpaces(item):
-    return item.replace('-',' ')
+    try:
+        return item.replace('-',' ')
+    except:
+        print("Dashes of item could not be replaced")
+        return item
 
 # Replace dashes with spaces in a list
 def replaceDashesWithSpacesInList(itemList):
-    returnList = []
-    for item in itemList:
-        returnList.append(replaceDashesWithSpaces(item))
-    return returnList
+    try:
+        returnList = []
+        for item in itemList:
+            returnList.append(replaceDashesWithSpaces(item))
+        return returnList
+    except:
+        print("Could not replace dashes with spaces in list")
+        return itemList
 
 # Initialize Student INSERT SQL statement
 def sqlFromSurvey(studentID, quartersCompleted, maxQuarters, maxUnits, majorAndEmphasis, classes):
-    query = ["INSERT INTO Student (StudentID, QuartersCompleted, MaxQuarters, MaxUnits, MajorEmphasis) VALUES (" + str(studentID) + ", " + str(quartersCompleted) + ", " + str(maxQuarters) + ", " + str(maxUnits) + ", \'" + majorAndEmphasis + "\');"]
-    numberOfClasses = len(classes)
-    for classesIndex in range(numberOfClasses):
-        value = "INSERT INTO CoursesTaken (CourseID, StudentID) VALUES (\'" + classes[classesIndex] + "\', " + str(studentID) + ");"
-        query.append(value)
-    return query
+    try:
+        query = ["INSERT INTO Student (StudentID, QuartersCompleted, MaxQuarters, MaxUnits, MajorEmphasis) VALUES (" + str(studentID) + ", " + str(quartersCompleted) + ", " + str(maxQuarters) + ", " + str(maxUnits) + ", \'" + majorAndEmphasis + "\');"]
+        numberOfClasses = len(classes)
+        for classesIndex in range(numberOfClasses):
+            value = "INSERT INTO CoursesTaken (CourseID, StudentID) VALUES (\'" + classes[classesIndex] + "\', " + str(studentID) + ");"
+            query.append(value)
+        return query
+    except:
+        raise Exception("Could not generate SQL INSERT INTO statements")
+
+def getMysqlConn():
+    try:
+        # MySQL database information
+        MYSQLHOST = 'remotemysql.com'
+        MYSQLPORT = 3306
+        MYSQLUSER = 'GYTE3BoCBP'
+        MYSQLDB = 'GYTE3BoCBP'
+        MYSQLPW = '27v0MR70aB'
+
+        # MySQL connection
+        print("Connecting to MySQL server...")
+        conn = pymysql.connect( MYSQLHOST,
+                                user=MYSQLUSER,
+                                port=MYSQLPORT,
+                                passwd=MYSQLPW,
+                                db=MYSQLDB)
+        print("Connected to MySQL server successfully.")
+
+        # MySQL cursor for executing queries
+        cur = conn.cursor()
+        print("Cursor initiated")
+        return [conn, cur]
+    except:
+        raise Exception("Could not connect to MySQL server.")
 
 # Home page
 @app.route("/")
@@ -303,25 +342,10 @@ def survey():
 # Schedule page
 @app.route("/schedule")
 def schedule():
-    # MySQL database information
-    MYSQLHOST = 'remotemysql.com'
-    MYSQLPORT = 3306
-    MYSQLUSER = 'GYTE3BoCBP'
-    MYSQLDB = 'GYTE3BoCBP'
-    MYSQLPW = '27v0MR70aB'
-
-    # MySQL connection
-    print("Connecting to MySQL server...")
-    conn = pymysql.connect( MYSQLHOST,
-                            user=MYSQLUSER,
-                            port=MYSQLPORT,
-                            passwd=MYSQLPW,
-                            db=MYSQLDB)
-    print("Connected to MySQL server successfully.")
-
-    # MySQL cursor for executing queries
-    cur = conn.cursor()
-    print("Cursor initiated")
+    # Connect to MySQL
+    db = getMysqlConn()
+    conn = db[0]
+    cur = db[1]
 
     # Generate random student ID
     # Currently only serves as an identifier for data entry
