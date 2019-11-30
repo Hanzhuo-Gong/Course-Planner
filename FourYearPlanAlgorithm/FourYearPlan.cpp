@@ -166,37 +166,61 @@ void FourYearPlan::jsonPrint() {
   string quarters[3] = {"Fall", "Winter", "Spring"};
   int quarter = 0 ;
   cout<<"["<<endl; //0 tabs
-  cout<<" {"<<endl; //1 tab
-  for (int i = 0 ; i < 4 ; i ++) {
-    cout<<"   \"year\": \""<<years[i]<<"\","<<endl; //2 tabs
-    cout<<"   \"yearSchedule\": ["<<endl;
-    cout<<"     {"<<endl; // 3 tabs
-    for (int j = 0 ; j < 3 ; j ++) {
-      cout<<"       \"quarter\": \""<<quarters[j]<<"\","<<endl; // 4 tabs
-      cout<<"       \"classes\": ["<<endl;
-      for (int k = 0 ; k < 4 ; k++) {
-        cout<<"         {"<<endl; //5 tabs
-        cout<<"           \"name\": \""<<plan[k][quarter].getName()<<"\","<<endl; //6 tabs
-        cout<<"           \"prereqs\": ";
+  int numberOfYears = 4;
+  for (int i = 0 ; i < numberOfYears ; i ++) {
+    cout<<"  {"<<endl; //1 tab
+    cout<<"    \"year\": \""<<years[i]<<"\","<<endl; //2 tabs
+    cout<<"    \"yearSchedule\": ["<<endl;
+    int numberOfQuarters = 3;
+    for (int j = 0 ; j < numberOfQuarters ; j ++) {
+      cout<<"      {"<<endl; // 3 tabs
+      cout<<"        \"quarter\": \""<<quarters[j]<<"\","<<endl; // 4 tabs
+      cout<<"        \"classes\": ["<<endl;
+      int numberOfClasses = 4;
+      for (int k = 0 ; k < numberOfClasses ; k++) {
+        cout<<"          {"<<endl; //5 tabs
+        cout<<"            \"name\": \""<<plan[k][quarter].getName()<<"\","<<endl; //6 tabs
+        cout<<"            \"prereqs\": ";
         if (plan[k][quarter].preReqs.empty()) {
           cout<<"null"<<endl;;
         }
         else {
           cout<<"["<<endl;
           for (int l = 0 ; l < plan[k][quarter].preReqs.size() ; l++) {
-            cout<<"               \""<<plan[k][quarter].preReqs[l]<<"\","<<endl;
+            cout<<"                \""<<plan[k][quarter].preReqs[l]<<"\","<<endl;
           }
-          cout<<"           ],"<<endl;
+          cout<<"            ],"<<endl;
         }
-        cout<<"           \"units\": "<<plan[k][quarter].getCredits()<<","<<endl;
-        cout<<"         },"<<endl; //5 tabs
+        cout<<"            \"units\": "<<plan[k][quarter].getCredits()/*<<","*/<<endl;
+        string endOfClassObject;
+        if (k + 1 < numberOfClasses) {
+          endOfClassObject = "          },";
+        }
+        else {
+          endOfClassObject = "          }";
+        }
+        cout<<endOfClassObject<<endl; //5 tabs
       }
-      cout<<"       ]"<<endl; //4 tabs
+      cout<<"        ]"<<endl; //4 tabs
+      string endOfQuarterObject;
+      if (j + 1 < numberOfQuarters) {
+        endOfQuarterObject = "      },";
+      }
+      else {
+        endOfQuarterObject = "      }";
+      }
+      cout<<endOfQuarterObject<<endl; //3 tabs
       quarter++;
     }
-    cout<<"     }"<<endl; //3 tabs
-    cout<<"   ]"<<endl; //2 tabs
+    cout<<"    ]"<<endl; //2 tabs
+    string endOfYearObject;
+    if (i + 1 < numberOfYears) {
+      endOfYearObject = "  },";
+    }
+    else {
+      endOfYearObject = "  }";
+    }
+    cout<<endOfYearObject<<endl; //1 tab
   }
-  cout<<" }"<<endl; //1 tab
   cout<<"]"<<endl; //0 tabs
 }
