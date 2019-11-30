@@ -13,6 +13,8 @@ public:
   void pushPreReq(string cID);
   bool available(string q, int year);
   string getID();
+  string getName();
+  string getSubject();
   string getQuarters();
   int getCredits();
   void printDetails();

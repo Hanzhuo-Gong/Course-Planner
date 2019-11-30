@@ -1,31 +1,27 @@
 #include "FourYearPlan.h"
 
 int main() {
+
+  //declare all classes as scuClass first
+
   scuClass CS10 ("CS10", "Intro to Computer Science", "Computer Science", "FWS", 5);
-  //CS10.printDetails();
 
   scuClass CS60 ("CS60", "Object-Oriented Programming", "Computer Science",  "WS", 5);
-  CS60.pushPreReq("CS10");
-  //CS60.printDetails();
+  CS60.pushPreReq("CS10"); //push a prereq by classID only, not actual scuClass
 
   scuClass CS61 ("CS61", "Data Structures", "Computer Science", "FS", 5);
   CS61.pushPreReq("CS60");
-  //CS61.printDetails();
 
   scuClass MATH11 ("MATH11", "Calculus and Analytic Geometry I", "Math", "FWS", 5);
-  //MATH11.printDetails();
 
   scuClass MATH12 ("MATH12", "Calculus and Analytic Geometry II", "Math", "FWS", 5);
   MATH12.pushPreReq("MATH11");
-  //MATH12.printDetails();
 
   scuClass MATH13 ("MATH13", "Calculus and Analytic Geometry III", "Math", "FWS", 5);
   MATH13.pushPreReq("MATH12");
-  //MATH13.printDetails();
 
   scuClass MATH14 ("MATH14", "Calculus and Analytic Geometry IV", "Math", "FWS", 5);
   MATH14.pushPreReq("MATH13");
-  //MATH14.printDetails();
 
   scuClass COEN20 ("COEN20", "Intro to Embedded Systems", "Computer Engineering", "FWS", 5);
   COEN20.pushPreReq("CS60");
@@ -43,12 +39,11 @@ int main() {
   scuClass CS163A ("CS163A", "Theory of Algorithms", "Computer Science", "FWS", 5);
   CS163A.pushPreReq("MATH51");
   CS163A.pushPreReq("CS61");
-  //CS163A.printDetails();
 
   scuClass MATH122 ("MATH122", "Probability and Statistics 1", "Math", "FW", 5);
   MATH122.pushPreReq("MATH14");
 
-  HashMap major; //hash function rewritten to flip negatives to positives
+  HashMap major; //insert these scuClasses into HashMaps of each category (ie: major requirements)
   major.insert(CS10);
   major.insert(CS60);
   major.insert(CS61);
@@ -81,22 +76,27 @@ int main() {
   scuClass LANG1("LANG1", "Foreign Language 1", "Foreign Language", "FWS", 4);
 
   scuClass LANG2("LANG2", "Foreign Language 2", "Foreign Language", "FWS", 4);
+  LANG2.pushPreReq("LANG1");
 
   scuClass NATSCI ("NATSCI", "Natural Science", "Natural Science", "FWS", 5);
 
   scuClass RTC1("RTC1", "Religion Theology and Culture 1", "Religion", "FWS", 4);
 
   scuClass RTC2("RTC2", "Religion Theology and Culture 2", "Religion", "FWS", 4);
+  RTC2.pushPreReq("RTC1");
 
   scuClass RTC3("RTC3", "Religion Theology and Culture 3", "Religion", "FWS", 5);
+  RTC3.pushPreReq("RTC2");
 
   scuClass SOSC("SOSC", "Social Science", "Social Science", "FWS", 4);
 
   scuClass CI1("CI1", "Cultures and Ideas 1", "Culture", "FW", 4);
 
   scuClass CI2("CI2", "Cultures and Ideas 2", "Culture", "WS", 4);
+  CI2.pushPreReq("CI1");
 
   scuClass CI3("CI3", "Cultures and Ideas 3", "Culture", "FWS", 4);
+  CI3.pushPreReq("CI2");
 
   scuClass CE("CE", "Civic Engagement", "Civic Engagement", "FWS", 4);
 
@@ -129,7 +129,7 @@ int main() {
   scuClass COEN146 ("COEN146", "Computer Networks", "Computer Engineering", "FWS", 5);
   COEN146.pushPreReq("CS61");
 
-  HashMap softwareReqEmphasis;
+  HashMap softwareReqEmphasis; //3 required emphasis classes (for software here)
   softwareReqEmphasis.insert(CS169);
   softwareReqEmphasis.insert(CS187);
   softwareReqEmphasis.insert(COEN146);
@@ -153,7 +153,7 @@ int main() {
   COEN166.pushPreReq("CS61");
   COEN166.pushPreReq("MATH51");
 
-  HashMap softwareTwoMoreEmphasis;
+  HashMap softwareTwoMoreEmphasis; //5 recommended emphasis classes here but only need to take two to fulfill requirement
   softwareTwoMoreEmphasis.insert(CS183);
   softwareTwoMoreEmphasis.insert(CS163B);
   softwareTwoMoreEmphasis.insert(CS168);
@@ -163,4 +163,5 @@ int main() {
   FourYearPlan p(major, core, softwareReqEmphasis, softwareTwoMoreEmphasis);
   p.buildPlan();
   p.printPlan();
+  p.jsonPrint();
 }

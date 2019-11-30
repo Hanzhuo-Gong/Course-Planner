@@ -18,21 +18,25 @@ void FourYearPlan::completeClass(string cID) {
     finishedClasses.insert(*major.getClass(cID));
     majorClassesFinished++;
     credits+=major.getClass(cID)->getCredits();
+    //cout<<"Set "<<cID<<"to complete."<<endl;
   }
   if (core.containsClass(cID)) {
     finishedClasses.insert(*core.getClass(cID));
     coreClassesFinished++;
     credits+=core.getClass(cID)->getCredits();
+    //cout<<"Set "<<cID<<"to complete."<<endl;
   }
   if (requiredEmphasis.containsClass(cID)) {
     finishedClasses.insert(*requiredEmphasis.getClass(cID));
     requiredEmphasisClassesFinished++;
     credits+=requiredEmphasis.getClass(cID)->getCredits();
+    //cout<<"Set "<<cID<<"to complete."<<endl;
   }
   if (additionalEmphasis.containsClass(cID)) {
     finishedClasses.insert(*additionalEmphasis.getClass(cID));
     additionalEmphasisClasses++;
     credits+=additionalEmphasis.getClass(cID)->getCredits();
+    //cout<<"Set "<<cID<<" to complete."<<endl;
   }
 }
 
@@ -77,20 +81,21 @@ bool FourYearPlan::planComplete() {
 }
 
 void FourYearPlan::buildPlan() {
-  int classCount = 0;
-  //int quarterCount = 0;
+
+  int classCount;
   int quarter = 0;
   int year = 2019;
   int balanceCount = 0;
+
   while (!planComplete()) {
 
     classCount = 0;
 
     balanceCount = 0;
-    cout<<"Checking major HashMap for "<<quarters[quarter]<<year<<endl;
+
+    //cout<<"Checking major HashMap for "<<quarters[quarter]<<year<<endl;
     for (int i = 0 ; i < 14 ; i ++) {
       if (feasible(majorIDs[i], quarters[quarter], year)&&classCount<4) {
-        completeClass(majorIDs[i]);
         plan[classCount][quarter] = *getClass(majorIDs[i]);
         classCount++;
         balanceCount++;
@@ -101,10 +106,10 @@ void FourYearPlan::buildPlan() {
     }
 
     balanceCount = 0;
-    cout<<"Checking core HashMap for "<<quarters[quarter]<<year<<endl;
+
+    //cout<<"Checking core HashMap for "<<quarters[quarter]<<year<<endl;
     for (int i = 0 ; i < 17 ; i ++) {
       if (feasible(coreIDs[i], quarters[quarter], year)&&classCount<4) {
-        completeClass(coreIDs[i]);
         plan[classCount][quarter] = *getClass(coreIDs[i]);
         classCount++;
         balanceCount++;
@@ -115,17 +120,24 @@ void FourYearPlan::buildPlan() {
     }
 
     balanceCount = 0;
-    cout<<"Checking emphasis HashMaps for "<<quarters[quarter]<<year<<endl;
+
+    //cout<<"Checking emphasis HashMaps for "<<quarters[quarter]<<year<<endl;
     for (int i = 0 ; i < 8 ; i ++) {
       if (feasible(emphIDs[i], quarters[quarter], year)&&classCount<4) {
-        completeClass(emphIDs[i]);
         plan[classCount][quarter] = *getClass(emphIDs[i]);
         classCount++;
         balanceCount++;
       }
+      if (balanceCount>=2) {
+        break;
+      }
+    }
+
+    for (int i = 0 ; i < classCount ; i ++) {
+        completeClass(plan[i][quarter].getID());
     }
     quarter++;
-    if (quarter%3 == 0) {
+    if (quarter%3 == 1) {
       year++;
     }
   }
@@ -136,11 +148,55 @@ void FourYearPlan::printPlan() {
   for (int i = 0 ; i < 12 ; i ++) {
     cout<<quarters[i]<<year<<": ";
     for (int j = 0 ; j < 4 ; j++) {
-      cout<<plan[i][j].getID()<<" ";
+      cout<<plan[j][i].getID()<<" ";
+      // if (plan[j][i].getID()!="") {
+      //   plan[j][i].printDetails();
+      // }
     }
     cout<<endl;
-    if (i%3 == 0 && i != 0) {
+    if (i%3 == 0) {
       year++;
     }
   }
+  cout<<endl;
+}
+
+void FourYearPlan::jsonPrint() {
+  string years[4] = {"Freshman", "Sophomore", "Junior", "Senior"};
+  string quarters[3] = {"Fall", "Winter", "Spring"};
+  int quarter = 0 ;
+  cout<<"["<<endl; //0 tabs
+  cout<<" {"<<endl; //1 tab
+  for (int i = 0 ; i < 4 ; i ++) {
+    cout<<"   \"year\": \""<<years[i]<<"\","<<endl; //2 tabs
+    cout<<"   \"yearSchedule\": ["<<endl;
+    cout<<"     {"<<endl; // 3 tabs
+    for (int j = 0 ; j < 3 ; j ++) {
+      cout<<"       \"quarter\": \""<<quarters[j]<<"\","<<endl; // 4 tabs
+      cout<<"       \"classes\": ["<<endl;
+      for (int k = 0 ; k < 4 ; k++) {
+        cout<<"         {"<<endl; //5 tabs
+        cout<<"           \"name\": \""<<plan[k][quarter].getName()<<"\","<<endl; //6 tabs
+        cout<<"           \"prereqs\": ";
+        if (plan[k][quarter].preReqs.empty()) {
+          cout<<"null"<<endl;;
+        }
+        else {
+          cout<<"["<<endl;
+          for (int l = 0 ; l < plan[k][quarter].preReqs.size() ; l++) {
+            cout<<"               \""<<plan[k][quarter].preReqs[l]<<"\","<<endl;
+          }
+          cout<<"           ],"<<endl;
+        }
+        cout<<"           \"units\": "<<plan[k][quarter].getCredits()<<","<<endl;
+        cout<<"         },"<<endl; //5 tabs
+      }
+      cout<<"       ]"<<endl; //4 tabs
+      quarter++;
+    }
+    cout<<"     }"<<endl; //3 tabs
+    cout<<"   ]"<<endl; //2 tabs
+  }
+  cout<<" }"<<endl; //1 tab
+  cout<<"]"<<endl; //0 tabs
 }

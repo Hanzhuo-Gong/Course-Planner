@@ -49,6 +49,18 @@ string scuClass::getID() {
   return classID;
 }
 
+string scuClass::getName() {
+  return fullName;
+}
+
+string scuClass::getSubject() {
+  return subject;
+}
+
+string scuClass::getQuarters() {
+  return quarters;
+}
+
 int scuClass::getCredits() {
   return credits;
 }

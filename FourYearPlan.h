@@ -12,6 +12,7 @@ public:
   bool planComplete();
   void buildPlan();
   void printPlan();
+  void jsonPrint();
 private:
   int credits;
   HashMap major;
