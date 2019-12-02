@@ -162,6 +162,6 @@ int main() {
 
   FourYearPlan p(major, core, softwareReqEmphasis, softwareTwoMoreEmphasis);
   p.buildPlan();
-  p.printPlan();
+//p.printPlan();
   p.jsonPrint();
 }

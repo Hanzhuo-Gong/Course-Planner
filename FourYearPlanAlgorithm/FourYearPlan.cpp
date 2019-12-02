@@ -182,12 +182,17 @@ void FourYearPlan::jsonPrint() {
         cout<<"            \"name\": \""<<plan[k][quarter].getName()<<"\","<<endl; //6 tabs
         cout<<"            \"prereqs\": ";
         if (plan[k][quarter].preReqs.empty()) {
-          cout<<"null"<<endl;;
+          cout<<"null,"<<endl;;
         }
         else {
           cout<<"["<<endl;
-          for (int l = 0 ; l < plan[k][quarter].preReqs.size() ; l++) {
-            cout<<"                \""<<plan[k][quarter].preReqs[l]<<"\","<<endl;
+          int numberOfPreReqs = plan[k][quarter].preReqs.size();
+          for (int l = 0 ; l < numberOfPreReqs ; l++) {
+            cout<<"                \""<<plan[k][quarter].preReqs[l]<<"\"";
+            if (l + 1 < numberOfPreReqs) {
+              cout<<",";
+            }
+            cout<<endl;
           }
           cout<<"            ],"<<endl;
         }

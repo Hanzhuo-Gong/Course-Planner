@@ -3,8 +3,17 @@ import sys
 import json
 import random
 import pymysql
+import subprocess
 
 app = Flask(__name__)
+
+algo = 'FourYearPlanAlgorithm'
+algoClass = algo + '/scuClass.cpp'
+algoHashMap = algo + '/HashMap.cpp'
+algoPlan = algo + '/FourYearPlan.cpp'
+algoDriver = algo + '/driver.cpp'
+
+fourYearPlanJson = 'FourYearPlan.json'
 
 csciEmphases = {
     'question'  : 'Choose your emphasis',
@@ -394,9 +403,20 @@ def schedule():
     conn.commit()
     print("\nSQL commands committed to database")
 
-    # Open 4-year-plan json from algorithm
+    # Compile C++ 4-year plan algorithm as subprocess
+    subprocess.check_call(
+        ('g++', '-o', 'classScheduler', algoClass, algoHashMap, algoPlan, algoDriver),
+        stdin=subprocess.DEVNULL)
+
+    with open(fourYearPlanJson, 'w') as outfile:
+        subprocess.check_call(
+            ('./classScheduler',),
+#           stdin = infile,
+            stdout = outfile,
+            universal_newlines = True)
+
     # Using sample plan json for now
-    fourYearPlan = getJson('FourYearPlan.json')
+    fourYearPlan = getJson(fourYearPlanJson)
 
     # Close connection to database
     cur.close()
