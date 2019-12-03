@@ -72,7 +72,7 @@ bool FourYearPlan::feasible(string cID, string quarter, int year) {
 }
 
 bool FourYearPlan::planComplete() {
-  if (majorClassesFinished==major.getSize()&&coreClassesFinished==core.getSize()&&requiredEmphasisClassesFinished==requiredEmphasis.getSize()&&additionalEmphasisClasses>=2) {
+  if (majorClassesFinished==major.getSize()&&coreClassesFinished==core.getSize()&&requiredEmphasisClassesFinished==requiredEmphasis.getSize()&&additionalEmphasisClasses>=2&&credits>=175) {
     return true;
   }
   else {
@@ -80,12 +80,11 @@ bool FourYearPlan::planComplete() {
   }
 }
 
-void FourYearPlan::buildPlan() {
+void FourYearPlan::buildPlan(int year) {
 
   int classCount;
   int quarter = 0;
-  int year = 2019;
-  int balanceCount = 0;
+  int balanceCount;
 
   while (!planComplete()) {
 
@@ -94,37 +93,45 @@ void FourYearPlan::buildPlan() {
     balanceCount = 0;
 
     //cout<<"Checking major HashMap for "<<quarters[quarter]<<year<<endl;
-    for (int i = 0 ; i < 14 ; i ++) {
-      if (feasible(majorIDs[i], quarters[quarter], year)&&classCount<4) {
-        plan[classCount][quarter] = *getClass(majorIDs[i]);
+    for (int i = 0 ; i < major.classIDs.size() ; i ++) {
+      if (feasible(major.classIDs[i], quarters[quarter], year)&&classCount<4) {
+        plan[classCount][quarter] = *getClass(major.classIDs[i]);
         classCount++;
         balanceCount++;
       }
       if (balanceCount>=2) {
         break;
+      }
+    }
+
+    for (int i = 0 ; i < requiredEmphasis.classIDs.size() ; i ++) {
+      if (balanceCount>=2) {
+        break;
+      }
+      if (feasible(requiredEmphasis.classIDs[i], quarters[quarter], year)&&classCount<4) {
+        plan[classCount][quarter] = *getClass(requiredEmphasis.classIDs[i]);
+        classCount++;
+        balanceCount++;
+      }
+    }
+
+    for (int i = 0 ; i < additionalEmphasis.classIDs.size() ; i ++) {
+      if (balanceCount>=2) {
+        break;
+      }
+      if (feasible(additionalEmphasis.classIDs[i], quarters[quarter], year)&&classCount<4) {
+        plan[classCount][quarter] = *getClass(additionalEmphasis.classIDs[i]);
+        classCount++;
+        balanceCount++;
       }
     }
 
     balanceCount = 0;
 
     //cout<<"Checking core HashMap for "<<quarters[quarter]<<year<<endl;
-    for (int i = 0 ; i < 17 ; i ++) {
-      if (feasible(coreIDs[i], quarters[quarter], year)&&classCount<4) {
-        plan[classCount][quarter] = *getClass(coreIDs[i]);
-        classCount++;
-        balanceCount++;
-      }
-      if (balanceCount>=2) {
-        break;
-      }
-    }
-
-    balanceCount = 0;
-
-    //cout<<"Checking emphasis HashMaps for "<<quarters[quarter]<<year<<endl;
-    for (int i = 0 ; i < 8 ; i ++) {
-      if (feasible(emphIDs[i], quarters[quarter], year)&&classCount<4) {
-        plan[classCount][quarter] = *getClass(emphIDs[i]);
+    for (int i = 0 ; i < core.classIDs.size() ; i ++) {
+      if (feasible(core.classIDs[i], quarters[quarter], year)&&classCount<4) {
+        plan[classCount][quarter] = *getClass(core.classIDs[i]);
         classCount++;
         balanceCount++;
       }
@@ -143,22 +150,18 @@ void FourYearPlan::buildPlan() {
   }
 }
 
-void FourYearPlan::printPlan() {
-  int year = 2019;
+void FourYearPlan::printPlan(int year) {
   for (int i = 0 ; i < 12 ; i ++) {
     cout<<quarters[i]<<year<<": ";
     for (int j = 0 ; j < 4 ; j++) {
       cout<<plan[j][i].getID()<<" ";
-      // if (plan[j][i].getID()!="") {
-      //   plan[j][i].printDetails();
-      // }
     }
     cout<<endl;
     if (i%3 == 0) {
       year++;
     }
   }
-  cout<<endl;
+  cout<<"Total credits: "<<credits<<"."<<endl<<endl;
 }
 
 void FourYearPlan::jsonPrint() {
@@ -166,37 +169,66 @@ void FourYearPlan::jsonPrint() {
   string quarters[3] = {"Fall", "Winter", "Spring"};
   int quarter = 0 ;
   cout<<"["<<endl; //0 tabs
-  cout<<" {"<<endl; //1 tab
-  for (int i = 0 ; i < 4 ; i ++) {
-    cout<<"   \"year\": \""<<years[i]<<"\","<<endl; //2 tabs
-    cout<<"   \"yearSchedule\": ["<<endl;
-    cout<<"     {"<<endl; // 3 tabs
-    for (int j = 0 ; j < 3 ; j ++) {
-      cout<<"       \"quarter\": \""<<quarters[j]<<"\","<<endl; // 4 tabs
-      cout<<"       \"classes\": ["<<endl;
-      for (int k = 0 ; k < 4 ; k++) {
-        cout<<"         {"<<endl; //5 tabs
-        cout<<"           \"name\": \""<<plan[k][quarter].getName()<<"\","<<endl; //6 tabs
-        cout<<"           \"prereqs\": ";
+  int numberOfYears = 4;
+  for (int i = 0 ; i < numberOfYears ; i ++) {
+    cout<<"  {"<<endl; //1 tab
+    cout<<"    \"year\": \""<<years[i]<<"\","<<endl; //2 tabs
+    cout<<"    \"yearSchedule\": ["<<endl;
+    int numberOfQuarters = 3;
+    for (int j = 0 ; j < numberOfQuarters ; j ++) {
+      cout<<"      {"<<endl; // 3 tabs
+      cout<<"        \"quarter\": \""<<quarters[j]<<"\","<<endl; // 4 tabs
+      cout<<"        \"classes\": ["<<endl;
+      int numberOfClasses = 4;
+      for (int k = 0 ; k < numberOfClasses ; k++) {
+        cout<<"          {"<<endl; //5 tabs
+        cout<<"            \"name\": \""<<plan[k][quarter].getName()<<"\","<<endl; //6 tabs
+        cout<<"            \"prereqs\": ";
         if (plan[k][quarter].preReqs.empty()) {
-          cout<<"null"<<endl;;
+          cout<<"null,"<<endl;;
         }
         else {
           cout<<"["<<endl;
-          for (int l = 0 ; l < plan[k][quarter].preReqs.size() ; l++) {
-            cout<<"               \""<<plan[k][quarter].preReqs[l]<<"\","<<endl;
+          int numberOfPreReqs = plan[k][quarter].preReqs.size();
+          for (int l = 0 ; l < numberOfPreReqs ; l++) {
+            cout<<"                \""<<plan[k][quarter].preReqs[l]<<"\"";
+            if (l + 1 < numberOfPreReqs) {
+              cout<<",";
+            }
+            cout<<endl;
           }
-          cout<<"           ],"<<endl;
+          cout<<"            ],"<<endl;
         }
-        cout<<"           \"units\": "<<plan[k][quarter].getCredits()<<","<<endl;
-        cout<<"         },"<<endl; //5 tabs
+        cout<<"            \"units\": "<<plan[k][quarter].getCredits()/*<<","*/<<endl;
+        string endOfClassObject;
+        if (k + 1 < numberOfClasses) {
+          endOfClassObject = "          },";
+        }
+        else {
+          endOfClassObject = "          }";
+        }
+        cout<<endOfClassObject<<endl; //5 tabs
       }
-      cout<<"       ]"<<endl; //4 tabs
+      cout<<"        ]"<<endl; //4 tabs
+      string endOfQuarterObject;
+      if (j + 1 < numberOfQuarters) {
+        endOfQuarterObject = "      },";
+      }
+      else {
+        endOfQuarterObject = "      }";
+      }
+      cout<<endOfQuarterObject<<endl; //3 tabs
       quarter++;
     }
-    cout<<"     }"<<endl; //3 tabs
-    cout<<"   ]"<<endl; //2 tabs
+    cout<<"    ]"<<endl; //2 tabs
+    string endOfYearObject;
+    if (i + 1 < numberOfYears) {
+      endOfYearObject = "  },";
+    }
+    else {
+      endOfYearObject = "  }";
+    }
+    cout<<endOfYearObject<<endl; //1 tab
   }
-  cout<<" }"<<endl; //1 tab
   cout<<"]"<<endl; //0 tabs
 }

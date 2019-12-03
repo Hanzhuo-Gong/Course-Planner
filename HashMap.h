@@ -11,7 +11,9 @@ public:
   int getSize();
   bool containsClass(string cID);
   void insert(scuClass c);
+  void printIDs();
   scuClass* getClass(string cID);
+  vector <string> classIDs;
 private:
   int size;
   scuClass classes[1000];

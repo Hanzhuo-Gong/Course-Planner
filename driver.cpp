@@ -1,4 +1,18 @@
-#include "FourYearPlan.h"
+#include "Student.h"
+
+//add credit conditional (complete)
+//NOTE:total credits from my dummy data is very CLOSE to 175
+//so there is a possibility of a student completing ALL NECESSARY CLASSES but without enough credits to graduate
+//maybe add a little bit more credits in the database to solve this, that's what I did to my dummy data
+
+//write Student class that holds ID and previously taken scuClasses(complete)
+//added a "year" variable to the Student class, no longer hard-coded 2019
+
+//rewrite ID arrays to be included in each HashMap and be accessed in FourYearPlan, instead of hard-written in FourYearPlan (complete)
+
+//change your jsonPrint() to whatever Junha wrote (complete)
+
+//modified algorithm slightly to allow for better balance of classes, a student can be assigned up to 2 major/emphasis classes and 2 core classes a quarter (complete)
 
 int main() {
 
@@ -58,10 +72,11 @@ int main() {
   major.insert(CS161);
   major.insert(CS163A);
   major.insert(MATH122);
+  //major.printIDs();
 
   scuClass CTW1 ("CTW1", "Critical Thinking and Writing 1", "English", "FW", 4);
 
-  scuClass CTW2 ("CTW2", "Critical Thinking and Writing 2", "English", "WS", 4);
+  scuClass CTW2 ("CTW2", "Critical Thinking and Writing 2", "English", "WS", 5);
   CTW2.pushPreReq("CTW1");
 
   scuClass AW("AW", "Advanced Writing", "English", "FWS", 5);
@@ -75,14 +90,14 @@ int main() {
 
   scuClass LANG1("LANG1", "Foreign Language 1", "Foreign Language", "FWS", 4);
 
-  scuClass LANG2("LANG2", "Foreign Language 2", "Foreign Language", "FWS", 4);
+  scuClass LANG2("LANG2", "Foreign Language 2", "Foreign Language", "FWS", 5);
   LANG2.pushPreReq("LANG1");
 
   scuClass NATSCI ("NATSCI", "Natural Science", "Natural Science", "FWS", 5);
 
   scuClass RTC1("RTC1", "Religion Theology and Culture 1", "Religion", "FWS", 4);
 
-  scuClass RTC2("RTC2", "Religion Theology and Culture 2", "Religion", "FWS", 4);
+  scuClass RTC2("RTC2", "Religion Theology and Culture 2", "Religion", "FWS", 5);
   RTC2.pushPreReq("RTC1");
 
   scuClass RTC3("RTC3", "Religion Theology and Culture 3", "Religion", "FWS", 5);
@@ -92,10 +107,10 @@ int main() {
 
   scuClass CI1("CI1", "Cultures and Ideas 1", "Culture", "FW", 4);
 
-  scuClass CI2("CI2", "Cultures and Ideas 2", "Culture", "WS", 4);
+  scuClass CI2("CI2", "Cultures and Ideas 2", "Culture", "WS", 5);
   CI2.pushPreReq("CI1");
 
-  scuClass CI3("CI3", "Cultures and Ideas 3", "Culture", "FWS", 4);
+  scuClass CI3("CI3", "Cultures and Ideas 3", "Culture", "FWS", 5);
   CI3.pushPreReq("CI2");
 
   scuClass CE("CE", "Civic Engagement", "Civic Engagement", "FWS", 4);
@@ -160,8 +175,13 @@ int main() {
   softwareTwoMoreEmphasis.insert(COEN163);
   softwareTwoMoreEmphasis.insert(COEN166);
 
-  FourYearPlan p(major, core, softwareReqEmphasis, softwareTwoMoreEmphasis);
-  p.buildPlan();
-  p.printPlan();
-  p.jsonPrint();
+  FourYearPlan p(major, core, softwareReqEmphasis, softwareTwoMoreEmphasis); //just construct the plan to be later used in Student, don't run any of its functions
+
+  HashMap prevCompletedTest; //HashMap of previously completed classes, insert scuClass of whatever student already completed
+  prevCompletedTest.insert(CS10);
+  prevCompletedTest.insert(MATH11);
+  prevCompletedTest.insert(CTW1);
+
+  Student Neil("1411529", 2019, prevCompletedTest); //construct a Student with studentID, starting year, and HashMap of previouslyCompletedClasses
+  Neil.buildPlan(p); //when building the plan use the previously declared FourYearPlan as an argument
 }
