@@ -185,6 +185,7 @@ def schedule():
         ('g++', '-I', sqlApiInclude, '-L', sqlApiLib, '-lsqlapi', '-o', 'classScheduler.out', algoClass, algoHashMap, algoPlan, algoStudent, algoDriver),
         stdin=subprocess.DEVNULL)
 
+    # IMPORTANT! THE C++ EXECUTABLE WILL NOT RUN IF libsqlapi.dylib IS NOT IN /usr/local/lib -- see README.md for more details
     with open(fourYearPlanJson, 'w') as outfile:
         subprocess.check_call(
             ('./classScheduler.out',),
@@ -192,7 +193,17 @@ def schedule():
             stdout = outfile,
             universal_newlines = True)
 
-    # Using sample plan json for now
+    # Delete all the bullshit outputted by the executable before the JSON
+    lines = open(fourYearPlanJson, 'r').readlines()
+    search = "["
+    for jsonStart, line in enumerate(lines):
+        if search in line:
+            break
+    if jsonStart < len(lines) - 1:
+        with open(fourYearPlanJson, 'w') as outfile:
+            outfile.write('\n'.join(lines[jsonStart:]))
+
+    # Store four year plan to Python dict from JSON
     fourYearPlan = getJson(fourYearPlanJson)
 
     # Close connection to database

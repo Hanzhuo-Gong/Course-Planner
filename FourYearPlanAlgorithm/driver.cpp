@@ -61,7 +61,7 @@ int main() {
     }
     // print error message
     cout << "EXCEPTION CAUGHT: ";
-    cerr << (const char*) (x.ErrText()) << endl;
+    cout << (const char*) (x.ErrText()) << endl;
     exit(1);
   }
 
