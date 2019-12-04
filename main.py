@@ -77,17 +77,22 @@ def sqlFromSurvey(studentID, quartersCompleted, maxQuarters, maxUnits, majorAndE
 def getMysqlConn():
     try:
         # MySQL database information
-        MYSQLHOST = 'remotemysql.com'
-        MYSQLPORT = 3306
-        MYSQLUSER = 'GYTE3BoCBP'
-        MYSQLDB = 'GYTE3BoCBP'
-        MYSQLPW = '27v0MR70aB'
+        MYSQLHOST = 'localhost'
+        MYSQLUSER = 'root'
+        MYSQLDB = 'PlanToGrad'
+        MYSQLPW = None
+
+#       MYSQLHOST = 'remotemysql.com'
+#       MYSQLPORT = 3306
+#       MYSQLUSER = 'GYTE3BoCBP'
+#       MYSQLDB = 'GYTE3BoCBP'
+#       MYSQLPW = '27v0MR70aB'
 
         # MySQL connection
         print("Connecting to MySQL server...")
         conn = pymysql.connect( MYSQLHOST,
                                 user=MYSQLUSER,
-                                port=MYSQLPORT,
+#                               port=MYSQLPORT,
                                 passwd=MYSQLPW,
                                 db=MYSQLDB)
         print("Connected to MySQL server successfully.")

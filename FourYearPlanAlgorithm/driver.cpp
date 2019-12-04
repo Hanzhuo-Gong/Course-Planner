@@ -25,15 +25,23 @@ int main() {
     con.setClient(SA_MySQL_Client);
     cout << "Entering MySQL credentials..." << endl;
     con.Connect(
-      "remotemysql.com,3306@GYTE3BoCBP",
+      "",
+      "root",
+      "");
+
+/*
+    con.Connect(
+      "remotemysql.com@GYTE3BoCBP",
       "GYTE3BoCMP",
       "27v0MR70aB");
+*/
+
     cout << "Connected to MySQL database" << endl;
 
     SACommand cmd;
     cmd.setConnection(&con);
 
-    cmd.setCommandText("SHOW VARIABLES LIKE \'max_connections\';");
+    cmd.setCommandText("USE PlanToGrad;");
     cmd.Execute();
     con.Commit();
 

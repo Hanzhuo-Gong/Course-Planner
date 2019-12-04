@@ -1,4 +1,4 @@
-USE GYTE3BoCBP;
+USE PlanToGrad;
 
 DROP TABLE IF EXISTS MajornEmphasis;
 CREATE TABLE IF NOT EXISTS MajornEmphasis
