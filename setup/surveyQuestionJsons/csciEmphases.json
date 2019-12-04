@@ -1,0 +1,21 @@
+{
+  "question": "Choose your emphasis",
+  "options" : [
+    {
+      "name":"Algorithms and Complexity",
+      "id":"Algorithms-and-Complexity"
+    },
+    {
+      "name":"Data Science",
+      "id":"Data-Science"
+    },
+    {
+      "name":"Software",
+      "id":"Software"
+    },
+    {
+      "name":"Security",
+      "id":"Security"
+    }
+  ]
+}

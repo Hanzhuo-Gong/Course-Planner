@@ -1,0 +1,83 @@
+{
+  "question":"College and University Requirements",
+  "options":[
+    [
+      {
+        "name":"CTW 1",
+        "id":"CTW-1"
+      },
+      {
+        "name":"CTW 2",
+        "id":"CTW-2"
+      },
+      {
+        "name":"Advanced Writing",
+        "id":"Advanced-Writing"
+      },
+      {
+        "name":"Ethics",
+        "id":"Ethics"
+      },
+      {
+        "name":"Diversity",
+        "id":"Diversity"
+      },
+      {
+        "name":"Arts",
+        "id":"Arts"
+      }
+    ],
+    [
+      {
+        "name":"Language 1",
+        "id":"Language-1"
+      },
+      {
+        "name":"Language 2",
+        "id":"Language-2"
+      },
+      {
+        "name":"Natural Science",
+        "id":"Natural-Science"
+      },
+      {
+        "name":"RTC 1",
+        "id":"RTC-1"
+      },
+      {
+        "name":"RTC 2",
+        "id":"RTC-2"
+      },
+      {
+        "name":"RTC 3",
+        "id":"RTC-3"
+      }
+    ],
+    [
+      {
+        "name":"Social Science",
+        "id":"Social-Science"
+      },
+      {
+        "name":"Culture and Ideas 1",
+        "id":"Culture-and-Ideas-1"
+      },
+      {
+        "name":"Culture and Ideas 2",
+        "id":"Culture-and-Ideas-2"
+      },
+      {
+        "name":"Culture and Ideas 3",
+        "id":"Culture-and-Ideas-3"
+      },
+      {
+        "name":"Civic Engagement",
+        "id":"Civic-Engagement"
+      },
+      {
+        "name":"Experiential Learning and Social Justice",
+        "id":"ELSJ"
+      }
+    ]
+  ]
+}
