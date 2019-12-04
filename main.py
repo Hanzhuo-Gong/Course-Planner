@@ -7,6 +7,7 @@ import subprocess
 
 app = Flask(__name__)
 
+# Paths to algorithm files
 algo = 'FourYearPlanAlgorithm'
 algoClass = algo + '/scuClass.cpp'
 algoHashMap = algo + '/HashMap.cpp'
@@ -14,9 +15,12 @@ algoPlan = algo + '/FourYearPlan.cpp'
 algoStudent = algo + '/Student.cpp'
 algoDriver = algo + '/driver.cpp'
 
+# Path to four-year JSON file
 fourYearPlanJson = 'FourYearPlan.json'
 
-sqlApiPlusPlus = '/SQLAPI/include'
+# SQLAPI++ files
+sqlApiInclude = algo + '/SQLAPI/include'
+sqlApiLib = algo + '/SQLAPI/lib'
 
 csciEmphases = {
     'question'  : 'Choose your emphasis',
@@ -408,7 +412,7 @@ def schedule():
 
     # Compile C++ 4-year plan algorithm as subprocess
     subprocess.check_call(
-        ('g++', '-I', sqlApiPlusPlus, '-o', 'classScheduler.out', algoClass, algoHashMap, algoPlan, algoStudent, algoDriver),
+        ('g++', '-I', sqlApiInclude, '-L', sqlApiLib, '-lsqlapi', '-o', 'classScheduler.out', algoClass, algoHashMap, algoPlan, algoStudent, algoDriver),
         stdin=subprocess.DEVNULL)
 
     with open(fourYearPlanJson, 'w') as outfile:
