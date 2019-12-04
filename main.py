@@ -408,12 +408,12 @@ def schedule():
 
     # Compile C++ 4-year plan algorithm as subprocess
     subprocess.check_call(
-        ('g++', '-I', sqlApiPlusPlus, '-o', 'classScheduler', algoClass, algoHashMap, algoPlan, algoStudent, algoDriver),
+        ('g++', '-I', sqlApiPlusPlus, '-o', 'classScheduler.out', algoClass, algoHashMap, algoPlan, algoStudent, algoDriver),
         stdin=subprocess.DEVNULL)
 
     with open(fourYearPlanJson, 'w') as outfile:
         subprocess.check_call(
-            ('./classScheduler',),
+            ('./classScheduler.out',),
 #           stdin = infile,
             stdout = outfile,
             universal_newlines = True)

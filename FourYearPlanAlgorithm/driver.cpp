@@ -18,15 +18,15 @@
 
 int main() {
   SAConnection con;
-//  con.setClient(SA_MySQL_Client);
+  con.setClient(SA_MySQL_Client);
   con.Connect(
     "remotemysql.com,3306@GYTE3BoCBP",
     "GYTE3BoCMP",
     "27v0MR70aB");
   cout << "Connected to MySQL database" << endl;
 
-//  SACommand cmd;
-//  cmd.setConnection(&con);
+  SACommand cmd;
+  cmd.setConnection(&con);
 
   //declare all classes as scuClass first
 
@@ -193,6 +193,8 @@ int main() {
   prevCompletedTest.insert(CS10);
   prevCompletedTest.insert(MATH11);
   prevCompletedTest.insert(CTW1);
+
+  con.Disconnect();
 
   Student Neil("1411529", 2019, prevCompletedTest); //construct a Student with studentID, starting year, and HashMap of previouslyCompletedClasses
   Neil.buildPlan(p); //when building the plan use the previously declared FourYearPlan as an argument
