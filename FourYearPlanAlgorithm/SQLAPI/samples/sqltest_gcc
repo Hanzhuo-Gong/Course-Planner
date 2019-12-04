@@ -1,0 +1,33 @@
+#!/bin/sh
+# ***********************************
+# Special build configuration defines
+# CFG=(relese|debug)
+# CFG_LINK=(dynamic|static)
+# ***********************************
+# SQLAPI_OS		SQLAPI_LINUX|SQLAPI_SOLARIS|SQLAPI_AIX|SQLAPI_HPUX|SQLAPI_OSX|SQLAPI_SCOOSR5|SQLAPI_FREEBSD
+# OBJS			specify test program object file (sqltest.obj by default)
+# SA_USE_PTHREAD	build thread safe library (with pthread library)
+# SA_64BIT		build 64-bit version
+# SA_32BIT		build 32-bit version
+# ***********************************
+
+# GNU make required
+GMAKE=make
+
+# For special g++ version use:
+# SA_CPP_VER=-2.95
+# then at Makefile g++-2.95 will be used
+
+SA_OPTIONS="SA_USE_PTHREAD=1 SA_64BIT=1 OBJS=bugtest.obj"
+
+echo ------------------------
+echo --- Building release ---
+echo -----------------------
+#$GMAKE CFG=release CFG_LINK=dynamic $SA_OPTIONS safe_clean all
+#$GMAKE CFG=release CFG_LINK=static $SA_OPTIONS safe_clean all
+
+echo ----------------------
+echo --- Building debug ---
+echo ----------------------
+#$GMAKE CFG=debug CFG_LINK=dynamic $SA_OPTIONS safe_clean all
+$GMAKE CFG=debug CFG_LINK=static $SA_OPTIONS safe_clean all

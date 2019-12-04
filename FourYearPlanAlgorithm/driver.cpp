@@ -1,6 +1,6 @@
 #include "Student.h"
 #include <stdio.h>
-#include <SQLAPI.h>
+#include "SQLAPI.h"
 
 //add credit conditional (complete)
 //NOTE:total credits from my dummy data is very CLOSE to 175
@@ -17,15 +17,15 @@
 //modified algorithm slightly to allow for better balance of classes, a student can be assigned up to 2 major/emphasis classes and 2 core classes a quarter (complete)
 
 int main() {
-  /*SAConnection con;
-  SACommand cmd;
+  SAConnection con;
+//  con.setClient(SA_MySQL_Client);
   con.Connect(
-    "GYTE3BoCBP",
+    "remotemysql.com,3306@GYTE3BoCBP",
     "GYTE3BoCMP",
-    "27v0MR70aB",
-    SA_Oracle_Client);
-*/
+    "27v0MR70aB");
   cout << "Connected to MySQL database" << endl;
+
+//  SACommand cmd;
 //  cmd.setConnection(&con);
 
   //declare all classes as scuClass first

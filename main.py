@@ -16,6 +16,8 @@ algoDriver = algo + '/driver.cpp'
 
 fourYearPlanJson = 'FourYearPlan.json'
 
+sqlApiPlusPlus = '/SQLAPI/include'
+
 csciEmphases = {
     'question'  : 'Choose your emphasis',
     'options'   : [
@@ -406,7 +408,7 @@ def schedule():
 
     # Compile C++ 4-year plan algorithm as subprocess
     subprocess.check_call(
-        ('g++', '-o', 'classScheduler', algoClass, algoHashMap, algoPlan, algoStudent, algoDriver),
+        ('g++', '-I', sqlApiPlusPlus, '-o', 'classScheduler', algoClass, algoHashMap, algoPlan, algoStudent, algoDriver),
         stdin=subprocess.DEVNULL)
 
     with open(fourYearPlanJson, 'w') as outfile:
