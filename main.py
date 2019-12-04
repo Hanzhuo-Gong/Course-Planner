@@ -11,6 +11,7 @@ algo = 'FourYearPlanAlgorithm'
 algoClass = algo + '/scuClass.cpp'
 algoHashMap = algo + '/HashMap.cpp'
 algoPlan = algo + '/FourYearPlan.cpp'
+algoStudent = algo + '/Student.cpp'
 algoDriver = algo + '/driver.cpp'
 
 fourYearPlanJson = 'FourYearPlan.json'
@@ -405,7 +406,7 @@ def schedule():
 
     # Compile C++ 4-year plan algorithm as subprocess
     subprocess.check_call(
-        ('g++', '-o', 'classScheduler', algoClass, algoHashMap, algoPlan, algoDriver),
+        ('g++', '-o', 'classScheduler', algoClass, algoHashMap, algoPlan, algoStudent, algoDriver),
         stdin=subprocess.DEVNULL)
 
     with open(fourYearPlanJson, 'w') as outfile:
