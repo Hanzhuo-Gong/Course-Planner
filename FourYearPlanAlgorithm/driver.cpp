@@ -17,16 +17,16 @@
 //modified algorithm slightly to allow for better balance of classes, a student can be assigned up to 2 major/emphasis classes and 2 core classes a quarter (complete)
 
 int main() {
-  SAConnection con;
+  /*SAConnection con;
   SACommand cmd;
   con.Connect(
     "GYTE3BoCBP",
     "GYTE3BoCMP",
     "27v0MR70aB",
     SA_Oracle_Client);
-
+*/
   cout << "Connected to MySQL database" << endl;
-  cmd.setConnection(&con);
+//  cmd.setConnection(&con);
 
   //declare all classes as scuClass first
 
