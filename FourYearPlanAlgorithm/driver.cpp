@@ -17,16 +17,43 @@
 //modified algorithm slightly to allow for better balance of classes, a student can be assigned up to 2 major/emphasis classes and 2 core classes a quarter (complete)
 
 int main() {
+  cout << "Starting program" << endl;
   SAConnection con;
-  con.setClient(SA_MySQL_Client);
-  con.Connect(
-    "remotemysql.com,3306@GYTE3BoCBP",
-    "GYTE3BoCMP",
-    "27v0MR70aB");
-  cout << "Connected to MySQL database" << endl;
+  cout << "Attempting to connect..." << endl;
+  try
+  {
+    con.setClient(SA_MySQL_Client);
+    con.Connect(
+      "remotemysql.com@GYTE3BoCBP",
+      "GYTE3BoCMP",
+      "27v0MR70aB");
+    cout << "Connected to MySQL database" << endl;
 
-  SACommand cmd;
-  cmd.setConnection(&con);
+    SACommand cmd;
+    cmd.setConnection(&con);
+
+    cmd.setCommandText("SHOW VARIABLES LIKE \'max_connections\';");
+    cmd.Execute();
+    con.Commit();
+
+    con.Disconnect();
+    cout << "Disconnected." << endl;
+  }
+  catch(SAException &x)
+  {
+    try
+    {
+      // on error, rollback changes
+      con.Rollback();
+    }
+    catch(SAException &)
+    {
+
+    }
+    // print error message
+    cout << "ERROR: ";
+    cerr << (const char*) (x.ErrText()) << endl;
+  }
 
   //declare all classes as scuClass first
 
