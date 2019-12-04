@@ -23,8 +23,9 @@ int main() {
   try
   {
     con.setClient(SA_MySQL_Client);
+    cout << "Entering MySQL credentials..." << endl;
     con.Connect(
-      "remotemysql.com@GYTE3BoCBP",
+      "remotemysql.com,3306@GYTE3BoCBP",
       "GYTE3BoCMP",
       "27v0MR70aB");
     cout << "Connected to MySQL database" << endl;
@@ -51,8 +52,9 @@ int main() {
 
     }
     // print error message
-    cout << "ERROR: ";
+    cout << "EXCEPTION CAUGHT: ";
     cerr << (const char*) (x.ErrText()) << endl;
+    exit(1);
   }
 
   //declare all classes as scuClass first
