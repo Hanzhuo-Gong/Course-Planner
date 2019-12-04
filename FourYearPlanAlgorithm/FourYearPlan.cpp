@@ -72,7 +72,7 @@ bool FourYearPlan::feasible(string cID, string quarter, int year) {
 }
 
 bool FourYearPlan::planComplete() {
-  if (majorClassesFinished==major.getSize()&&coreClassesFinished==core.getSize()&&requiredEmphasisClassesFinished==requiredEmphasis.getSize()&&additionalEmphasisClasses>=2) {
+  if (majorClassesFinished==major.getSize()&&coreClassesFinished==core.getSize()&&requiredEmphasisClassesFinished==requiredEmphasis.getSize()&&additionalEmphasisClasses>=2&&credits>=175) {
     return true;
   }
   else {
@@ -80,12 +80,11 @@ bool FourYearPlan::planComplete() {
   }
 }
 
-void FourYearPlan::buildPlan() {
+void FourYearPlan::buildPlan(int year) {
 
   int classCount;
   int quarter = 0;
-  int year = 2019;
-  int balanceCount = 0;
+  int balanceCount;
 
   while (!planComplete()) {
 
@@ -94,37 +93,45 @@ void FourYearPlan::buildPlan() {
     balanceCount = 0;
 
     //cout<<"Checking major HashMap for "<<quarters[quarter]<<year<<endl;
-    for (int i = 0 ; i < 14 ; i ++) {
-      if (feasible(majorIDs[i], quarters[quarter], year)&&classCount<4) {
-        plan[classCount][quarter] = *getClass(majorIDs[i]);
+    for (int i = 0 ; i < major.classIDs.size() ; i ++) {
+      if (feasible(major.classIDs[i], quarters[quarter], year)&&classCount<4) {
+        plan[classCount][quarter] = *getClass(major.classIDs[i]);
         classCount++;
         balanceCount++;
       }
       if (balanceCount>=2) {
         break;
+      }
+    }
+
+    for (int i = 0 ; i < requiredEmphasis.classIDs.size() ; i ++) {
+      if (balanceCount>=2) {
+        break;
+      }
+      if (feasible(requiredEmphasis.classIDs[i], quarters[quarter], year)&&classCount<4) {
+        plan[classCount][quarter] = *getClass(requiredEmphasis.classIDs[i]);
+        classCount++;
+        balanceCount++;
+      }
+    }
+
+    for (int i = 0 ; i < additionalEmphasis.classIDs.size() ; i ++) {
+      if (balanceCount>=2) {
+        break;
+      }
+      if (feasible(additionalEmphasis.classIDs[i], quarters[quarter], year)&&classCount<4) {
+        plan[classCount][quarter] = *getClass(additionalEmphasis.classIDs[i]);
+        classCount++;
+        balanceCount++;
       }
     }
 
     balanceCount = 0;
 
     //cout<<"Checking core HashMap for "<<quarters[quarter]<<year<<endl;
-    for (int i = 0 ; i < 17 ; i ++) {
-      if (feasible(coreIDs[i], quarters[quarter], year)&&classCount<4) {
-        plan[classCount][quarter] = *getClass(coreIDs[i]);
-        classCount++;
-        balanceCount++;
-      }
-      if (balanceCount>=2) {
-        break;
-      }
-    }
-
-    balanceCount = 0;
-
-    //cout<<"Checking emphasis HashMaps for "<<quarters[quarter]<<year<<endl;
-    for (int i = 0 ; i < 8 ; i ++) {
-      if (feasible(emphIDs[i], quarters[quarter], year)&&classCount<4) {
-        plan[classCount][quarter] = *getClass(emphIDs[i]);
+    for (int i = 0 ; i < core.classIDs.size() ; i ++) {
+      if (feasible(core.classIDs[i], quarters[quarter], year)&&classCount<4) {
+        plan[classCount][quarter] = *getClass(core.classIDs[i]);
         classCount++;
         balanceCount++;
       }
@@ -143,22 +150,18 @@ void FourYearPlan::buildPlan() {
   }
 }
 
-void FourYearPlan::printPlan() {
-  int year = 2019;
+void FourYearPlan::printPlan(int year) {
   for (int i = 0 ; i < 12 ; i ++) {
     cout<<quarters[i]<<year<<": ";
     for (int j = 0 ; j < 4 ; j++) {
       cout<<plan[j][i].getID()<<" ";
-      // if (plan[j][i].getID()!="") {
-      //   plan[j][i].printDetails();
-      // }
     }
     cout<<endl;
     if (i%3 == 0) {
       year++;
     }
   }
-  cout<<endl;
+  cout<<"Total credits: "<<credits<<"."<<endl<<endl;
 }
 
 void FourYearPlan::jsonPrint() {

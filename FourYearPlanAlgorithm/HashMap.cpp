@@ -53,6 +53,17 @@ void HashMap::insert(scuClass c) {
     //cout<<"inserted "<<c.getID()<<" in classes["<<h<<"]"<<endl;
     //cout<<size<<" classes stored"<<endl;
   }
+  classIDs.push_back(c.getID());
+}
+
+void HashMap::printIDs() {
+  if (!classIDs.empty()) {
+    cout<<"classIDs in hash ordered by insertion: ";
+    for (int i = 0 ; i < classIDs.size() ; i++) {
+      cout<<classIDs[i]<<" ";
+    }
+    cout<<endl;
+  }
 }
 
 scuClass* HashMap::getClass(string cID) {
