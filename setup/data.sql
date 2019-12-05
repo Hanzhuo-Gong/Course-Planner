@@ -544,7 +544,7 @@ VALUES
   'FWS',
   4,
   0,
-  0
+  1
 ),
 (
   'Advanced Writing',
@@ -552,7 +552,7 @@ VALUES
   'FWS',
   5,
   0,
-  0
+  1
 ),
 (
   'Ethics',
@@ -592,7 +592,7 @@ VALUES
   'FWS',
   4,
   0,
-  0
+  1
 ),
 (
   'Natural Science',
@@ -616,7 +616,7 @@ VALUES
   'FWS',
   4,
   0,
-  0
+  1
 ),
 (
   'RTC 3',
@@ -624,7 +624,7 @@ VALUES
   'FWS',
   5,
   0,
-  0
+  1
 ),
 (
   'Social Science',
@@ -648,7 +648,7 @@ VALUES
   'FWS',
   4,
   0,
-  0
+  1
 ),
 (
   'Culture and Ideas 3',
@@ -656,7 +656,7 @@ VALUES
   'FWS',
   4,
   0,
-  0
+  1
 ),
 (
   'Civic Engagement',
@@ -937,6 +937,34 @@ VALUES
 (
   'MATH 51',
   'MATH 52'
+),
+(
+  'Language 1',
+  'Language 2'
+),
+(
+  'RTC 1',
+  'RTC 2'
+),
+(
+  'RTC 2',
+  'RTC 3'
+),
+(
+  'Culture and Ideas 1',
+  'Culture and Ideas 2'
+),
+(
+  'Culture and Ideas 2',
+  'Culture and Ideas 3'
+),
+(
+  'CTW 1',
+  'CTW 2'
+),
+(
+  'CTW 2',
+  'Advanced Writing'
 );
 
 DELETE FROM MajorReqs;

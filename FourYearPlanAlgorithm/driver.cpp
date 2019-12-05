@@ -231,8 +231,6 @@ int main() {
   prevCompletedTest.insert(MATH11);
   prevCompletedTest.insert(CTW1);
 
-  con.Disconnect();
-
   Student Neil("1411529", 2019, prevCompletedTest); //construct a Student with studentID, starting year, and HashMap of previouslyCompletedClasses
   Neil.buildPlan(p); //when building the plan use the previously declared FourYearPlan as an argument
 }
