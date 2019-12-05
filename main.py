@@ -201,7 +201,7 @@ def schedule():
             break
     if jsonStart < len(lines) - 1:
         with open(fourYearPlanJson, 'w') as outfile:
-            outfile.write('\n'.join(lines[jsonStart:]))
+            outfile.write(''.join(lines[jsonStart:]))
 
     # Store four year plan to Python dict from JSON
     fourYearPlan = getJson(fourYearPlanJson)
