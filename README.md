@@ -1,6 +1,8 @@
 # Course-Planner
 
-Website: https://xiaogong1.github.io/Course-Planner/
+New repository: https://github.com/park-junha/PlanForGrad
+
+All post-CSCI187 development will be done on the new repository from now on.
 
 A group project for Santa Clara Univerisity CSCI 187. Course Planner help students with their education plan.
 Course Planner generate recommend classes base on students needed. Our group still developing the project. We will
