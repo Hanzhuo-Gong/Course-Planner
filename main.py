@@ -169,16 +169,18 @@ def schedule():
     for aClass in allClassesTaken:
         print(aClass)
 
-    # Execute insert commands to MySQL
-    sqlCommands = sqlFromSurvey(studentID, quartersCompleted, maxQuarters, maxUnits, majorAndEmphasis, allClassesTaken)
-    print("\nSQL commands:")
-    for sqlCommand in sqlCommands:
-        print(sqlCommand)
-        cur.execute(sqlCommand)
+#   # Execute insert commands to MySQL
+#   sqlCommands = sqlFromSurvey(studentID, quartersCompleted, maxQuarters, maxUnits, majorAndEmphasis, allClassesTaken)
+#   print("\nSQL commands:")
+#   for sqlCommand in sqlCommands:
+#       print(sqlCommand)
+#       cur.execute(sqlCommand)
 
-    # Commit commands to database
-    conn.commit()
-    print("\nSQL commands committed to database")
+#   # Commit commands to database
+#   conn.commit()
+#   print("\nSQL commands committed to database")
+
+
 
     # Compile C++ 4-year plan algorithm as subprocess
     subprocess.check_call(
