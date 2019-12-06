@@ -37,6 +37,13 @@ VALUES
   175,
   5,
   20
+),
+(
+  'Core',
+  0,
+  0,
+  0,
+  0
 );
 
 DELETE FROM Classes;
@@ -1261,4 +1268,76 @@ VALUES
 (
   'CSCI 181',
   'Computer Science, Security Emphasis'
+),
+(
+  'CTW 1',
+  'Core'
+),
+(
+  'CTW 2',
+  'Core'
+),
+(
+  'Advanced Writing',
+  'Core'
+),
+(
+  'Ethics',
+  'Core'
+),
+(
+  'Diversity',
+  'Core'
+),
+(
+  'Arts',
+  'Core'
+),
+(
+  'Language 1',
+  'Core'
+),
+(
+  'Language 2',
+  'Core'
+),
+(
+  'Natural Science',
+  'Core'
+),
+(
+  'RTC 1',
+  'Core'
+),
+(
+  'RTC 2',
+  'Core'
+),
+(
+  'RTC 3',
+  'Core'
+),
+(
+  'Social Science',
+  'Core'
+),
+(
+  'Culture and Ideas 1',
+  'Core'
+),
+(
+  'Culture and Ideas 2',
+  'Core'
+),
+(
+  'Culture and Ideas 3',
+  'Core'
+),
+(
+  'Civic Engagement',
+  'Core'
+),
+(
+  'ELSJ',
+  'Core'
 );

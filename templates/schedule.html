@@ -55,29 +55,31 @@
                   <ul class="list-group list-group-flush">
                     {% for classDict in quarterDict['classes'] %}
                       <li class="list-group-item" id="freshman_fall_course_1">{{ classDict['name'] }}
-                        <ul>
-                          <li>Units: {{ classDict['units'] }}</li>
-                          {% if classDict['prereqs'] is not none %}
-                            <li>Pre-requisites:
-                              <ul>
-                                {% for prereq in classDict['prereqs'] %}
-                                  <li>{{ prereq }}</li>
-                                {% endfor %}
-                              </ul>
-                            </li>
-                          {% endif %}
-                          <!--
-                          {% if classDict['satisfies'] is not none %}
-                            <li>Satisfies:
-                              <ul>
-                                {% for prereqFor in classDict['satisfies'] %}
-                                  <li>{{ prereqFor }}</li>
-                                {% endfor %}
-                              </ul>
-                            </li>
-                          {% endif %}
-                          -->
-                        </ul>
+                        {% if classDict['units'] > 0 %}
+                            <ul>
+                              <li>Units: {{ classDict['units'] }}</li>
+                              {% if classDict['prereqs'] is not none %}
+                                <li>Pre-requisites:
+                                  <ul>
+                                    {% for prereq in classDict['prereqs'] %}
+                                      <li>{{ prereq }}</li>
+                                    {% endfor %}
+                                  </ul>
+                                </li>
+                              {% endif %}
+                              <!--
+                              {% if classDict['satisfies'] is not none %}
+                                <li>Satisfies:
+                                  <ul>
+                                    {% for prereqFor in classDict['satisfies'] %}
+                                      <li>{{ prereqFor }}</li>
+                                    {% endfor %}
+                                  </ul>
+                                </li>
+                              {% endif %}
+                              -->
+                            </ul>
+                        {% endif %}
                       </li>
                     {% endfor %}
                   </ul>

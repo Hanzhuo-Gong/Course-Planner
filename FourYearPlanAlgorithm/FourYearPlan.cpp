@@ -1,11 +1,11 @@
 #include "FourYearPlan.h"
 
-FourYearPlan::FourYearPlan(HashMap m, HashMap c, HashMap rE, HashMap tE) {
+FourYearPlan::FourYearPlan(HashMap m, HashMap c, HashMap rE, HashMap tE, int creditsAlreadyCompleted) {
   major = m;
   core = c;
   requiredEmphasis = rE;
   additionalEmphasis = tE;
-  credits = 0;
+  credits = creditsAlreadyCompleted;
   majorClassesFinished = 0;
   coreClassesFinished = 0;
   requiredEmphasisClassesFinished = 0;
@@ -72,10 +72,20 @@ bool FourYearPlan::feasible(string cID, string quarter, int year) {
 }
 
 bool FourYearPlan::planComplete() {
-  if (majorClassesFinished==major.getSize()&&coreClassesFinished==core.getSize()&&requiredEmphasisClassesFinished==requiredEmphasis.getSize()&&additionalEmphasisClasses>=2&&credits>=175) {
+  if (majorClassesFinished>=major.getSize()&&coreClassesFinished>=core.getSize()/*&&requiredEmphasisClassesFinished>=requiredEmphasis.getSize()*/&&additionalEmphasisClasses>=2&&credits>=175) {
     return true;
   }
   else {
+/*
+    cout << "major classes finished: " << majorClassesFinished << endl;
+    cout << "major hashmap size: " << major.getSize() << endl;
+    cout << "core classes finished: " << coreClassesFinished << endl;
+    cout << "core hashmap size: " << core.getSize() << endl;
+    cout << "emphases finished: " << requiredEmphasisClassesFinished << endl;
+    cout << "emphases hashmap size: " << requiredEmphasis.getSize() << endl;
+    cout << "additional emphases: " << additionalEmphasisClasses << endl;
+*/
+    cout << "credits: " << credits << endl;
     return false;
   }
 }
@@ -91,8 +101,11 @@ void FourYearPlan::buildPlan(int year) {
     classCount = 0;
 
     balanceCount = 0;
-
-    //cout<<"Checking major HashMap for "<<quarters[quarter]<<year<<endl;
+/*
+    if (quarter < 30 ) {
+        cout<<"Checking major HashMap for "<<quarters[quarter]<<year<<endl;
+    }
+*/
     for (int i = 0 ; i < major.classIDs.size() ; i ++) {
       if (feasible(major.classIDs[i], quarters[quarter], year)&&classCount<4) {
         plan[classCount][quarter] = *getClass(major.classIDs[i]);
@@ -103,7 +116,7 @@ void FourYearPlan::buildPlan(int year) {
         break;
       }
     }
-
+//    cout << "break1" << endl;
     for (int i = 0 ; i < requiredEmphasis.classIDs.size() ; i ++) {
       if (balanceCount>=2) {
         break;
@@ -114,7 +127,7 @@ void FourYearPlan::buildPlan(int year) {
         balanceCount++;
       }
     }
-
+//    cout << "break2" << endl;
     for (int i = 0 ; i < additionalEmphasis.classIDs.size() ; i ++) {
       if (balanceCount>=2) {
         break;
@@ -182,7 +195,8 @@ void FourYearPlan::jsonPrint() {
       int numberOfClasses = 4;
       for (int k = 0 ; k < numberOfClasses ; k++) {
         cout<<"          {"<<endl; //5 tabs
-        cout<<"            \"name\": \""<<plan[k][quarter].getName()<<"\","<<endl; //6 tabs
+        // use getName() if you want full name of class
+        cout<<"            \"name\": \""<<plan[k][quarter].getID()<<"\","<<endl; //6 tabs
         cout<<"            \"prereqs\": ";
         if (plan[k][quarter].preReqs.empty()) {
           cout<<"null,"<<endl;;

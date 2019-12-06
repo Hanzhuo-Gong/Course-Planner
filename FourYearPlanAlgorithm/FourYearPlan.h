@@ -5,7 +5,7 @@
 
 class FourYearPlan {
 public:
-  FourYearPlan(HashMap m, HashMap c, HashMap rE, HashMap tE);
+  FourYearPlan(HashMap m, HashMap c, HashMap rE, HashMap tE, int creditsAlreadyCompleted);
   void completeClass(string cID);
   scuClass* getClass(string cID);
   bool feasible(string cID, string quarter, int year);

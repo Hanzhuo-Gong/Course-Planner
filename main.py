@@ -15,6 +15,9 @@ algoPlan = algo + '/FourYearPlan.cpp'
 algoStudent = algo + '/Student.cpp'
 algoDriver = algo + '/driver.cpp'
 
+# Path to input file for algorithm
+classObjectsFile = 'AlgorithmInput.txt'
+
 # Path to four-year JSON file
 fourYearPlanJson = 'FourYearPlan.json'
 
@@ -180,18 +183,71 @@ def schedule():
 #   conn.commit()
 #   print("\nSQL commands committed to database")
 
-
+    # Write to algorithm input file
+    with open(classObjectsFile, 'w') as infile:
+        # Query major classes and write to file
+        queryMajorClasses = "SELECT a.CourseID, CourseName, QuarterOffered, CreditGiven FROM Classes AS a LEFT JOIN MajorReqs AS b ON a.CourseID = b.CourseID WHERE MajorName = \'" + majorAndEmphasis + "\';"
+        cur.execute(queryMajorClasses)
+        queriedMajorClasses = cur.fetchall()
+        for aClass in queriedMajorClasses:
+            classID = aClass[0]
+            className = aClass[1]
+            subject = majorAndEmphasis
+            quarterOffered = aClass[2]
+            creditGiven = aClass[3]
+            lineToAppend = classID + ";" + className + ";" + subject + ";" + quarterOffered + ";" + str(creditGiven) + ";"
+            queryPrereqs = "SELECT PreReqName from Prereqs where CourseID=\'" + classID + "\'"
+            cur.execute(queryPrereqs)
+            queriedPrereqs = cur.fetchall()
+            for prereq in queriedPrereqs:
+                lineToAppend = lineToAppend + prereq[0] + ";"
+            infile.write(lineToAppend + "\n")
+        infile.write("!\n")
+        # Query core classes and write to file
+        queryCoreClasses = "SELECT a.CourseID, CourseName, QuarterOffered, CreditGiven FROM Classes AS a LEFT JOIN MajorReqs AS b ON a.CourseID = b.CourseID WHERE MajorName = \'Core\';"
+        cur.execute(queryCoreClasses)
+        queriedCoreClasses = cur.fetchall()
+        for aClass in queriedCoreClasses:
+            classID = aClass[0]
+            className = aClass[1]
+            subject = majorAndEmphasis
+            quarterOffered = aClass[2]
+            creditGiven = aClass[3]
+            lineToAppend = classID + ";" + className + ";" + subject + ";" + quarterOffered + ";" + str(creditGiven) + ";"
+            queryPrereqs = "SELECT PreReqName from Prereqs where CourseID=\'" + classID + "\'"
+            cur.execute(queryPrereqs)
+            queriedPrereqs = cur.fetchall()
+            for prereq in queriedPrereqs:
+                lineToAppend = lineToAppend + prereq[0] + ";"
+            infile.write(lineToAppend + "\n")
+        infile.write("!\n")
+        # Write two random emphasis classes lol
+        infile.write("CSCI 168;Computer Graphics;" + majorAndEmphasis + ";F;5;CSCI 10;MATH 13;\nCOEN 166;Artificial Intelligence;" + majorAndEmphasis + ";FS;5;CSCI 61;MATH 51;\n")
+        infile.write("!\n")
+        # Classes previously taken
+        for classID in allClassesTaken:
+            lineToWrite = ""
+            queryTakenClass = "SELECT CourseName, QuarterOffered, CreditGiven from Classes where CourseID=\'" + classID + "\'"
+            cur.execute(queryTakenClass)
+            queriedTakenClass = cur.fetchall()
+            print(queriedTakenClass)
+            className = queriedTakenClass[0][0]
+            subject = majorAndEmphasis
+            quarterOffered = queriedTakenClass[0][1]
+            creditGiven = queriedTakenClass[0][2]
+            lineToAppend = classID + ";" + className + ";" + subject + ";" + quarterOffered + ";" + str(creditGiven) + ";"
+            infile.write(lineToAppend + "\n")
 
     # Compile C++ 4-year plan algorithm as subprocess
     subprocess.check_call(
-        ('g++', '-I', sqlApiInclude, '-L', sqlApiLib, '-lsqlapi', '-o', 'classScheduler.out', algoClass, algoHashMap, algoPlan, algoStudent, algoDriver),
+        ('g++', '-o', 'classScheduler.out', algoClass, algoHashMap, algoPlan, algoStudent, algoDriver),
         stdin=subprocess.DEVNULL)
 
-    # IMPORTANT! THE C++ EXECUTABLE WILL NOT RUN IF libsqlapi.dylib IS NOT IN /usr/local/lib -- see README.md for more details
+    # Run executable
     with open(fourYearPlanJson, 'w') as outfile:
         subprocess.check_call(
-            ('./classScheduler.out',),
-#           stdin = infile,
+            ('./classScheduler.out', classObjectsFile),
+#           stdin = None,
             stdout = outfile,
             universal_newlines = True)
 
