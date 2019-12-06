@@ -8,6 +8,7 @@ update the project periodically.
 
 SETUP:
 Install flask for python3 using 'pip3 install flask'
+Install pymysql using 'pip3 install pymysql'
 Contact jpark3@scu.edu if you are having difficulties running the app
 
 RUNNING:
@@ -19,7 +20,3 @@ RUNNING:
 
 KNOWN BUGS:
 - As of 11/18/19, the current schema for the database does not take into account classes that require one prerequisite OR another
-
-SQLAPI++ REQUIRED FOR C++ ALGORITHM:
-- Compile algorithm using "g++ -I FourYearPlanAlgorithm/SQLAPI/include -L FourYearPlanAlgorithm/SQLAPI/lib -lsqlapi -o classScheduler.out FourYearPlanAlgorithm/scuClass.cpp FourYearPlanAlgorithm/HashMap.cpp FourYearPlanAlgorithm/FourYearPlan.cpp FourYearPlanAlgorithm/Student.cpp FourYearPlanAlgorithm/driver.cpp" (it's a handful!)
-- Please copy the libsqlapi.dylib file from FourYearPlanAlgorithm/SQLAPI/lib to /usr/local/lib
